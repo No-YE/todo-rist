@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    backend-linter:
+      run: bundle exec rubocop
+      exclude: 'db/schema.rb'
