@@ -55,6 +55,8 @@
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.9.3, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise-i18n (v1.12.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.5.0, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dotenv (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.12.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v2.7.12, rbenv: 3.2.2) [gem]" level="application" />
