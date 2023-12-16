@@ -18,10 +18,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
+      t.datetime :discarded_at, index: true
       t.timestamps null: false
     end
 
-    add_index :users, :email, unique: true
-    add_index :users, %i[provider uid], unique: true
+    add_index :users, :email, unique: true, where: 'discarded_at IS NULL'
+    add_index :users, %i[provider uid], unique: true, where: 'discarded_at IS NULL'
   end
 end

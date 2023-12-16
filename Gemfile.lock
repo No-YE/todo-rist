@@ -110,6 +110,8 @@ GEM
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
     diff-lcs (1.5.0)
+    discard (1.3.0)
+      activerecord (>= 4.2, < 8)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -195,6 +197,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    pagy (6.2.0)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -302,11 +305,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.2.0)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.14.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -364,11 +362,13 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   devise-i18n (~> 1.12.0)
+  discard
   dotenv-rails
   importmap-rails
   jbuilder
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pagy
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
@@ -377,7 +377,6 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   selenium-webdriver
-  sidekiq
   spring
   sprockets-rails
   stimulus-rails
