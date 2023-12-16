@@ -2,6 +2,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'db/schema.rb'
+    - 'db/migrate/*'
     - 'bin/*'
     - 'Gemfile'
     - 'Rakefile'

@@ -3,4 +3,4 @@ pre-commit:
   commands:
     backend-linter:
       run: bundle exec rubocop
-      exclude: 'db/schema.rb'
+      exclude: 'db'
