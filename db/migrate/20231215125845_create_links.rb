@@ -5,6 +5,7 @@ class CreateLinks < ActiveRecord::Migration[7.1]
     create_table :links do |t|
       t.string :title
       t.text :summary
+      t.string :image_url
       t.string :url, null: false
       t.string :sanitized_url, null: false, index: { where: 'discarded_at IS NULL' }
       t.integer :state, null: false, default: 0

@@ -13,4 +13,12 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   resources :links, only: %i[index create]
+
+  namespace :admin do
+    resources :links, only: [] do
+      collection do
+        post 'initial' => 'links#create_initial'
+      end
+    end
+  end
 end

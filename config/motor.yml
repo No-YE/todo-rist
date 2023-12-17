@@ -1,6 +1,6 @@
 ---
 engine_version: 0.4.23
-file_version: 2023-12-17 06:47:32.551924000 Z
+file_version: 2023-12-21 11:46:06.190648000 Z
 resources:
 - name: good_job/base_execution
   preferences:
@@ -30,6 +30,23 @@ resources:
   preferences:
     visible: false
   updated_at: 2023-12-17 06:42:34.068539000 +00:00
+- name: link
+  preferences:
+    actions:
+    - name: summarize
+      display_name: Summarize
+      action_type: method
+      preferences:
+        method_name: summarize_now
+        show_on_table: true
+    - action_type: form
+      preferences:
+        form_id: 1
+      name: create
+    columns:
+    - access_type: hidden
+      name: sanitized_url
+  updated_at: 2023-12-21 11:46:06.190648000 +00:00
 - name: user
   preferences:
     columns:
@@ -91,7 +108,33 @@ configs:
   updated_at: 2023-12-17 06:42:03.340498000 +00:00
 queries: []
 dashboards: []
-forms: []
+forms:
+- id: 1
+  name: Create Initial Link
+  http_method: POST
+  api_path: "/admin/links/initial"
+  description:
+  preferences:
+    fields:
+    - name: user_id
+      display_name: User
+      default_value:
+      field_type: reference
+      validators:
+      - required: true
+      reference:
+        model_name: user
+    - name: url
+      display_name: URL
+      default_value:
+      field_type: input
+      is_array: false
+      validators:
+      - required: true
+    request_type: rest
+  api_config_name: origin
+  tags: []
+  updated_at: 2023-12-21 11:30:16.166207000 +00:00
 alerts: []
 api_configs:
 - id: 1

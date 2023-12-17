@@ -15,8 +15,16 @@ class Link < ApplicationRecord
   default_scope -> { kept }
   scope :with_url, ->(url) { where(sanitized_url: generate_sanitized_url(url)) }
 
-  def self.build_initial(params)
-    new(params.merge(state: :initial))
+  def self.clone_or_create!(user_id, url)
+    exist_link = with_url(url).completed.order(id: :desc).first
+
+    if exist_link.present?
+      exist_link.clone(user_id)
+    else
+      create!(user_id:, url:, state: :initial).tap do |link|
+        LinkSummarizeJob.perform_later(link)
+      end
+    end
   end
 
   def self.generate_sanitized_url(url)
@@ -31,12 +39,16 @@ class Link < ApplicationRecord
     self.sanitized_url = Link.generate_sanitized_url(value)
   end
 
-  def clone(user)
+  def clone(user_id)
     raise ArgumentError, 'Link must be completed to be cloned' unless completed?
 
     dup.tap do |link|
-      link.user = user
+      link.user_id = user_id
       link.save!
     end
+  end
+
+  def summarize_now
+    LinkSummarizeJob.perform_now(self)
   end
 end

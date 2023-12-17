@@ -17,7 +17,13 @@ class LinkSummarizeJob < ApplicationJob
   def perform(link)
     link.update!(state: :summarizing)
 
-    link.update!(summary: summarize_by_openai(link), state: :completed)
+    summarizing = Thread.new { summarize_by_openai(link) }
+    paging = Thread.new { MetaInspector.new(link.url) }
+
+    summary = summarizing.value
+    page = paging.value
+
+    link.update!(summary:, title: page.best_title, image_url: page.images.best, state: :completed)
   end
 
   private
@@ -65,7 +71,7 @@ class LinkSummarizeJob < ApplicationJob
   # @param [Link] link
   def generate_prompt(link)
     <<~PROMPT
-      다음 링크의 기술적인 내용을 5줄로 요약해 줘. 오직 기술적인 내용만 구체적으로 요약해야 해.
+      다음 링크의 기술적인 내용을 5줄의 완성된 문장으로 요약해 줘. 오직 기술적인 내용만 구체적으로 요약해야 해. 한글로 요약해 줘.
       #{link.sanitized_url}"
     PROMPT
   end
