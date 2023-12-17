@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
   authenticate :user, ->(user) { user.admin? } do
     mount GoodJob::Engine => '/good_job'
+    mount Motor::Admin => '/admin'
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  # Defines the root path route ("/")
   root 'root#index'
+
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   resources :links, only: %i[index create]
 end

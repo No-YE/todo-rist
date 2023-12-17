@@ -1,0 +1,102 @@
+---
+engine_version: 0.4.23
+file_version: 2023-12-17 06:47:32.551924000 Z
+resources:
+- name: good_job/base_execution
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:15.575826000 +00:00
+- name: good_job/batch_record
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:28.226904000 +00:00
+- name: good_job/discrete_execution
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:29.827792000 +00:00
+- name: good_job/execution
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:31.194642000 +00:00
+- name: good_job/job
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:32.184724000 +00:00
+- name: good_job/process
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:33.154181000 +00:00
+- name: good_job/setting
+  preferences:
+    visible: false
+  updated_at: 2023-12-17 06:42:34.068539000 +00:00
+- name: user
+  preferences:
+    columns:
+    - access_type: hidden
+      name: uid
+    - access_type: hidden
+      name: image
+    - access_type: hidden
+      name: sign_in_count
+    - access_type: hidden
+      name: current_sign_in_at
+    - access_type: hidden
+      name: last_sign_in_at
+    - access_type: hidden
+      name: current_sign_in_ip
+    - access_type: hidden
+      name: last_sign_in_ip
+    - name: password
+      display_name: Password
+      column_type: string
+      access_type: hidden
+      virtual: true
+      validators: []
+  updated_at: 2023-12-17 06:44:52.340243000 +00:00
+configs:
+- key: header.links
+  value:
+  - name: Reports
+    link_type: reports
+  - name: Forms
+    link_type: forms
+  updated_at: 2023-12-17 06:47:32.551924000 +00:00
+- key: resources.link.scopes.order
+  value:
+  - initial
+  - summarizing
+  - completed
+  - failed
+  - not_initial
+  - not_summarizing
+  - not_completed
+  - not_failed
+  - kept
+  - discarded
+  - undiscarded
+  - with_discarded
+  updated_at: 2023-12-17 06:46:45.684407000 +00:00
+- key: resources.order
+  value:
+  - user
+  - link
+  - good_job/base_execution
+  - good_job/batch_record
+  - good_job/discrete_execution
+  - good_job/execution
+  - good_job/job
+  - good_job/process
+  - good_job/setting
+  updated_at: 2023-12-17 06:42:03.340498000 +00:00
+queries: []
+dashboards: []
+forms: []
+alerts: []
+api_configs:
+- id: 1
+  name: origin
+  url: "/"
+  preferences: {}
+  description:
+  updated_at: 2023-12-17 06:36:23.965835000 +00:00

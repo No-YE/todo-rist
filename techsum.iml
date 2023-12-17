@@ -38,7 +38,9 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.5, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ar_lazy_preload (v1.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="audited (v5.4.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.4, rbenv: 3.2.2) [gem]" level="application" />
@@ -46,6 +48,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.17.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.10, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cancancan (v3.5.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.39.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.2.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="config (v5.0.0, rbenv: 3.2.2) [gem]" level="application" />
@@ -93,6 +96,7 @@
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.20.0, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="motor-admin (v0.4.23, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.3.0, rbenv: 3.2.2) [gem]" level="application" />
@@ -134,6 +138,7 @@
     <orderEntry type="library" scope="PROVIDED" name="redis-client (v0.19.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.8.3, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.4.1, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="request_store (v1.5.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.1.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.6, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.12.2, rbenv: 3.2.2) [gem]" level="application" />
@@ -181,7 +186,10 @@
         <option value="active_record:devise" />
         <option value="active_record:multi_db" />
         <option value="application_record" />
+        <option value="audited:install" />
+        <option value="audited:upgrade" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="config:install" />
         <option value="controller" />
@@ -206,6 +214,9 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="motor:install" />
+        <option value="motor:install_pro_notes" />
+        <option value="motor:upgrade" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
@@ -250,7 +261,10 @@
         <option value="active_record:devise" />
         <option value="active_record:multi_db" />
         <option value="application_record" />
+        <option value="audited:install" />
+        <option value="audited:upgrade" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="config:install" />
         <option value="controller" />
@@ -275,6 +289,9 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="motor:install" />
+        <option value="motor:install_pro_notes" />
+        <option value="motor:upgrade" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
@@ -498,7 +515,23 @@
               <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="motor">
+            <subtasks>
+              <RakeTaskImpl description="Update configs/motor.yml file" fullCommand="motor:install" id="install" />
+              <RakeTaskImpl description="Load configs from configs/motor.yml file" fullCommand="motor:load" id="load" />
+              <RakeTaskImpl description="Synchronize configs with remote application" fullCommand="motor:sync" id="sync" />
+              <RakeTaskImpl description="" fullCommand="motor:dump" id="dump" />
+              <RakeTaskImpl description="" fullCommand="motor:reload" id="reload" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
+          <RakeTaskImpl id="spec">
+            <subtasks>
+              <RakeTaskImpl description="Run the code examples in spec/jobs" fullCommand="spec:jobs" id="jobs" />
+              <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
+              <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl description="Report code statistics (KLOCs, etc) from the application or engine" fullCommand="stats" id="stats" />
           <RakeTaskImpl id="stimulus">
             <subtasks>
@@ -623,12 +656,6 @@
                   <RakeTaskImpl description="" fullCommand="railties:install:migrations" id="migrations" />
                 </subtasks>
               </RakeTaskImpl>
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl id="spec">
-            <subtasks>
-              <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
-              <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="" fullCommand="tmp" id="tmp" />

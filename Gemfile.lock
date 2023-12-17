@@ -77,7 +77,12 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    ar_lazy_preload (1.1.2)
+      rails (>= 5.2)
     ast (2.4.2)
+    audited (5.4.2)
+      activerecord (>= 5.0, < 7.2)
+      request_store (~> 1.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.4)
@@ -85,6 +90,7 @@ GEM
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -206,6 +212,12 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    motor-admin (0.4.23)
+      ar_lazy_preload (~> 1.0)
+      audited (~> 5.0)
+      cancancan (~> 3.0)
+      fugit (~> 1.0)
+      rails (>= 5.2)
     msgpack (1.7.2)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
@@ -312,6 +324,8 @@ GEM
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -425,6 +439,7 @@ DEPENDENCIES
   good_job
   importmap-rails
   jbuilder
+  motor-admin
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pagy
