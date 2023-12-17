@@ -8,7 +8,13 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.build_initial(link_params.merge(user: current_user))
+    exist_link = Link.with_url(link_params[:url]).completed.order(id: :desc).first
+
+    @link = if exist_link.present?
+              exist_link.clone(current_user)
+            else
+              Link.build_initial(link_params.merge(user: current_user))
+            end
   end
 
   private
