@@ -1,0 +1,3 @@
+class LinkSummarizeJob
+  def perform: (string) -> void
+end

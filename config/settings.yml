@@ -1,0 +1,5 @@
+openai:
+  access_token: <%= ENV['OPENAI_ACCESS_TOKEN'] || raise('OPENAI_ACCESS_TOKEN env not exist') %>
+google:
+  client_id: <%= ENV['GOOGLE_CLIENT_ID'] || raise('GOOGLE_CLIENT_ID env not exist') %>
+  client_secret: <%= ENV['GOOGLE_CLIENT_SECRET'] || raise('GOOGLE_CLIENT_SECRET env not exist') %>

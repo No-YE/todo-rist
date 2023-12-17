@@ -3,17 +3,19 @@
 class Link < ApplicationRecord
   include Discard::Model
 
-  enum status: { initial: 0, summarizing: 1, completed: 2, failed: 3 }
+  enum state: { initial: 0, summarizing: 1, completed: 2, failed: 3 }
 
   belongs_to :user
 
-  validates :url, presence: true, url: true
-  validate :sanitized_url, presence: true, url: true
+  validates :url, presence: true
+  validates :sanitized_url, presence: true
 
   attr_readonly :sanitized_url
 
+  default_scope -> { kept }
+
   def self.build_initial(params)
-    new(params.merge(status: :initial))
+    new(params.merge(state: :initial))
   end
 
   def url=(value)

@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :links, dependent: :destroy
 
+  default_scope -> { kept }
+
   after_discard -> { links.discard_all }
 
   def self.from_omniauth(access_token)
@@ -19,7 +21,7 @@ class User < ApplicationRecord
       image: data['image'],
       password: Devise.friendly_token[0, 20],
       provider: access_token.provider,
-      uid: access_token.uid
+      uid: access_token.uid,
     )
     user
   end
