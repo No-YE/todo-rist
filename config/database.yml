@@ -21,17 +21,17 @@ default: &default
 
 development:
   <<: *default
-  database: techsum_development
-  username: techsum
+  database: todo_rist_development
+  username: todo_rist
   host: localhost
   port: 5433
-  password: techsum
+  password: todo_rist
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: techsum
+  #username: todo_rist
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: techsum_test
+  database: todo_rist_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: techsum_production
-  username: techsum
-  password: <%= ENV["TECHSUM_DATABASE_PASSWORD"] %>
+  database: todo_rist_production
+  username: todo_rist
+  password: <%= ENV["TODO_RIST_DATABASE_PASSWORD"] %>

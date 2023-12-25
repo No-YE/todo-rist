@@ -5,9 +5,9 @@ services:
     image: postgres:16.0-alpine
     restart: always
     environment:
-      POSTGRES_DB: techsum_development
-      POSTGRES_USER: techsum
-      POSTGRES_PASSWORD: techsum
+      POSTGRES_DB: todo_rist_development
+      POSTGRES_USER: todo_rist
+      POSTGRES_PASSWORD: todo_rist
     ports:
       - '5433:5432'
     volumes:
