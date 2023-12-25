@@ -1,0 +1,3 @@
+class RootController
+  @links: Array[Link]
+end

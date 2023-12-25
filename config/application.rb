@@ -28,5 +28,7 @@ module Techsum
 
     config.active_job.queue_adapter = :good_job
     config.good_job.execution_mode = :async
+
+    config.i18n.default_locale = :ko
   end
 end

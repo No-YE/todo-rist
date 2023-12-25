@@ -1,0 +1,28 @@
+<nav class="w-full flex max-w-7xl items-center justify-between py-6" aria-label="Global">
+  <%= link_to root_path, class: 'flex flex-column -m-1.5 p-1.5' do %>
+    <span class="w-8 h-8 mr-2">
+      <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+    </span>
+    <span class="font-semibold text-2xl hidden md:flex">
+      TodoRist
+    </span>
+  <% end %>
+
+  <div class="flex flex-1 justify-end">
+    <% if user_signed_in? %>
+      <%= button_to t('sign_out'),
+                    destroy_user_session_path,
+                    method: :delete,
+                    class: 'text-base font-semibold leading-6 text-gray-900',
+                    data: { turbo: false }
+      %>
+    <% else %>
+      <%= button_to t('sign_in'),
+                    user_google_oauth2_omniauth_authorize_path,
+                    method: :post,
+                    class: 'text-base font-semibold leading-6 text-gray-900',
+                    data: { turbo: false }
+      %>
+    <% end %>
+  </div>
+</nav>

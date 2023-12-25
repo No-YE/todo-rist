@@ -1,0 +1,5 @@
+en:
+  root:
+    index:
+      title_html: Summary first,<br>Read later
+      description: Summarize your favorite articles quickly.
