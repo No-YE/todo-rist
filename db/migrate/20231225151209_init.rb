@@ -1,5 +1,121 @@
-class InstallMotorAdmin < ActiveRecord::Migration[7.1]
-  def self.up
+# frozen_string_literal: true
+
+class Init < ActiveRecord::Migration[7.1]
+  # for Devise
+  def change
+    create_table :users do |t|
+      ## Omniauthable
+      t.string :email, null: false
+      t.string :encrypted_password, null: false, default: ''
+      t.string :name, null: false
+      t.string :provider, null: false
+      t.string :uid, null: false
+      t.string :image
+
+      ## Trackable
+      t.integer  :sign_in_count, default: 0, null: false
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
+
+      t.boolean :admin, default: false, null: false
+
+      t.datetime :discarded_at, index: true
+      t.timestamps null: false
+    end
+
+    add_index :users, :email, unique: true, where: 'discarded_at IS NULL'
+    add_index :users, %i[provider uid], unique: true, where: 'discarded_at IS NULL'
+
+    # for GoodJob
+    create_table :good_jobs, id: :uuid do |t|
+      t.text :queue_name
+      t.integer :priority
+      t.jsonb :serialized_params
+      t.datetime :scheduled_at
+      t.datetime :performed_at
+      t.datetime :finished_at
+      t.text :error
+
+      t.timestamps
+
+      t.uuid :active_job_id
+      t.text :concurrency_key
+      t.text :cron_key
+      t.uuid :retried_good_job_id
+      t.datetime :cron_at
+
+      t.uuid :batch_id
+      t.uuid :batch_callback_id
+
+      t.boolean :is_discrete
+      t.integer :executions_count
+      t.text :job_class
+      t.integer :error_event, limit: 2
+    end
+
+    create_table :good_job_batches, id: :uuid do |t|
+      t.timestamps
+      t.text :description
+      t.jsonb :serialized_properties
+      t.text :on_finish
+      t.text :on_success
+      t.text :on_discard
+      t.text :callback_queue_name
+      t.integer :callback_priority
+      t.datetime :enqueued_at
+      t.datetime :discarded_at
+      t.datetime :finished_at
+    end
+
+    create_table :good_job_executions, id: :uuid do |t|
+      t.timestamps
+
+      t.uuid :active_job_id, null: false
+      t.text :job_class
+      t.text :queue_name
+      t.jsonb :serialized_params
+      t.datetime :scheduled_at
+      t.datetime :finished_at
+      t.text :error
+      t.integer :error_event, limit: 2
+    end
+
+    create_table :good_job_processes, id: :uuid do |t|
+      t.timestamps
+      t.jsonb :state
+    end
+
+    create_table :good_job_settings, id: :uuid do |t|
+      t.timestamps
+      t.text :key
+      t.jsonb :value
+      t.index :key, unique: true
+    end
+
+    add_index :good_jobs, :scheduled_at, where: '(finished_at IS NULL)', name: :index_good_jobs_on_scheduled_at
+    add_index :good_jobs, %i[queue_name scheduled_at], where: '(finished_at IS NULL)',
+              name: :index_good_jobs_on_queue_name_and_scheduled_at
+    add_index :good_jobs, %i[active_job_id created_at], name: :index_good_jobs_on_active_job_id_and_created_at
+    add_index :good_jobs, :concurrency_key, where: '(finished_at IS NULL)',
+              name: :index_good_jobs_on_concurrency_key_when_unfinished
+    add_index :good_jobs, %i[cron_key created_at], where: '(cron_key IS NOT NULL)',
+              name: :index_good_jobs_on_cron_key_and_created_at_cond
+    add_index :good_jobs, %i[cron_key cron_at], where: '(cron_key IS NOT NULL)', unique: true,
+              name: :index_good_jobs_on_cron_key_and_cron_at_cond
+    add_index :good_jobs, [:active_job_id], name: :index_good_jobs_on_active_job_id
+    add_index :good_jobs, [:finished_at], where: 'retried_good_job_id IS NULL AND finished_at IS NOT NULL',
+              name: :index_good_jobs_jobs_on_finished_at
+    add_index :good_jobs, %i[priority created_at], order: { priority: 'DESC NULLS LAST', created_at: :asc },
+              where: 'finished_at IS NULL', name: :index_good_jobs_jobs_on_priority_created_at_when_unfinished
+    add_index :good_jobs, [:batch_id], where: 'batch_id IS NOT NULL'
+    add_index :good_jobs, [:batch_callback_id], where: 'batch_callback_id IS NOT NULL'
+
+    add_index :good_job_executions, %i[active_job_id created_at],
+              name: :index_good_job_executions_on_active_job_id_and_created_at
+
+    # for Motor admin
     create_table :motor_queries do |t|
       t.column :name, :string, null: false
       t.column :description, :text
@@ -150,9 +266,9 @@ class InstallMotorAdmin < ActiveRecord::Migration[7.1]
       t.timestamps
 
       t.index 'name',
-        name: 'motor_api_configs_name_unique_index',
-        unique: true,
-        where: 'deleted_at IS NULL'
+              name: 'motor_api_configs_name_unique_index',
+              unique: true,
+              where: 'deleted_at IS NULL'
     end
 
     create_table :motor_notes do |t|
@@ -241,31 +357,28 @@ class InstallMotorAdmin < ActiveRecord::Migration[7.1]
     model.table_name = 'motor_configs'
 
     model.create!(key: 'header.links', value: [{
-      name: '⭐ Star on GitHub',
-      path: 'https://github.com/motor-admin/motor-admin-rails'
-    }].to_json)
+                                                 name: '⭐ Star on GitHub',
+                                                 path: 'https://github.com/motor-admin/motor-admin-rails'
+                                               }].to_json)
 
     model.table_name = 'motor_api_configs'
 
     model.create!(name: 'origin', url: '/', preferences: {}, credentials: {})
-  end
 
-  def self.down
-    drop_table :motor_audits
-    drop_table :motor_alert_locks
-    drop_table :motor_alerts
-    drop_table :motor_forms
-    drop_table :motor_taggable_tags
-    drop_table :motor_tags
-    drop_table :motor_resources
-    drop_table :motor_configs
-    drop_table :motor_queries
-    drop_table :motor_dashboards
-    drop_table :motor_api_configs
-    drop_table :motor_note_tag_tags
-    drop_table :motor_note_tags
-    drop_table :motor_notes
-    drop_table :motor_notifications
-    drop_table :motor_reminders
+    # for model
+
+    create_table :links do |t|
+      t.string :title
+      t.text :summary
+      t.string :image_url
+      t.string :url, null: false
+      t.string :sanitized_url, null: false, index: { where: 'discarded_at IS NULL' }
+      t.integer :state, null: false, default: 0
+      t.belongs_to :user, null: false, foreign_key: false
+
+      t.datetime :discarded_at, index: true
+      t.timestamps null: false
+    end
   end
 end
+

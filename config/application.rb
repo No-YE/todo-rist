@@ -30,5 +30,6 @@ module TodoRist
     config.good_job.execution_mode = :async
 
     config.i18n.default_locale = :ko
+    config.i18n.fallbacks = %w[ko en]
   end
 end
