@@ -1,0 +1,3 @@
+class LinksController
+  MAX_ITEMS: Integer
+end

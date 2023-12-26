@@ -3,8 +3,10 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!
 
+  MAX_ITEMS = 20
+
   def index
-    @pagy, @records = pagy(current_user.links.order(id: desc))
+    @pagy, @links = pagy(current_user.links.order(id: :desc), items: MAX_ITEMS)
   end
 
   def create

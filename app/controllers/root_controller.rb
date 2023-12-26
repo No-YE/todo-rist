@@ -2,6 +2,8 @@
 
 class RootController < ApplicationController
   def index
+    redirect_to links_path and return if user_signed_in?
+
     @links = Link.completed.order(id: :desc).limit(20)
   end
 end
