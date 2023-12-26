@@ -66,6 +66,8 @@ gem 'motor-admin'
 
 gem 'metainspector'
 
+gem 'rails-i18n'
+
 gem 'rbs_rails', require: false
 
 group :development, :test do

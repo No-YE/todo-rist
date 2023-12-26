@@ -10,14 +10,14 @@
 
   <div class="flex flex-1 justify-end">
     <% if user_signed_in? %>
-      <%= button_to t('sign_out'),
+      <%= button_to t('common.sign_out'),
                     destroy_user_session_path,
                     method: :delete,
                     class: 'text-base font-semibold leading-6 text-gray-900',
                     data: { turbo: false }
       %>
     <% else %>
-      <%= button_to t('sign_in'),
+      <%= button_to t('common.sign_in'),
                     user_google_oauth2_omniauth_authorize_path,
                     method: :post,
                     class: 'text-base font-semibold leading-6 text-gray-900',

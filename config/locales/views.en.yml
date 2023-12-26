@@ -3,3 +3,8 @@ en:
     index:
       title_html: Summary first,<br>Read later
       description: Summarize your favorite articles quickly.
+  links:
+    links:
+      read: Read
+      delete: Delete
+      copy_to_my: Copy to my todo

@@ -28,5 +28,6 @@
 #       enabled: "ON"
 
 en:
-  sign_in: Sign in
-  sign_out: Sign out
+  common:
+    sign_in: Sign in
+    sign_out: Sign out

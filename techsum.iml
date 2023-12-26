@@ -142,6 +142,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rails (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.0, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-i18n (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.1.0, rbenv: 3.2.2) [gem]" level="application" />
@@ -539,6 +540,13 @@
               <RakeTaskImpl description="Synchronize configs with remote application" fullCommand="motor:sync" id="sync" />
               <RakeTaskImpl description="" fullCommand="motor:dump" id="dump" />
               <RakeTaskImpl description="" fullCommand="motor:reload" id="reload" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="rbs_rails">
+            <subtasks>
+              <RakeTaskImpl description="Run all tasks of rbs_rails" fullCommand="rbs_rails:all" id="all" />
+              <RakeTaskImpl description="Generate RBS files for Active Record models" fullCommand="rbs_rails:generate_rbs_for_models" id="generate_rbs_for_models" />
+              <RakeTaskImpl description="Generate RBS files for path helpers" fullCommand="rbs_rails:generate_rbs_for_path_helpers" id="generate_rbs_for_path_helpers" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />

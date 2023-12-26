@@ -1,0 +1,3 @@
+module ApplicationHelper
+  def relative_time: (ActiveSupport::TimeWithZone) -> String
+end

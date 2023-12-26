@@ -1,3 +1,21 @@
 ko:
-  sign_in: 로그인
-  sign_out: 로그아웃
+  common:
+    sign_in: 로그인
+    sign_out: 로그아웃
+
+  time:
+    formats:
+      compact: "%Y년 %m월 %d일 %p %H:%M"
+
+  datetime:
+    distance_in_words:
+      about_x_hours: "%{count}시간 전"
+      about_x_months: "%{count}개월 전"
+      about_x_years: "%{count}년 전"
+      x_seconds: "%{count}초 전"
+      x_minutes: "%{count}분 전"
+      x_days:
+        one: "하루 전"
+        other: "%{count}일 전"
+      x_months: "%{count}개월 전"
+      x_years: "%{count}년 전"
