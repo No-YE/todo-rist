@@ -12,7 +12,8 @@ en:
       go_to_main: Go to main
 
   links:
-    links:
+    link:
       read: Read
       delete: Delete
+      confirm_delete: Are you sure you want to delete?
       copy_to_my: Copy to my todo
