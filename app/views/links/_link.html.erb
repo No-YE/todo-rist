@@ -1,0 +1,33 @@
+<%= turbo_frame_tag link do %>
+  <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white shadow">
+    <%= link_to link.url, target: '_blank', class: 'flex flex-1 flex-col items-center p-6 sm:p-8' do %>
+      <% if link.image_url.present? %>
+          <span class="w-full h-32">
+            <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
+          </span>
+      <% end %>
+      <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
+        <%= link.title %>
+      </h3>
+      <div class="text-left text-sm text-gray-500 max-md:line-clamp-5">
+        <%= link.summary %>
+      </div>
+    <% end %>
+
+    <div class="flex flex-column justify-between items-center px-6 sm:px-8 py-3 text-xs font-normal">
+          <span class="text-gray-500">
+            <%= relative_time(link.created_at) %>
+          </span>
+      <div class="flex">
+        <% if link.user_id == current_user&.id %>
+          <%= link_to t('.read'), '#', class: 'text-indigo-600 hover:text-indigo-500' %>
+          <div class="ml-3 border-l border-gray-200 pl-3">
+            <%= link_to t('.delete'), link_path(link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :delete } %>
+          </div>
+        <% else %>
+          <%= link_to t('.copy_to_my'), '#', class: 'text-indigo-600 hover:text-indigo-500' %>
+        <% end %>
+      </div>
+    </div>
+  </li>
+<% end %>

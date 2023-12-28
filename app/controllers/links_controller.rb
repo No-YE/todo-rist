@@ -13,6 +13,11 @@ class LinksController < ApplicationController
     @link = Link.clone_or_create!(current_user.id, link_params[:url])
   end
 
+  def destroy
+    @link = Link.find(params[:id])
+    @link.discard!
+  end
+
   private
 
   def link_params

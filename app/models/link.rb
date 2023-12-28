@@ -9,9 +9,10 @@ class Link < ApplicationRecord
   validates :url, presence: true
   validates :sanitized_url, presence: true
 
+  after_discard -> { broadcast_remove_to 'links' }
+
   attr_readonly :sanitized_url
 
-  default_scope -> { kept }
   scope :with_url, ->(url) { where(sanitized_url: generate_sanitized_url(url)) }
 
   def self.clone_or_create!(user_id, url)
