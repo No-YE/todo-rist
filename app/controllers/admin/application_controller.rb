@@ -7,6 +7,6 @@ class Admin::ApplicationController < ApplicationController
   private
 
   def authenticate_admin!
-    head :not_found unless current_user.admin?
+    render 'errors/not_found', status: :not_found unless current_user.admin?
   end
 end

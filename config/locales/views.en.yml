@@ -3,6 +3,14 @@ en:
     index:
       title_html: Summary first,<br>Read later
       description: Summarize your favorite articles quickly.
+  errors:
+    not_found:
+      description: Page not found.
+    internal_server_error:
+      description: Internal server error.
+    error:
+      go_to_main: Go to main
+
   links:
     links:
       read: Read

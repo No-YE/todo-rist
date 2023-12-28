@@ -3,6 +3,13 @@ ko:
     index:
       title_html: Summary first,<br>Read later
       description: 다른 사람들은 어떤 글을 요약하고 있는지 확인해보세요.
+  errors:
+    not_found:
+      description: 페이지를 찾을 수 없습니다.
+    internal_server_error:
+      description: 서버에 내부적인 오류가 발생했습니다.
+    error:
+      go_to_main: Go to main
   links:
     links:
       read: 읽음
