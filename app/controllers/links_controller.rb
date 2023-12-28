@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   MAX_ITEMS = 20
 
   def index
-    @pagy, @links = pagy(current_user.links.order(id: :desc), items: MAX_ITEMS)
+    @pagy, @links = pagy(current_user.links.completed.order(id: :desc), items: MAX_ITEMS)
   end
 
   def create
