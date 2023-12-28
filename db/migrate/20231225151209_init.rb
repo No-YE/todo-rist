@@ -373,7 +373,7 @@ class Init < ActiveRecord::Migration[7.1]
       t.string :image_url
       t.string :url, null: false
       t.string :sanitized_url, null: false, index: { where: 'discarded_at IS NULL' }
-      t.integer :state, null: false, default: 0
+      t.integer :scraping_state, null: false, default: 0
       t.belongs_to :user, null: false, foreign_key: false
 
       t.datetime :discarded_at, index: true

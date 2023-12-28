@@ -33,11 +33,11 @@ resources:
 - name: link
   preferences:
     actions:
-    - name: summarize
-      display_name: Summarize
+    - name: scrap
+      display_name: Scrap
       action_type: method
       preferences:
-        method_name: summarize_now
+        method_name: scrap_now
         show_on_table: true
     - action_type: form
       preferences:
@@ -82,11 +82,11 @@ configs:
 - key: resources.link.scopes.order
   value:
   - initial
-  - summarizing
+  - scraping
   - completed
   - failed
   - not_initial
-  - not_summarizing
+  - not_scraping
   - not_completed
   - not_failed
   - kept

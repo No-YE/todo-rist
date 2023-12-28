@@ -1,29 +1,34 @@
 # frozen_string_literal: true
 
-class LinkSummarizeJob < ApplicationJob
+class LinkScrapingJob < ApplicationJob
   queue_as :default
 
   good_job_control_concurrency_with(
     total_limit: 1,
-    key: -> { "LinkSummarizeJob-#{arguments.first.id}" },
+    key: -> { "LinkScrapingJob-#{arguments.first.id}" },
   )
 
   retry_on StandardError, wait: :polynomially_longer, attempts: 3 do |job, error|
-    job.arguments.first.update!(state: :failed)
+    job.arguments.first.update!(scraping_state: :failed)
 
     logger.error(error)
   end
 
   def perform(link)
-    link.update!(state: :summarizing)
+    link.scraping!
 
     summarizing = Thread.new { summarize_by_openai(link) }
-    paging = Thread.new { MetaInspector.new(link.url) }
+    scraping = Thread.new { MetaInspector.new(link.url) }
 
     summary = summarizing.value
-    page = paging.value
+    page = scraping.value
 
-    link.update!(summary:, title: page.best_title, image_url: page.images.best, state: :completed)
+    link.update!(
+      summary:,
+      title: page.best_title,
+      image_url: page.images.best,
+      scraping_state: :completed,
+    )
   end
 
   private

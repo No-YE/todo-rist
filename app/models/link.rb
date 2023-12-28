@@ -2,8 +2,7 @@
 
 class Link < ApplicationRecord
   include Discard::Model
-
-  enum state: { initial: 0, summarizing: 1, completed: 2, failed: 3 }
+  include Link::Scraping
 
   belongs_to :user
 
@@ -21,9 +20,7 @@ class Link < ApplicationRecord
     if exist_link.present?
       exist_link.clone(user_id)
     else
-      create!(user_id:, url:, state: :initial).tap do |link|
-        LinkSummarizeJob.perform_later(link)
-      end
+      create!(user_id:, url:, scraping_state: :initial)
     end
   end
 
@@ -46,9 +43,5 @@ class Link < ApplicationRecord
       link.user_id = user_id
       link.save!
     end
-  end
-
-  def summarize_now
-    LinkSummarizeJob.perform_now(self)
   end
 end

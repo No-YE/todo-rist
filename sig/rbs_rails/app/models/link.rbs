@@ -218,41 +218,41 @@ class Link < ::ApplicationRecord
 
     def clear_sanitized_url_change: () -> void
 
-    def state: () -> String
+    def scraping_state: () -> Integer
 
-    def state=: (String) -> String
+    def scraping_state=: (Integer) -> Integer
 
-    def state?: () -> bool
+    def scraping_state?: () -> bool
 
-    def state_changed?: () -> bool
+    def scraping_state_changed?: () -> bool
 
-    def state_change: () -> [ String?, String? ]
+    def scraping_state_change: () -> [ Integer?, Integer? ]
 
-    def state_will_change!: () -> void
+    def scraping_state_will_change!: () -> void
 
-    def state_was: () -> String?
+    def scraping_state_was: () -> Integer?
 
-    def state_previously_changed?: () -> bool
+    def scraping_state_previously_changed?: () -> bool
 
-    def state_previous_change: () -> Array[String?]?
+    def scraping_state_previous_change: () -> Array[Integer?]?
 
-    def state_previously_was: () -> String?
+    def scraping_state_previously_was: () -> Integer?
 
-    def state_before_last_save: () -> String?
+    def scraping_state_before_last_save: () -> Integer?
 
-    def state_change_to_be_saved: () -> Array[String?]?
+    def scraping_state_change_to_be_saved: () -> Array[Integer?]?
 
-    def state_in_database: () -> String?
+    def scraping_state_in_database: () -> Integer?
 
-    def saved_change_to_state: () -> Array[String?]?
+    def saved_change_to_scraping_state: () -> Array[Integer?]?
 
-    def saved_change_to_state?: () -> bool
+    def saved_change_to_scraping_state?: () -> bool
 
-    def will_save_change_to_state?: () -> bool
+    def will_save_change_to_scraping_state?: () -> bool
 
-    def restore_state!: () -> void
+    def restore_scraping_state!: () -> void
 
-    def clear_state_change: () -> void
+    def clear_scraping_state_change: () -> void
 
     def user_id: () -> Integer
 
@@ -410,29 +410,9 @@ class Link < ::ApplicationRecord
   end
   include GeneratedAssociationMethods
 
-  def initial!: () -> bool
-  def initial?: () -> bool
-  def summarizing!: () -> bool
-  def summarizing?: () -> bool
-  def completed!: () -> bool
-  def completed?: () -> bool
-  def failed!: () -> bool
-  def failed?: () -> bool
-  def self.initial: () -> ActiveRecord_Relation
-  def self.summarizing: () -> ActiveRecord_Relation
-  def self.completed: () -> ActiveRecord_Relation
-  def self.failed: () -> ActiveRecord_Relation
   def self.with_url: (untyped url) -> ActiveRecord_Relation
 
   module GeneratedRelationMethods
-    def initial: () -> ActiveRecord_Relation
-
-    def summarizing: () -> ActiveRecord_Relation
-
-    def completed: () -> ActiveRecord_Relation
-
-    def failed: () -> ActiveRecord_Relation
-
     def with_url: (untyped url) -> ActiveRecord_Relation
   end
 
