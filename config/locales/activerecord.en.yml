@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      link: Link
+    attributes:
+      link:
+        url: URL
+        due_date: Due date

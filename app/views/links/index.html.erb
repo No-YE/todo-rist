@@ -12,7 +12,7 @@
       <%= f.search_field :title_cont, class: 'block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6', placeholder: 'Search', data: { action: 'input->search#search' } %>
     <% end %>
 
-    <%= link_to t('.new'), '#', class: 'ml-6 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
+    <%= link_to t('.new'), new_link_path, class: 'ml-6 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600', data: { action: 'click->modal#open' } %>
   </div>
 
   <%= render 'links/links', paging: true %>

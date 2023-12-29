@@ -10,9 +10,14 @@ ko:
       description: 서버에 내부적인 오류가 발생했습니다.
     error:
       go_to_main: Go to main
+
   links:
     index:
       new: 링크 추가
+    new:
+      title: 링크 추가
+      save: 저장
+      cancel: 취소
     link:
       read: 읽음
       delete: 삭제

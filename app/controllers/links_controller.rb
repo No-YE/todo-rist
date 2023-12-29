@@ -11,8 +11,18 @@ class LinksController < ApplicationController
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
 
+  def new
+    @link = current_user.links.build
+  end
+
   def create
-    @link = Link.clone_or_create!(current_user.id, link_params[:url])
+    @link = current_user.links.build(link_params)
+
+    if @link.save
+      redirect_to links_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -22,7 +32,7 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url)
+    params.require(:link).permit(:url, :deadline)
   end
 
   def set_link
