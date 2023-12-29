@@ -11,6 +11,8 @@ ko:
     error:
       go_to_main: Go to main
   links:
+    index:
+      new: 링크 추가
     link:
       read: 읽음
       delete: 삭제

@@ -12,6 +12,8 @@ en:
       go_to_main: Go to main
 
   links:
+    index:
+      new: New link
     link:
       read: Read
       delete: Delete

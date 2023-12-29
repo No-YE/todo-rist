@@ -1,7 +1,13 @@
-<%= turbo_stream_from 'links' %>
+<%# locals: (paging: false) %>
 
-<%= turbo_frame_tag 'links' do %>
-  <ul role="list" class="grid grid-cols-1 gap-6 xl:grid-cols-2 mt-5 lg:mt-10">
+<%= turbo_frame_tag 'links', data: { turbo_action: 'advance' } do %>
+  <ul role="list" class="grid grid-cols-1 gap-6 xl:grid-cols-2 mt-10">
     <%= render @links %>
   </ul>
+
+  <% if paging %>
+    <div class="flex justify-center mt-8 lg:mt-16 w-full">
+      <%== pagy_nav @pagy, link_extra: 'data-turbo-action="advance"' %>
+    </div>
+  <% end %>
 <% end %>

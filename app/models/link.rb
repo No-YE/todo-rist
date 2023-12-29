@@ -3,6 +3,7 @@
 class Link < ApplicationRecord
   include Discard::Model
   include Link::Scraping
+  include Link::Searchable
 
   belongs_to :user
 

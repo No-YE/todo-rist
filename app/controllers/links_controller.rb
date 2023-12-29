@@ -2,11 +2,13 @@
 
 class LinksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_link, only: %i[destroy]
 
   MAX_ITEMS = 20
 
   def index
-    @pagy, @links = pagy(current_user.links.completed.order(id: :desc), items: MAX_ITEMS)
+    @q = current_user.links.completed.order(id: :desc).ransack(params[:q])
+    @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
 
   def create
@@ -14,7 +16,6 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:id])
     @link.discard!
   end
 
@@ -22,5 +23,9 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url)
+  end
+
+  def set_link
+    @link = current_user.links.kept.find(params[:id])
   end
 end
