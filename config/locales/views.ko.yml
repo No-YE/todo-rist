@@ -21,6 +21,7 @@ ko:
     link:
       loading: 로딩중...
       read: 읽음
+      unread: 안 읽음
       delete: 삭제
       confirm_delete: 정말 삭제하시겠습니까?
       copy_to_my: 내 투두에 복사

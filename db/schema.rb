@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_151209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "due_date"
+    t.datetime "read_at", precision: nil
     t.index ["discarded_at"], name: "index_links_on_discarded_at"
     t.index ["sanitized_url"], name: "index_links_on_sanitized_url", where: "(discarded_at IS NULL)"
     t.index ["user_id"], name: "index_links_on_user_id"

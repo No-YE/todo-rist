@@ -2,7 +2,7 @@
 
 class LinksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_link, only: %i[destroy]
+  before_action :set_link, only: %i[destroy read unread]
 
   MAX_ITEMS = 20
 
@@ -27,6 +27,14 @@ class LinksController < ApplicationController
 
   def destroy
     @link.discard!
+  end
+
+  def read
+    @link.read!
+  end
+
+  def unread
+    @link.unread!
   end
 
   private
