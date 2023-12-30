@@ -19,6 +19,7 @@ ko:
       save: 저장
       cancel: 취소
     link:
+      loading: 로딩중...
       read: 읽음
       delete: 삭제
       confirm_delete: 정말 삭제하시겠습니까?

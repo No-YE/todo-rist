@@ -10,6 +10,9 @@ class Link < ApplicationRecord
   validates :url, presence: true
   validates :sanitized_url, presence: true
 
+  after_update_commit do
+    broadcast_replace_to 'links', locals: { link: self, current_user: user }
+  end
   after_discard -> { broadcast_remove_to 'links' }
 
   attr_readonly :sanitized_url

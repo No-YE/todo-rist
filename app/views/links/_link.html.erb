@@ -1,23 +1,32 @@
 <%= turbo_frame_tag link, class: 'h-full' do %>
   <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white shadow h-full">
     <%= link_to link.url, target: '_blank', class: 'flex flex-1 flex-col items-center p-6 sm:p-8 h-80' do %>
-      <span class="w-full h-32">
-        <% if link.image_url.present? %>
-          <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
-        <% end %>
-      </span>
-      <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
-        <%= link.title %>
-      </h3>
-      <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
-        <%= link.summary %>
-      </p>
+      <% if link.completed? %>
+        <span class="w-full h-32">
+          <% if link.image_url.present? %>
+            <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
+          <% end %>
+        </span>
+        <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
+          <%= link.title %>
+        </h3>
+        <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
+          <%= link.summary %>
+        </p>
+      <% else %>
+        <div class="animate-pulse bg-slate-200 mx-auto w-64 h-32 flex-shrink-0 rounded-md"></div>
+        <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
+          <%= t('.loading') %>
+        </h3>
+        <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
+        </p>
+      <% end %>
     <% end %>
 
     <div class="flex flex-column justify-between items-center px-6 sm:px-8 py-3 text-xs font-normal">
-          <span class="text-gray-500">
-            <%= relative_time(link.created_at) %>
-          </span>
+      <span class="text-gray-500">
+        <%= relative_time(link.created_at) %>
+      </span>
       <div class="flex">
         <% if link.user_id == current_user&.id %>
           <%= link_to t('.read'), '#', class: 'text-indigo-600 hover:text-indigo-500' %>

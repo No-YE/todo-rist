@@ -19,6 +19,7 @@ en:
       save: Save
       cancel: Cancel
     link:
+      loading: Loading...
       read: Read
       delete: Delete
       confirm_delete: Are you sure you want to delete?
