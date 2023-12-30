@@ -15,6 +15,11 @@ en:
     index:
       new: New link
       exclude_read: Exclude read
+      sort_by: Sort by
+      newest: Newest
+      oldest: Oldest
+      closest_due_date: Closest due date
+      farthest_due_date: Farthest due date
     new:
       title: New link
       save: Save

@@ -28,8 +28,24 @@ module LinkHelper
       if distance_in_day.negative?
         t('common.overdue')
       else
-        t('common.some_left', value: distance_of_time_in_words(link.due_date.end_of_day, Time.current))
+        left_time = distance_of_time_in_words(link.due_date.end_of_day, Time.current)
+        t('common.some_left', value: left_time)
       end
     end
+  end
+
+  def link_sort_text_and_values
+    [
+      [t('links.index.newest'), 'id desc'],
+      [t('links.index.oldest'), 'id asc'],
+      [t('links.index.closest_due_date'), 'due_date asc'],
+      [t('links.index.farthest_due_date'), 'due_date desc'],
+    ]
+  end
+
+  def link_current_sort_value
+    return nil if @q.sorts.empty?
+
+    [@q.sorts.first.name, @q.sorts.first.dir].join(' ')
   end
 end

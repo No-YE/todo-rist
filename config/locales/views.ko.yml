@@ -15,6 +15,11 @@ ko:
     index:
       new: 링크 추가
       exclude_read: 읽음 제외
+      sort_by: 정렬
+      newest: 최신 순
+      oldest: 오래된 순
+      closest_due_date: 기한 가까운 순
+      farthest_due_date: 기한 먼 순
     new:
       title: 링크 추가
       save: 저장
