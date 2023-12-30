@@ -1,4 +1,11 @@
 ko:
+  layout:
+    header:
+      sign_in: 로그인
+      sign_out: 로그아웃
+      confirm_sign_out: 로그아웃 하시겠습니까?
+      withdrawal: 탈퇴
+      confirm_withdrawal: 정말 탈퇴하시겠습니까?
   root:
     index:
       title_html: Summary first,<br>Read later

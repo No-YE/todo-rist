@@ -29,8 +29,6 @@
 
 en:
   common:
-    sign_in: Sign in
-    sign_out: Sign out
     some_ago: "%{value} ago"
     some_left: "%{value} left"
     overdue: Overdue

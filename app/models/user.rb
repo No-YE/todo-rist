@@ -3,7 +3,8 @@
 class User < ApplicationRecord
   include Discard::Model
 
-  devise :database_authenticatable, :trackable, :omniauthable, omniauth_providers: %w[google_oauth2]
+  devise :database_authenticatable, :trackable, :omniauthable, :registerable,
+         omniauth_providers: %w[google_oauth2]
 
   has_many :links, dependent: :destroy
 

@@ -1,7 +1,7 @@
 <%# locals: (paging: false) %>
 
 <%= turbo_frame_tag 'links', data: { turbo_action: 'advance' } do %>
-  <ul role="list" class="grid grid-cols-1 gap-6 xl:grid-cols-2 mt-10">
+  <ul role="list" class="grid grid-cols-1 gap-6 xl:grid-cols-2 mt-10 sm:mt-14">
     <%= render @links %>
   </ul>
 

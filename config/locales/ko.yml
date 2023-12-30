@@ -1,7 +1,5 @@
 ko:
   common:
-    sign_in: 로그인
-    sign_out: 로그아웃
     some_ago: "%{value} 전"
     some_left: "%{value} 남음"
     overdue: 기한 초과

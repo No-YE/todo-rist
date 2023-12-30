@@ -1,4 +1,11 @@
 en:
+  layout:
+    header:
+      sign_in: Sign in
+      sign_out: Sign out
+      confirm_sign_out: Are you sure you want to sign out?
+      withdrawal: Withdrawal
+      confirm_withdrawal: Are you sure you want to withdraw?
   root:
     index:
       title_html: Summary first,<br>Read later
