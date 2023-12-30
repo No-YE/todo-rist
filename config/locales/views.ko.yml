@@ -14,6 +14,7 @@ ko:
   links:
     index:
       new: 링크 추가
+      exclude_read: 읽음 제외
     new:
       title: 링크 추가
       save: 저장

@@ -14,6 +14,7 @@ en:
   links:
     index:
       new: New link
+      exclude_read: Exclude read
     new:
       title: New link
       save: Save
