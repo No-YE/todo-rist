@@ -24,9 +24,16 @@
     <% end %>
 
     <div class="flex flex-column justify-between items-center px-6 sm:px-8 py-3 text-xs font-normal">
-      <span class="text-gray-500">
-        <%= relative_time(link.created_at) %>
-      </span>
+      <div class="flex">
+        <span class="text-gray-500">
+          <%= link_relative_created_at(link) %>
+        </span>
+        <% if link.due_date.present? && link.not_read? && link.user_id == current_user&.id %>
+          <div class="ml-3 border-l border-gray-200 pl-3">
+            <%= link_until_due_date(link) %>
+          </div>
+        <% end %>
+      </div>
       <div class="flex">
         <% if link.user_id == current_user&.id %>
           <% if link.read? %>

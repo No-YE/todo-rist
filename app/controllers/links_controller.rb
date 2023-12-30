@@ -7,7 +7,7 @@ class LinksController < ApplicationController
   MAX_ITEMS = 20
 
   def index
-    @q = current_user.links.kept.order(id: :desc).ransack(params[:q])
+    @q = current_user.links.kept.order('due_date DESC NULLS LAST', id: :desc).ransack(params[:q])
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
 
