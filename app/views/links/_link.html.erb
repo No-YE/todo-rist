@@ -1,17 +1,17 @@
-<%= turbo_frame_tag link do %>
-  <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white shadow">
-    <%= link_to link.url, target: '_blank', class: 'flex flex-1 flex-col items-center p-6 sm:p-8' do %>
-      <% if link.image_url.present? %>
-          <span class="w-full h-32">
-            <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
-          </span>
-      <% end %>
+<%= turbo_frame_tag link, class: 'h-full' do %>
+  <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white shadow h-full">
+    <%= link_to link.url, target: '_blank', class: 'flex flex-1 flex-col items-center p-6 sm:p-8 h-80' do %>
+      <span class="w-full h-32">
+        <% if link.image_url.present? %>
+          <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
+        <% end %>
+      </span>
       <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
         <%= link.title %>
       </h3>
-      <div class="text-left text-sm text-gray-500 max-md:line-clamp-5">
+      <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
         <%= link.summary %>
-      </div>
+      </p>
     <% end %>
 
     <div class="flex flex-column justify-between items-center px-6 sm:px-8 py-3 text-xs font-normal">
