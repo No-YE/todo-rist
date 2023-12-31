@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   resources :links, only: %i[index create new destroy] do
+    collection do
+      get 'others' => 'links#others'
+    end
     member do
       put 'read' => 'links#read'
       put 'unread' => 'links#unread'

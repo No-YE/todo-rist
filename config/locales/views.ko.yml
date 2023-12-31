@@ -6,6 +6,8 @@ ko:
       confirm_sign_out: 로그아웃 하시겠습니까?
       withdrawal: 탈퇴
       confirm_withdrawal: 정말 탈퇴하시겠습니까?
+      my_rist: 내 리스트
+      others_rist: 다른 사람들의 리스트
   root:
     index:
       title_html: Summary first,<br>Read later

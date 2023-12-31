@@ -12,6 +12,12 @@ class LinksController < ApplicationController
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
 
+  def others
+    @q = current_user.links.kept.where.not(user_id: current_user.id).ransack(params[:q])
+    @q.sorts = 'id desc' if @q.sorts.empty?
+    @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
+  end
+
   def new
     @link = current_user.links.build
   end

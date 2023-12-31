@@ -5,7 +5,11 @@ module Link::Searchable
 
   class_methods do
     def ransackable_attributes(_auth_object = nil)
-      super
+      %w[title read_at]
+    end
+
+    def ransortable_attributes(_auth_object = nil)
+      %w[id due_date]
     end
   end
 end

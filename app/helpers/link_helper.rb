@@ -43,6 +43,13 @@ module LinkHelper
     ]
   end
 
+  def link_others_sort_text_and_values
+    [
+      [t('links.index.newest'), 'id desc'],
+      [t('links.index.oldest'), 'id asc'],
+    ]
+  end
+
   def link_current_sort_value
     return nil if @q.sorts.empty?
 
