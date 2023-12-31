@@ -43,4 +43,7 @@ en:
       unread: Unread
       delete: Delete
       confirm_delete: Are you sure you want to delete?
-      copy_to_my: Copy to my todo
+      clone_to_my: Copy to my todo
+    clone:
+      success: Copied to my todo.
+      failure: Failed to copy to my todo.

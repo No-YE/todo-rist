@@ -8,7 +8,7 @@ class Link < ApplicationRecord
 
   belongs_to :user
 
-  validates :url, presence: true
+  validates :url, presence: true, uniqueness: { scope: :user_id }
   validates :sanitized_url, presence: true
 
   after_update_commit do
@@ -32,12 +32,11 @@ class Link < ApplicationRecord
     self.sanitized_url = Link.generate_sanitized_url(value)
   end
 
-  def clone!(user_id)
-    raise ArgumentError, 'Link must be completed to be cloned' unless completed?
-
+  def clone(user_id)
     dup.tap do |link|
       link.user_id = user_id
-      link.save!
+      link.due_date = nil
+      link.created_at = nil
     end
   end
 end

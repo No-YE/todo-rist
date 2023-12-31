@@ -6,3 +6,7 @@ ko:
       link:
         url: url
         due_date: due date
+
+  errors:
+    messages:
+      taken: "이미 존재하는 %{attribute}입니다."

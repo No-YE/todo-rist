@@ -3,10 +3,20 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
 
+  layout -> { nil if turbo_frame_request? }
+
   rescue_from ActiveRecord::RecordNotFound, Pagy::OverflowError, with: :not_found
   rescue_from Exception, with: :internal_server_error if Rails.env.production?
 
   private
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      head :forbidden
+    end
+  end
 
   def not_found
     render 'errors/not_found', status: :not_found

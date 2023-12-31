@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do
       put 'read' => 'links#read'
       put 'unread' => 'links#unread'
+      post 'clone' => 'links#clone'
     end
   end
 

@@ -44,6 +44,19 @@ class LinksController < ApplicationController
     @link.unread!
   end
 
+  def clone
+    cloned_link = Link.kept.find(params[:id]).clone(current_user.id)
+
+    if cloned_link.save
+      flash.now[:notice] = t('.clone.success')
+    else
+      p cloned_link.errors
+      flash.now[:alert] = cloned_link.errors.full_messages.first || t('.clone.failure')
+    end
+
+    render partial: 'shared/flash'
+  end
+
   private
 
   def link_params

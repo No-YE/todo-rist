@@ -22,5 +22,7 @@
     <footer class="container mx-auto px-5 flex max-w-7xl">
       <%= render 'layouts/footer' %>
     </footer>
+
+    <%= turbo_frame_tag 'flashes', class: 'pointer-events-none fixed inset-0 flex flex-col items-end px-4 py-6 sm:p-6' %>
   </body>
 </html>

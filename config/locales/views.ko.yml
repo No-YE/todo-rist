@@ -43,4 +43,7 @@ ko:
       unread: 안 읽음
       delete: 삭제
       confirm_delete: 정말 삭제하시겠습니까?
-      copy_to_my: 내 투두에 복사
+      clone_to_my: 내 투두에 복사
+    clone:
+      success: 내 투두에 복사되었습니다.
+      failure: 내 투두에 복사하는데 실패했습니다.
