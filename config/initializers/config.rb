@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-Dotenv::Railtie.load if ENV['RAILS_ENV'] == 'development'
-
 Config.setup do |config|
   # Name of the constant exposing loaded settings
   config.const_name = 'Settings'

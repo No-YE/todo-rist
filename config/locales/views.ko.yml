@@ -33,6 +33,10 @@ ko:
       title: 링크 추가
       save: 저장
       cancel: 취소
+    links:
+      not_exist: 링크가 없습니다.
+      get_started_by_adding_a_new_link: 새로운 링크를 추가해보세요.
+      new_link: 링크 추가
     link:
       loading: 로딩중...
       read: 읽음

@@ -33,6 +33,10 @@ en:
       title: New link
       save: Save
       cancel: Cancel
+    links:
+      not_exist: There is no link.
+      get_started_by_adding_a_new_link: Get started by adding a new link.
+      new_link: New link
     link:
       loading: Loading...
       read: Read
