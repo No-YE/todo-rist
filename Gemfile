@@ -77,7 +77,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 
   gem 'rspec-rails', '~> 6.1.0'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -92,6 +91,8 @@ group :development do
 
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+
+  gem "dockerfile-rails", ">= 1.6"
 end
 
 group :test do

@@ -6,7 +6,7 @@ class OpenAIClient
   MODEL = 'gpt-3.5-turbo'
 
   def initialize
-    @client = OpenAI::Client.new(access_token: Settings.openai.access_token)
+    @client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :access_token))
   end
 
   def call_function(content:, functions:)

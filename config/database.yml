@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: todo_rist_production
-  username: todo_rist
-  password: <%= ENV["TODO_RIST_DATABASE_PASSWORD"] %>
+  database: <%= Rails.application.credentials.dig(:database, :database) %>
+  host: <%= Rails.application.credentials.dig(:database, :host) %>
+  username: <%= Rails.application.credentials.dig(:database, :username) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>

@@ -62,9 +62,8 @@
     <orderEntry type="library" scope="PROVIDED" name="devise-i18n (v1.12.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.5.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="discard (v1.3.0, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dockerfile-rails (v1.6.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.6.20231109, rbenv: 3.2.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="dotenv (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dry-configurable (v1.1.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dry-core (v1.0.1, rbenv: 3.2.2) [gem]" level="application" />
@@ -216,6 +215,7 @@
         <option value="devise:i18n:views" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="dockerfile" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
         <option value="erb:scaffold" />
@@ -292,6 +292,7 @@
         <option value="devise:i18n:views" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="dockerfile" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
         <option value="erb:scaffold" />
