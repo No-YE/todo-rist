@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class LinksController < ApplicationController
+  include Searchable
+
   before_action :authenticate_user!
   before_action :set_link, only: %i[destroy read unread]
 
   MAX_ITEMS = 20
 
   def index
-    @q = current_user.links.kept.ransack(params[:q])
+    @q = current_user.links.kept.ransack(search_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
@@ -17,7 +19,7 @@ class LinksController < ApplicationController
                                   .kept
                                   .where.not(user_id: current_user.id)
 
-    @q = Link.from(links_with_distinct_url, :links).ransack(params[:q])
+    @q = Link.from(links_with_distinct_url, :links).ransack(search_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end

@@ -2,7 +2,7 @@
 
 <div class="flex flex-col w-full">
   <div class="flex justify-between items-normal">
-    <%= search_form_for @q, class: 'flex flex-col sm:items-center sm:flex-row', data: { controller: 'search', turbo_frame: 'links' } do |f| %>
+    <%= search_form_for @q, url: others_links_path, class: 'flex flex-col sm:items-center sm:flex-row', data: { controller: 'search', turbo_frame: 'links' } do |f| %>
       <div class="relative w-48 md:w-60 lg:w-72">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
