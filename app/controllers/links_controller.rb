@@ -13,7 +13,11 @@ class LinksController < ApplicationController
   end
 
   def others
-    @q = Link.kept.where.not(user_id: current_user.id).ransack(params[:q])
+    links_with_distinct_url = Link.select('DISTINCT ON (url) *')
+                                  .kept
+                                  .where.not(user_id: current_user.id)
+
+    @q = Link.from(links_with_distinct_url, :links).ransack(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
@@ -50,7 +54,6 @@ class LinksController < ApplicationController
     if cloned_link.save
       flash.now[:notice] = t('.clone.success')
     else
-      p cloned_link.errors
       flash.now[:alert] = cloned_link.errors.full_messages.first || t('.clone.failure')
     end
 
