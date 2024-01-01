@@ -13,6 +13,8 @@ ko:
       title_html: Summary first,<br>Read later
       description: 다른 사람들은 어떤 글을 요약하고 있는지 확인해보세요.
   errors:
+    forbidden:
+      description: 접근 권한이 없습니다.
     not_found:
       description: 페이지를 찾을 수 없습니다.
     internal_server_error:

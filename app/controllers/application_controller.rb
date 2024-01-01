@@ -14,7 +14,13 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       super
     else
-      head :forbidden
+      respond_to do |format|
+        format.html { render 'errors/forbidden', status: :forbidden }
+        format.turbo_stream do
+          flash.now[:alert] = t('devise.failure.unauthenticated')
+          render partial: 'shared/flash'
+        end
+      end
     end
   end
 

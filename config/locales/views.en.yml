@@ -13,6 +13,8 @@ en:
       title_html: Summary first,<br>Read later
       description: Summarize your favorite articles quickly.
   errors:
+    forbidden:
+      description: Forbidden.
     not_found:
       description: Page not found.
     internal_server_error:
