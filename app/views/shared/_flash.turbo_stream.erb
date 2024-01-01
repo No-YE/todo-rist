@@ -1,4 +1,3 @@
 <% flash.each do |type, message| %>
   <%= turbo_stream.prepend :flashes, partial: 'layouts/flash', locals: { type:, message: } %>
 <% end %>
-

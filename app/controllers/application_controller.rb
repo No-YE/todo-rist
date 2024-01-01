@@ -14,12 +14,11 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       super
     else
+      flash.now[:alert] = t('devise.failure.unauthenticated')
+
       respond_to do |format|
-        format.html { render 'errors/forbidden', status: :forbidden }
-        format.turbo_stream do
-          flash.now[:alert] = t('devise.failure.unauthenticated')
-          render partial: 'shared/flash'
-        end
+        format.html { redirect_to root_path, alert: flash.now[:alert] }
+        format.turbo_stream { render partial: 'shared/flash' }
       end
     end
   end
