@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_25_151209) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_01_092713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,7 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_151209) do
     t.text "summary"
     t.string "image_url"
     t.string "url", null: false
-    t.string "sanitized_url", null: false
     t.integer "scraping_state", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "discarded_at"
@@ -105,7 +104,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_151209) do
     t.date "due_date"
     t.datetime "read_at", precision: nil
     t.index ["discarded_at"], name: "index_links_on_discarded_at"
-    t.index ["sanitized_url"], name: "index_links_on_sanitized_url", where: "(discarded_at IS NULL)"
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 

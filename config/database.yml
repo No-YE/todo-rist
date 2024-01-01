@@ -60,6 +60,10 @@ development:
 test:
   <<: *default
   database: todo_rist_test
+  username: todo_rist
+  host: localhost
+  port: 5433
+  password: todo_rist
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   has_many :links, dependent: :destroy
 
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :name, presence: true
+  validates :provider, presence: true, inclusion: { in: %w[google_oauth2] }
+  validates :uid, presence: true, uniqueness: { scope: :provider }
+
   default_scope -> { kept }
 
   after_discard -> { links.discard_all }
