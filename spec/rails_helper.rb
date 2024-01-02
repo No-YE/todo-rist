@@ -61,6 +61,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.include ActiveSupport::Testing::TimeHelpers
+
   config.include FactoryBot::Syntax::Methods
 
   Shoulda::Matchers.configure do |c|
@@ -68,5 +70,10 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  TestProf::LetItBe.configure do |c|
+    # Make refind activated by default
+    c.default_modifiers[:refind] = true
   end
 end

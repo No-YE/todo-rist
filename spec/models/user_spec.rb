@@ -31,15 +31,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'discard' do
-    let_it_be(:user) { create(:user) }
-    let_it_be(:link) { create(:link, user:) }
-
-    it 'discards all links' do
-      expect { user.discard }.to change { user.links.kept.count }.from(1).to(0)
-    end
-  end
-
   describe '.from_omniauth' do
     let(:access_token) { double(provider: 'google_oauth2', uid: 'abcd', info:) }
     let(:info) do

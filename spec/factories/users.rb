@@ -5,6 +5,6 @@ FactoryBot.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "user#{n}@localhost" }
     provider { 'google_oauth2' }
-    uid { 'abcd' }
+    sequence(:uid) { |n| "abcd#{n}" }
   end
 end
