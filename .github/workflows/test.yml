@@ -1,0 +1,32 @@
+name: Run tests
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  run-rspec-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16.0-alpine
+        env:
+          POSTGRES_DB: todo_rist_test
+          POSTGRES_USER: todo_rist
+          POSTGRES_PASSWORD: todo_rist
+        ports:
+          - '5433:5432'
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: create database
+        run: |
+          bin/rails db:prepare
+      - name: Run tests
+        run: |
+          bundle exec rspec
