@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :provider, presence: true, inclusion: { in: %w[google_oauth2] }
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-  default_scope -> { kept }
+  before_validation :downcase_email
 
   after_discard -> { links.discard_all }
 
@@ -30,5 +30,11 @@ class User < ApplicationRecord
       uid: access_token.uid,
     )
     user
+  end
+
+  private
+
+  def downcase_email
+    self.email = email.downcase if email.present?
   end
 end
