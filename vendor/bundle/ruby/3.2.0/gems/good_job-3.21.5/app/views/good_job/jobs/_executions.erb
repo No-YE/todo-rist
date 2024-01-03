@@ -1,0 +1,48 @@
+<h5><%=t ".title" %></h5>
+<div class="card mb-4" data-live-poll-region="executions-table">
+  <div class="list-group list-group-flush">
+    <% executions.each do |execution| %>
+      <%= tag.div id: dom_id(execution), class: "list-group-item py-3" do %>
+        <div class="row align-items-center text-nowrap">
+          <div class="col-md-5 d-flex gap-2">
+            <%= tag.span execution.number, class: "badge bg-secondary rounded-pill" %>
+            <%= tag.code link_to(execution.id, "##{dom_id(execution)}", class: "text-muted text-decoration-none small") %>
+          </div>
+          <div class="col-md-2 small">
+            <% if execution.queue_latency %>
+              <%= format_duration execution.queue_latency %> <span class="text-muted"><%=t ".in_queue" %></span>
+            <% end %>
+          </div>
+          <div class="col-md-2 small">
+            <% if execution.runtime_latency %>
+              <%= format_duration execution.runtime_latency %> <span class="text-muted"><%=t ".runtime" %></span>
+            <% end %>
+          </div>
+          <div class="col">
+            <div class="d-flex gap-3 align-items-center justify-content-end">
+              <%= tag.span relative_time(execution.last_status_at, include_seconds: true), class: "small" %>
+              <%= status_badge execution.status %>
+
+              <%= tag.button type: "button", class: "btn btn-sm text-muted", role: "button",
+                title: t("good_job.actions.inspect"),
+                data: { bs_toggle: "collapse", bs_target: "##{dom_id(execution, 'params')}" },
+                aria: { expanded: false, controls: dom_id(execution, "params") } do %>
+                <%= render_icon "info" %>
+                <span class="visually-hidden"><%=t "good_job.actions.inspect" %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% if execution.error %>
+          <div class="mt-3 small">
+            <strong class="small"><%=t "good_job.shared.error" %>:</strong>
+            <code class="text-wrap text-break m-0 text-secondary-emphasis"><%= execution.error %></code>
+          </div>
+        <% end %>
+      <% end %>
+      <%= tag.div id: dom_id(execution, "params"), class: "list-group-item collapse small bg-dark text-light" do %>
+        <%= tag.pre JSON.pretty_generate(execution.display_serialized_params) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
