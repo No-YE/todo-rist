@@ -1,0 +1,20 @@
+name: Upload badge
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout gh-pages
+      uses: actions/checkout@v3
+      with:
+        ref: gh-pages
+        clean: false
+    - name: Upload badge
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Update badges [skip ci]"
+        skip_fetch: true
+        skip_checkout: true
+    - name: Checkout Back
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.ref }}

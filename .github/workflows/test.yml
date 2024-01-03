@@ -18,6 +18,9 @@ jobs:
         ports:
           - '5433:5432'
 
+    env:
+      COVERAGE: true
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -30,3 +33,5 @@ jobs:
       - name: Run tests
         run: |
           bundle exec rspec
+      - name: Upload badge
+        uses: ./.github/actions/upload-badge

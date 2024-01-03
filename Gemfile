@@ -103,4 +103,7 @@ group :test do
   gem 'shoulda-matchers', '~> 6.0'
   gem 'factory_bot_rails'
   gem 'test-prof', '~> 1.0'
+
+  gem 'simplecov', require: false
+  gem 'simplecov-small-badge', require: false
 end
