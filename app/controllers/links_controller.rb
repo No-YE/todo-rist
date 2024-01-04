@@ -65,7 +65,7 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :deadline)
+    params.require(:link).permit(:url, :due_date)
   end
 
   def set_link

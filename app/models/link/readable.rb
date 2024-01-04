@@ -15,7 +15,7 @@ module Link::Readable
     read_at.present?
   end
 
-  def not_read?
+  def unread?
     !read?
   end
 end

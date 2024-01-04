@@ -78,8 +78,8 @@ RSpec.describe Link, type: :model do
     end
   end
 
-  describe '#not_read?' do
-    subject { link.not_read? }
+  describe '#unread?' do
+    subject { link.unread? }
 
     context 'when the link is not read' do
       it { is_expected.to be_truthy }
