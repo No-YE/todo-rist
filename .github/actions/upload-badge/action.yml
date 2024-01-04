@@ -1,5 +1,6 @@
 name: Upload badge
 
+description: Upload badge to gh-pages
 runs:
   using: composite
   steps:
@@ -14,6 +15,7 @@ runs:
         commit_message: "Update badges [skip ci]"
         skip_fetch: true
         skip_checkout: true
+        file_pattern: "coverage/**/*"
     - name: Checkout Back
       uses: actions/checkout@v3
       with:
