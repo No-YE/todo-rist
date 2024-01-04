@@ -30,6 +30,9 @@ jobs:
       - name: create database
         run: |
           bin/rails db:prepare
+      - name: prepare
+        run: |
+          bin/rails test:prepare
       - name: Run tests
         run: |
           bundle exec rspec
