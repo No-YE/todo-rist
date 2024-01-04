@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class Admin::LinksController < ApplicationController
+class Admin::LinksController < Admin::ApplicationController
   def create_initial
-    Link.clone_or_create!(link_params[:user_id], link_params[:url])
+    Link.create!(link_params)
   end
 
   private
 
   def link_params
-    params.require(:link).permit(:url, :user_id)
+    params.require(:link).permit(:url, :user_id, :due_date)
   end
 end
