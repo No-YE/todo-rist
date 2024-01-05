@@ -75,4 +75,22 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins %r{https?://localhost(:\d+)?}
+      resource '*',
+               headers: :any,
+               methods: :any,
+               credentials: true
+    end
+
+    allow do
+      origins %r{chrome-extension://gpieollfjbpomfoiebijfbppepggdnca}
+      resource '*',
+               headers: :any,
+               methods: :any,
+               credentials: false
+    end
+  end
 end

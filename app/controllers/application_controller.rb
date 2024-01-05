@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
       respond_to do |format|
         format.html { redirect_to root_path, alert: flash.now[:alert] }
         format.turbo_stream { render partial: 'shared/flash' }
+        format.json { render json: { error: flash.now[:alert] }, status: :unauthorized }
       end
     end
   end

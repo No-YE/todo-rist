@@ -12,6 +12,11 @@ class LinksController < ApplicationController
     @q = current_user.links.kept.ransack(search_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @links }
+    end
   end
 
   def others

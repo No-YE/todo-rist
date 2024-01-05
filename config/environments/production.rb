@@ -96,4 +96,22 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins %r{https://todorist.com}
+      resource '*',
+               headers: :any,
+               methods: :any,
+               credentials: true
+    end
+
+    allow do
+      origins %r{chrome-extension://gpieollfjbpomfoiebijfbppepggdnca}
+      resource '*',
+               headers: :any,
+               methods: :any,
+               credentials: false
+    end
+  end
 end
