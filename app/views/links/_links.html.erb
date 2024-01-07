@@ -1,16 +1,16 @@
 <%# locals: (paging: true) %>
 
 <% if @links.present? %>
-  <%= turbo_frame_tag 'links', data: { turbo_action: 'advance' } do %>
-    <ul role="list" class="grid grid-cols-1 gap-6 xl:grid-cols-2 mt-10 sm:mt-14">
+  <ul role="list">
+    <%= turbo_frame_tag 'links', data: { turbo_action: 'advance' }, class: 'grid grid-cols-1 gap-6 xl:grid-cols-2 mt-10 sm:mt-14' do %>
       <%= render @links %>
-    </ul>
-
-    <% if paging %>
-      <div class="flex justify-center mt-8 lg:mt-16 w-full">
-        <%== pagy_nav @pagy, link_extra: 'data-turbo-action="advance"' %>
-      </div>
     <% end %>
+  </ul>
+
+  <% if paging %>
+    <div class="flex justify-center mt-8 lg:mt-16 w-full">
+      <%== pagy_nav @pagy, link_extra: 'data-turbo-action="advance"' %>
+    </div>
   <% end %>
 <% else %>
   <div class="text-center mt-10 sm:mt-14">

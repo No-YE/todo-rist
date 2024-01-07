@@ -107,7 +107,7 @@ Rails.application.configure do
     end
 
     allow do
-      origins %r{chrome-extension://gpieollfjbpomfoiebijfbppepggdnca}
+      origins %r{chrome-extension://#{Settings.chrome_extension.id}}
       resource '*',
                headers: :any,
                methods: :any,

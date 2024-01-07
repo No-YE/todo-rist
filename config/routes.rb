@@ -6,11 +6,21 @@ Rails.application.routes.draw do
     mount Motor::Admin => '/admin'
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+  }
 
   root 'root#index'
+  get 'direct_close' => 'root#direct_close', as: :direct_close
 
   get 'up' => 'rails/health#show', as: :rails_health_check
+
+  resources :users, only: [] do
+    collection do
+      get 'me' => 'users#me'
+    end
+  end
 
   resources :links, only: %i[index create new destroy] do
     collection do

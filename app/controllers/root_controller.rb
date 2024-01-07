@@ -6,4 +6,6 @@ class RootController < ApplicationController
 
     @links = Link.kept.completed.order(id: :desc).limit(20)
   end
+
+  def direct_close; end
 end

@@ -32,6 +32,10 @@ class User < ApplicationRecord
     user
   end
 
+  def as_json(options = {})
+    super(options.merge(except: %i[password password_confirmation]))
+  end
+
   private
 
   def downcase_email

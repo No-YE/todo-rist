@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   layout -> { nil if turbo_frame_request? }
 
+  protect_from_forgery unless: -> { request.format.json? }
+
   rescue_from ActiveRecord::RecordNotFound, Pagy::OverflowError, with: :not_found
   rescue_from Exception, with: :internal_server_error if Rails.env.production?
 
