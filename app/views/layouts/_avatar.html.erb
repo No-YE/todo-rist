@@ -1,0 +1,42 @@
+<%= turbo_frame_tag current_user, 'avatar' do %>
+  <% if user_signed_in? %>
+    <div class="relative" data-controller="dropdown">
+      <button type="button" class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" data-action="dropdown#toggle click@window->dropdown#hide">
+        <span class="absolute -inset-1.5"></span>
+        <span class="sr-only">Open user menu</span>
+
+        <% if current_user.avatar.present? %>
+          <%= image_tag current_user.avatar, class: 'h-8 w-8 rounded-full' %>
+        <% else %>
+          <%= image_tag image_path('default_avatar.svg'), alt: '', class: 'h-8 w-8 rounded-full bg-gray-100' %>
+        <% end %>
+      </button>
+
+      <div class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+           data-dropdown-target="menu"
+           data-transition-enter-from="opacity-0 scale-95"
+           data-transition-enter-to="opacity-100 scale-100"
+           data-transition-leave-from="opacity-100 scale-100"
+           data-transition-leave-to="opacity-0 scale-95">
+        <%= link_to t('layout.header.setting'), general_settings_path, class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left' %>
+        <%= button_to t('layout.header.sign_out'),
+                      destroy_user_session_path,
+                      method: :delete,
+                      class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left',
+                      data: { turbo: false, action: 'dropdown#toggle', confirm: t('layout.header.confirm_sign_out') } %>
+        <%= button_to t('layout.header.withdrawal'),
+                      user_registration_path,
+                      method: :delete,
+                      class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left',
+                      data: { turbo: false, action: 'dropdown#toggle', confirm: t('layout.header.confirm_withdrawal') } %>
+      </div>
+    </div>
+  <% else %>
+    <%= button_to t('layout.header.sign_in'),
+                  user_google_oauth2_omniauth_authorize_path,
+                  method: :post,
+                  class: 'text-base font-medium leading-6 text-gray-900',
+                  data: { turbo: false }
+    %>
+  <% end %>
+<% end %>

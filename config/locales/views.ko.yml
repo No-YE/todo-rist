@@ -23,6 +23,11 @@ ko:
     error:
       go_to_main: Go to main
 
+  users:
+    update:
+      success: 프로필이 변경되었습니다.
+      failure: 프로필을 변경하는데 실패했습니다.
+
   settings:
     sidebar:
       general: 일반 설정

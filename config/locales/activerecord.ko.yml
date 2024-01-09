@@ -10,3 +10,5 @@ ko:
   errors:
     messages:
       taken: "이미 존재하는 %{attribute}입니다."
+      content_type_invalid: "content type이 올바르지 않습니다."
+      file_size_not_less_than: "파일 크기는 %{max_size}보다 작아야 합니다. (현재 파일 크기는 %{file_size}입니다.)"

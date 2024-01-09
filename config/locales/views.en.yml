@@ -23,6 +23,11 @@ en:
     error:
       go_to_main: Go to main
 
+  users:
+    update:
+      success: Profile has been updated.
+      failure: Failed to update profile.
+
   settings:
     sidebar:
       general: General

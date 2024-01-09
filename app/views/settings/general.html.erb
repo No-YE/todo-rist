@@ -9,18 +9,15 @@
 
         <%= form_with model: current_user, class: 'md:col-span-2 mt-6 space-y-6 border-t border-gray-200 text-sm leading-6' do |f| %>
           <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6 pt-6">
-            <div class="col-span-full flex items-center gap-x-8">
-              <% if current_user.image.present? %>
-                <%= image_tag current_user.image, alt: '', class: 'h-20 w-20 flex-none rounded-lg bg-gray-800 object-cover' %>
+            <div class="col-span-full flex items-center gap-x-8" data-controller="image-preview">
+              <% if current_user.avatar.present? %>
+                <%= image_tag current_user.avatar, alt: '', class: 'h-20 w-20 flex-none rounded-lg bg-gray-100 object-cover', data: { target: 'image-preview.output' } %>
               <% else %>
-                <span class="inline-block h-20 w-20 overflow-hidden rounded-lg bg-gray-100">
-                  <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </span>
+                <%= image_tag image_path('default_avatar.svg'), alt: '', class: 'h-20 w-20 flex-none rounded-lg bg-gray-100 object-cover text-gray-300 fill-current', data: { target: 'image-preview.output' } %>
               <% end %>
               <div>
-                <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"><%= t '.profile.change_profile_image' %></button>
+                <%= f.label :avatar, t('.profile.change_profile_image'), class: 'cursor-pointer rounded-md bg-indigo-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500' %>
+                <%= f.file_field :avatar, direct_upload: true, class: 'sr-only', data: { target: 'image-preview.input', action: 'image-preview#readURL' } %>
                 <p class="mt-2 text-xs leading-5 text-gray-400"><%= t '.profile.jpg_or_png_and_less_than_1mb' %></p>
               </div>
             </div>

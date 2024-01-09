@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   include Discard::Model
+  include User::Attachable
 
   devise :database_authenticatable, :trackable, :omniauthable, :registerable,
          omniauth_providers: %w[google_oauth2]
@@ -29,6 +30,8 @@ class User < ApplicationRecord
       provider: access_token.provider,
       uid: access_token.uid,
     )
+
+    user.attach_avatar_from(data['image']) if user.valid? && user.avatar.blank?
     user
   end
 
