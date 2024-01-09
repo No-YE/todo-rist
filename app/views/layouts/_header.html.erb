@@ -47,11 +47,11 @@
             <% if current_user.image.present? %>
               <%= image_tag current_user.image, class: 'h-8 w-8 rounded-full' %>
             <% else %>
-            <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
-              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </span>
+              <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </span>
             <% end %>
           </button>
 
@@ -61,6 +61,7 @@
                data-transition-enter-to="opacity-100 scale-100"
                data-transition-leave-from="opacity-100 scale-100"
                data-transition-leave-to="opacity-0 scale-95">
+            <%= link_to t('layout.header.setting'), general_settings_path, class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left' %>
             <%= button_to t('layout.header.sign_out'),
                           destroy_user_session_path,
                           method: :delete,

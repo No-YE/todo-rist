@@ -8,6 +8,7 @@ ko:
       confirm_withdrawal: 정말 탈퇴하시겠습니까?
       my_rist: 내 리스트
       others_rist: 다른 사람들의 리스트
+      setting: 설정
   root:
     index:
       title_html: Summary first,<br>Read later
@@ -21,6 +22,24 @@ ko:
       description: 서버에 내부적인 오류가 발생했습니다.
     error:
       go_to_main: Go to main
+
+  settings:
+    sidebar:
+      general: 일반 설정
+    general:
+      profile:
+        title: 프로필
+        description: 이 정보는 공개적으로 표시될 수 있으므로 주의하시기 바랍니다.
+        change_profile_image: 프로필 이미지 변경
+        jpg_or_png_and_less_than_1mb: jpg 또는 png 형식이어야 하며 1MB 이하의 파일만 가능합니다.
+        name: 이름
+        email: 이메일
+        language: 언어
+      delete_account:
+        title: 계정 삭제
+        description: 계정을 삭제하면 모든 정보가 삭제되며 복구할 수 없습니다.
+        delete: 삭제
+      save: 저장
 
   links:
     index:

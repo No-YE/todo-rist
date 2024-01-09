@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
-  resources :users, only: [] do
+  resources :users, only: %i[update] do
     collection do
       get 'me' => 'users#me'
     end
@@ -30,6 +30,12 @@ Rails.application.routes.draw do
       put 'read' => 'links#read'
       put 'unread' => 'links#unread'
       post 'clone' => 'links#clone'
+    end
+  end
+
+  resources :settings, only: %i[] do
+    collection do
+      get 'general' => 'settings#general'
     end
   end
 

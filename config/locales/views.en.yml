@@ -8,6 +8,7 @@ en:
       confirm_withdrawal: Are you sure you want to withdraw?
       my_rist: My Rist
       others_rist: Others' Rist
+      setting: Setting
   root:
     index:
       title_html: Summary first,<br>Read later
@@ -21,6 +22,24 @@ en:
       description: Internal server error.
     error:
       go_to_main: Go to main
+
+  settings:
+    sidebar:
+      general: General
+    general:
+      profile:
+        title: Profile
+        description: This information may be publicly displayed, so be careful.
+        change_profile_image: Change profile image
+        jpg_or_png_and_less_than_1mb: Must be jpg or png format and less than 1MB.
+        name: Name
+        email: Email
+        language: Language
+      delete_account:
+        title: Delete Account
+        description: All information will be deleted and cannot be recovered.
+        delete: Delete
+      save: Save
 
   links:
     index:

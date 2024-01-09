@@ -3,6 +3,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[me]
 
+  def update; end
+
   def me
     @user = current_user
 
