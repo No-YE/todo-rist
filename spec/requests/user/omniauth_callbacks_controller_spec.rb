@@ -13,6 +13,9 @@ RSpec.describe Users::OmniauthCallbacksController, type: :request do
           email: 'test@gmail.com',
           image: 'https://lh3.googleusercontent.com/a-/AOh14GhY7Z0',
         },
+        extra: {
+          id_info: { locale: 'en' },
+        },
       }
     end
 

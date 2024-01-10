@@ -32,12 +32,17 @@ RSpec.describe User, type: :model do
   end
 
   describe '.from_omniauth' do
-    let(:access_token) { double(provider: 'google_oauth2', uid: 'abcd', info:) }
+    let!(:access_token) { double(provider: 'google_oauth2', uid: 'abcd', info:, extra:) }
     let(:info) do
       {
         'name' => 'Test User',
         'email' => 'test@gmail.com',
         'image' => 'https://lh3.googleusercontent.com/url/photo.jpg',
+      }
+    end
+    let(:extra) do
+      {
+        'id_info' => { 'locale' => 'en' },
       }
     end
 
