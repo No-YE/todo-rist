@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  include Locale
 
   layout -> { nil if turbo_frame_request? }
 

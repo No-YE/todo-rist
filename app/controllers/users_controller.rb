@@ -4,15 +4,17 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[me]
 
   def update
-    respond_to do |format|
-      format.turbo_stream do
-        if current_user.update(user_params)
-          flash.now[:notice] = t('.success')
-        else
-          flash.now[:alert] = current_user.errors.full_messages.first || t('.failure')
-          render partial: 'shared/flash'
-        end
+    if current_user.update(user_params)
+      if current_user.saved_change_to_locale?
+        I18n.locale = current_user.locale
+        redirect_to general_settings_path, notice: t('.success')
+        return
       end
+
+      flash.now[:notice] = t('.success')
+    else
+      flash.now[:alert] = current_user.errors.full_messages.first || t('.failure')
+      render partial: 'shared/flash'
     end
   end
 
@@ -27,6 +29,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar)
+    params.require(:user).permit(:name, :avatar, :locale)
   end
 end

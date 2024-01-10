@@ -29,6 +29,7 @@ class User < ApplicationRecord
       password: Devise.friendly_token[0, 20],
       provider: access_token.provider,
       uid: access_token.uid,
+      locale: access_token.extra['id_info']['locale'],
     )
 
     user.attach_avatar_from(data['image']) if user.valid? && user.avatar.blank?

@@ -39,10 +39,10 @@
             <div class="col-span-full">
               <label for="timezone" class="block text-sm font-medium leading-6 text-gray-900"><%= t '.profile.language' %></label>
               <div class="mt-2">
-                <select id="timezone" name="timezone" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black">
-                  <option>한국어</option>
-                  <option>English</option>
-                </select>
+                <%= f.select :locale,
+                             setting_language_and_locale_options,
+                             {},
+                             class: 'block w-full rounded-md border-0 bg-white/5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black' %>
               </div>
             </div>
           </div>
