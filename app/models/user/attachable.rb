@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open-uri'
+
 module User::Attachable
   extend ActiveSupport::Concern
 

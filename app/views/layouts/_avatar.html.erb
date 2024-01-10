@@ -1,4 +1,4 @@
-<%= turbo_frame_tag current_user, 'avatar' do %>
+<%= turbo_frame_tag current_user, 'avatar', target: '_top' do %>
   <% if user_signed_in? %>
     <div class="relative" data-controller="dropdown">
       <button type="button" class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" data-action="dropdown#toggle click@window->dropdown#hide">
@@ -24,11 +24,6 @@
                       method: :delete,
                       class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left',
                       data: { turbo: false, action: 'dropdown#toggle', confirm: t('layout.header.confirm_sign_out') } %>
-        <%= button_to t('layout.header.withdrawal'),
-                      user_registration_path,
-                      method: :delete,
-                      class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left',
-                      data: { turbo: false, action: 'dropdown#toggle', confirm: t('layout.header.confirm_withdrawal') } %>
       </div>
     </div>
   <% else %>

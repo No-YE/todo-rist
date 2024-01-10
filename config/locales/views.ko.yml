@@ -24,9 +24,10 @@ ko:
       go_to_main: Go to main
 
   users:
-    update:
-      success: 프로필이 변경되었습니다.
-      failure: 프로필을 변경하는데 실패했습니다.
+    registrations:
+      update:
+        success: 프로필이 변경되었습니다.
+        failure: 프로필을 변경하는데 실패했습니다.
 
   settings:
     sidebar:
@@ -43,7 +44,9 @@ ko:
       delete_account:
         title: 계정 삭제
         description: 계정을 삭제하면 모든 정보가 삭제되며 복구할 수 없습니다.
+        detail_description_html: 계정을 삭제하면 모든 정보가 삭제되며 복구할 수 없습니다.<br>계정을 삭제하시겠습니까?
         delete: 삭제
+        cancel: 취소
       save: 저장
 
   links:
