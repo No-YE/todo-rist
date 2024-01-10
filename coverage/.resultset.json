@@ -7,6 +7,7 @@
           null,
           1,
           1,
+          1,
           null,
           1,
           null,
@@ -34,6 +35,9 @@
           null,
           null,
           null,
+          null,
+          null,
+          6,
           6,
           null,
           null,
@@ -44,7 +48,7 @@
           1,
           null,
           1,
-          31,
+          42,
           null,
           null
         ]
@@ -55,6 +59,29 @@
           null,
           1,
           1,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/user/attachable.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          5,
+          5,
+          5,
+          null,
           null
         ]
       },
@@ -101,6 +128,7 @@
         "lines": [
           null,
           null,
+          1,
           1,
           1,
           null,
@@ -219,6 +247,40 @@
           6,
           null,
           6,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/helpers/setting_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/concerns/locale.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          25,
+          25,
           null,
           null
         ]
@@ -343,6 +405,17 @@
           null
         ]
       },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/settings_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
       "/home/runner/work/todo-rist/todo-rist/app/controllers/users_controller.rb": {
         "lines": [
           null,
@@ -356,6 +429,12 @@
           0,
           0,
           null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -412,6 +491,43 @@
           1,
           1,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/users/registrations_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -643,6 +759,6 @@
         ]
       }
     },
-    "timestamp": 1704717343
+    "timestamp": 1704895023
   }
 }
