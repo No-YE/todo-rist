@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Link::Searchable
+module Links::Searchable
   extend ActiveSupport::Concern
 
   class_methods do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Link::Readable
+module Links::Readable
   extend ActiveSupport::Concern
 
   def read!

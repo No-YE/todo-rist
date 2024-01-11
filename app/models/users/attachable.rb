@@ -2,7 +2,7 @@
 
 require 'open-uri'
 
-module User::Attachable
+module Users::Attachable
   extend ActiveSupport::Concern
 
   included do

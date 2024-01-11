@@ -2,9 +2,9 @@
 
 class Link < ApplicationRecord
   include Discard::Model
-  include Link::Scraping
-  include Link::Searchable
-  include Link::Readable
+  include Links::Scraping
+  include Links::Searchable
+  include Links::Readable
 
   belongs_to :user
 

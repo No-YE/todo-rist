@@ -2,11 +2,12 @@
 
 class User < ApplicationRecord
   include Discard::Model
-  include User::Attachable
+  include Users::Attachable
 
   devise :database_authenticatable, :trackable, :omniauthable, :registerable,
          omniauth_providers: %w[google_oauth2]
 
+  has_one :notification_setting, dependent: :destroy, class_name: 'Users::NotificationSetting'
   has_many :links, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }

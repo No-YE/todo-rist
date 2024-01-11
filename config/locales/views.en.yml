@@ -28,10 +28,18 @@ en:
       update:
         success: Profile has been updated.
         failure: Failed to update profile.
+    notification_settings:
+      create:
+        success: Notification settings have been updated.
+        failure: Failed to update notification settings.
+      update:
+        success: Notification settings have been updated.
+        failure: Failed to update notification settings.
 
   settings:
     sidebar:
       general: General
+      notification: Notification
     general:
       profile:
         title: Profile
@@ -47,6 +55,14 @@ en:
         detail_description_html: All information will be deleted and cannot be recovered.<br>Are you sure you want to delete your account?
         delete: Delete
         cancel: Cancel
+      save: Save
+    notification:
+      reminder:
+        title: Reminder
+        description: If you set a reminder, you can receive a notification of links with approaching due dates.
+        days: Days
+        time: Time
+        email_notification: Email notification
       save: Save
 
   links:

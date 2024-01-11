@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_10_114429) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_10_144117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "a", id: :date, force: :cascade do |t|
-    t.integer "value", null: false
-    t.date "date", null: false
-    t.index ["date"], name: "a_date", unique: true
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -354,6 +348,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_114429) do
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["email"], name: "index_users_on_email", unique: true, where: "(discarded_at IS NULL)"
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, where: "(discarded_at IS NULL)"
+  end
+
+  create_table "users_notification_settings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "email", default: false, null: false
+    t.integer "schedule_days", default: [], null: false, array: true
+    t.time "schedule_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_users_notification_settings_on_user_id", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

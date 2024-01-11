@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       get 'me' => 'users#me'
     end
   end
+  namespace :users do
+    resources :notification_settings, only: %i[create update]
+  end
 
   resources :links, only: %i[index create new destroy] do
     collection do
@@ -37,6 +40,7 @@ Rails.application.routes.draw do
   resources :settings, only: %i[] do
     collection do
       get 'general' => 'settings#general'
+      get 'notification' => 'settings#notification'
     end
   end
 

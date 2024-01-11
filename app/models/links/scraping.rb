@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Link::Scraping
+module Links::Scraping
   extend ActiveSupport::Concern
 
   included do
