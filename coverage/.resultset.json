@@ -13,6 +13,7 @@
           null,
           null,
           1,
+          1,
           null,
           1,
           1,
@@ -62,7 +63,7 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/models/user/attachable.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/attachable.rb": {
         "lines": [
           null,
           null,
@@ -262,6 +263,10 @@
           null,
           null,
           null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -413,6 +418,11 @@
           1,
           null,
           1,
+          null,
+          1,
+          null,
+          0,
+          null,
           null
         ]
       },
@@ -468,6 +478,47 @@
           null,
           1,
           1,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/users/notification_settings_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -689,7 +740,7 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/models/link/scraping.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/models/links/scraping.rb": {
         "lines": [
           null,
           null,
@@ -714,7 +765,7 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/models/link/searchable.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/models/links/searchable.rb": {
         "lines": [
           null,
           null,
@@ -733,7 +784,7 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/models/link/readable.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/models/links/readable.rb": {
         "lines": [
           null,
           null,
@@ -757,8 +808,62 @@
           null,
           null
         ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/notification_setting.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/schedule.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1704895023
+    "timestamp": 1704983980
   }
 }
