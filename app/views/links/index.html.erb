@@ -1,6 +1,6 @@
 <%= turbo_stream_from 'links' %>
 
-<%= turbo_frame_tag 'search_links', data: { turbo_action: 'advance' }, target: '_top' do %>
+<%= turbo_frame_tag 'search_links', data: { turbo_action: 'advance' }, class: 'w-full', target: '_top' do %>
   <div class="flex flex-col w-full">
     <div class="flex justify-between items-normal">
       <%= search_form_for @q, class: 'flex flex-col sm:items-center sm:flex-row', data: { controller: 'search', turbo_frame: 'search_links' } do |f| %>

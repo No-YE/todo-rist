@@ -10,7 +10,7 @@ import Dropdown from 'stimulus-dropdown'
 application.register('dropdown', Dropdown)
 
 import Notification from 'stimulus-notification'
-application.register('notification', Notification)
+application.register('flash', Notification)
 
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"

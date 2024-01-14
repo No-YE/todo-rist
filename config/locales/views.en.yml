@@ -92,3 +92,7 @@ en:
     clone:
       success: Copied to my todo.
       failure: Failed to copy to my todo.
+
+  notifications:
+    index:
+      not_exist: There is no notification.

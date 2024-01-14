@@ -5,5 +5,6 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.notifications.order(id: :desc).map(&:to_notification)
+    current_user.notifications.unread.mark_as_read!
   end
 end

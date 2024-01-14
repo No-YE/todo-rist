@@ -28,7 +28,6 @@ ko:
       update:
         success: 프로필이 변경되었습니다.
         failure: 프로필을 변경하는데 실패했습니다.
-  users:
     notification_settings:
       create:
         success: 알림 설정이 변경되었습니다.
@@ -93,3 +92,7 @@ ko:
     clone:
       success: 내 투두에 복사되었습니다.
       failure: 내 투두에 복사하는데 실패했습니다.
+
+  notifications:
+    index:
+      not_exist: 알림이 없습니다.
