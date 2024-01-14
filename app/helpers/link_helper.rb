@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
 module LinkHelper
-  def link_relative_created_at(link)
-    if link.created_at > 1.day.ago
-      time_ago_in_words link.created_at
-      t('common.some_ago', value: distance_of_time_in_words(link.created_at, Time.current))
-    else
-      l link.created_at.to_date, format: :long
-    end
-  end
-
   def link_until_due_date(due_date)
     distance_in_day = (due_date - Date.current).to_i
 

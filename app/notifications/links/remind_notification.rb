@@ -2,12 +2,16 @@
 
 class Links::RemindNotification < ApplicationNotification
   deliver_by :database, format: :to_database
-  deliver_by :email, mailer: 'Links::RemindMailer', if: :email_notification?
+  deliver_by :email, mailer: 'LinkMailer', method: 'remind', if: :email_notification?
 
   param :links
 
   def title
     t('.title')
+  end
+
+  def description
+    t('.description', count: links.count)
   end
 
   def link_infos

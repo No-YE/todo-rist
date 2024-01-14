@@ -83,6 +83,9 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 
   gem 'rspec-rails', '~> 6.1.0'
+
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -107,7 +110,6 @@ group :test do
   gem "selenium-webdriver"
 
   gem 'shoulda-matchers', '~> 6.0'
-  gem 'factory_bot_rails'
   gem 'test-prof', '~> 1.0'
 
   gem 'simplecov', require: false

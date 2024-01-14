@@ -2,12 +2,32 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="container mx-auto px-5 flex max-w-4xl">
+      <nav class="w-full" data-controller="collapse">
+        <div class="w-full flex items-center justify-between py-6">
+          <div class="flex flex-1 flex-column items-center p-1.5 -m-1.5">
+            <span class="w-8 h-8">
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            </span>
+            <span class="font-semibold text-2xl hidden md:flex ml-2">
+              TodoRist
+            </span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto mt-8 sm:mt-12 px-5 flex max-w-4xl">
+      <%= yield %>
+    </main>
+
+    <footer class="container mx-auto px-5 flex max-w-4xl">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
