@@ -2,7 +2,7 @@
   <div class="w-full flex items-center justify-between py-6">
     <div class="flex flex-1">
       <% if user_signed_in? %>
-        <button type="button" class="sm:hidden relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" data-action="click->collapse#toggle">
+        <button type="button" class="sm:hidden relative inline-flex mr-1 items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" data-action="click->collapse#toggle">
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Open main menu</span>
           <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -11,24 +11,15 @@
         </button>
       <% end %>
 
-      <%= link_to root_path, class: 'hidden sm:flex flex-column p-1.5 -m-1.5' do %>
-        <span class="w-8 h-8 mr-2">
+      <%= link_to root_path, class: 'flex flex-column items-center p-1.5 -m-1.5' do %>
+        <span class="w-8 h-8">
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
         </span>
-          <span class="font-semibold text-2xl hidden md:flex">
+        <span class="font-semibold text-2xl hidden md:flex ml-2">
           TodoRist
         </span>
       <% end %>
     </div>
-
-    <%= link_to root_path, class: 'flex sm:hidden flex-column p-1.5 -m-1.5' do %>
-        <span class="w-8 h-8 mr-2">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
-        </span>
-      <span class="font-semibold text-2xl hidden md:flex">
-          TodoRist
-        </span>
-    <% end %>
 
     <% if user_signed_in? %>
       <div class="hidden sm:flex sm:gap-x-12 sm:items-center">
@@ -37,7 +28,15 @@
       </div>
     <% end %>
 
-    <div class="flex flex-1 justify-end gap-x-6">
+    <div class="flex flex-1 justify-end gap-x-3">
+      <% if user_signed_in? %>
+        <%= link_to notifications_path, class: 'flex items-center p-1 text-gray-400 hover:text-gray-500' do %>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        <% end %>
+      <% end %>
+
       <%= render 'layouts/avatar' %>
     </div>
   </div>

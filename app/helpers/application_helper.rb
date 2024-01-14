@@ -17,4 +17,13 @@ module ApplicationHelper
     end.html_safe
   end
   # rubocop:enable Layout/LineLength
+
+  def relative_time(time)
+    if time > 1.day.ago
+      time_ago_in_words time
+      t('common.some_ago', value: distance_of_time_in_words(time, Time.current))
+    else
+      l time.to_date, format: :long
+    end
+  end
 end

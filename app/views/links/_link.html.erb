@@ -7,7 +7,7 @@
             <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
           <% end %>
         </span>
-        <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
+        <h3 class="mt-6 text-center text-base font-medium text-gray-900">
           <%= link.title %>
         </h3>
         <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
@@ -26,11 +26,11 @@
     <div class="flex flex-column justify-between items-center px-6 sm:px-8 py-3 text-xs font-normal">
       <div class="flex">
         <span class="text-gray-500">
-          <%= link_relative_created_at(link) %>
+          <%= relative_time(link.created_at) %>
         </span>
         <% if link.due_date.present? && link.unread? && link.user_id == current_user&.id %>
           <div class="ml-3 border-l border-gray-200 pl-3">
-            <%= link_until_due_date(link) %>
+            <%= link_until_due_date(link.due_date) %>
           </div>
         <% end %>
       </div>

@@ -19,6 +19,8 @@ class LinksController < ApplicationController
     end
   end
 
+  def show; end
+
   def others
     links_with_distinct_url = Link.select('DISTINCT ON (url) *')
                                   .kept

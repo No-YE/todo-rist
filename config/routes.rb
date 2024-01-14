@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :notification_settings, only: %i[create update]
   end
 
-  resources :links, only: %i[index create new destroy] do
+  resources :links, only: %i[index show new create destroy] do
     collection do
       get 'others' => 'links#others'
     end
@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       get 'notification' => 'settings#notification'
     end
   end
+
+  resources :notifications, only: %i[index]
 
   namespace :admin do
     resources :links, only: [] do

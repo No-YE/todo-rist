@@ -1,0 +1,5 @@
+ko:
+  notifications:
+    links:
+      remind_notification:
+        title: 마감기한이 얼마 남지 않은 링크가 있어요.

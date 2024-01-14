@@ -97,11 +97,14 @@
     <orderEntry type="library" scope="PROVIDED" name="faraday-retry (v2.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fastimage (v2.2.7, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.16.3, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi-compiler (v1.0.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fugit (v1.9.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="good_job (v3.21.5, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v5.0.0, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http (v5.1.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.5, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="http-form_data (v2.3.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.12.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v1.2.3, rbenv: 3.2.2) [gem]" level="application" />
@@ -112,6 +115,7 @@
     <orderEntry type="library" scope="PROVIDED" name="json (v2.7.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v2.7.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="llhttp-ffi (v0.4.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, rbenv: 3.2.2) [gem]" level="application" />
@@ -132,6 +136,7 @@
     <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.4.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.7.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.15.5, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="noticed (v1.6.3, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth2 (v2.0.9, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth (v2.1.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-google-oauth2 (v1.1.1, rbenv: 3.2.2) [gem]" level="application" />
@@ -259,6 +264,13 @@
         <option value="motor:install" />
         <option value="motor:install_pro_notes" />
         <option value="motor:upgrade" />
+        <option value="noticed:delivery_method" />
+        <option value="noticed:model" />
+        <option value="noticed:model:base" />
+        <option value="noticed:model:mysql" />
+        <option value="noticed:model:postgresql" />
+        <option value="noticed:model:sqlite3" />
+        <option value="noticed:notification" />
         <option value="rbs_rails:install" />
         <option value="resource" />
         <option value="responders:install" />
@@ -337,6 +349,13 @@
         <option value="motor:install" />
         <option value="motor:install_pro_notes" />
         <option value="motor:upgrade" />
+        <option value="noticed:delivery_method" />
+        <option value="noticed:model" />
+        <option value="noticed:model:base" />
+        <option value="noticed:model:mysql" />
+        <option value="noticed:model:postgresql" />
+        <option value="noticed:model:sqlite3" />
+        <option value="noticed:notification" />
         <option value="rbs_rails:install" />
         <option value="resource" />
         <option value="responders:install" />

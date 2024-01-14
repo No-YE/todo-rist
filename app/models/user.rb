@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_one :notification_setting, dependent: :destroy, class_name: 'Users::NotificationSetting'
   has_many :links, dependent: :destroy
+  has_many :notifications, as: :recipient, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :name, presence: true

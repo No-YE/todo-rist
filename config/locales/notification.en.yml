@@ -1,0 +1,5 @@
+en:
+  notifications:
+    links:
+      remind_notification:
+        title: You have links that are about to expire.

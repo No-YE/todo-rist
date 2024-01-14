@@ -10,8 +10,8 @@ module LinkHelper
     end
   end
 
-  def link_until_due_date(link)
-    distance_in_day = (link.due_date - Date.current).to_i
+  def link_until_due_date(due_date)
+    distance_in_day = (due_date - Date.current).to_i
 
     classes = case distance_in_day
               when ..0
@@ -28,7 +28,7 @@ module LinkHelper
       if distance_in_day.negative?
         t('common.overdue')
       else
-        left_time = distance_of_time_in_words(link.due_date.end_of_day, Time.current)
+        left_time = distance_of_time_in_words(due_date.end_of_day, Time.current)
         t('common.some_left', value: left_time)
       end
     end
