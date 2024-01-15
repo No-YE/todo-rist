@@ -2,6 +2,6 @@
 
 require 'rails_helper'
 
-RSpec.describe LinkScrapingJob, type: :job do
+RSpec.describe Links::ScrapingJob, type: :job do
   pending "add some examples to (or delete) #{__FILE__}"
 end

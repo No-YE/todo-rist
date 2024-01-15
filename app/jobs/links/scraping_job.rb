@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class LinkScrapingJob < ApplicationJob
+class Links::ScrapingJob < ApplicationJob
   queue_as :default
 
   good_job_control_concurrency_with(
     total_limit: 1,
-    key: -> { "LinkScrapingJob-#{arguments.first.id}" },
+    key: -> { "Links::ScrapingJob-#{arguments.first.id}" },
   )
 
   retry_on StandardError, wait: :polynomially_longer, attempts: 3 do |job, error|

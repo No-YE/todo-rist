@@ -22,7 +22,7 @@ RSpec.describe Link, type: :model do
     describe 'after_create_commit' do
       describe '#scrap_later' do
         it 'enqueues a job' do
-          expect { create(:link) }.to have_enqueued_job(LinkScrapingJob)
+          expect { create(:link) }.to have_enqueued_job(Links::ScrapingJob)
         end
       end
     end

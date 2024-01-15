@@ -10,12 +10,12 @@ module Links::Scraping
   end
 
   def scrap_now
-    LinkScrapingJob.perform_now(self)
+    Links::ScrapingJob.perform_now(self)
   end
 
   private
 
   def scrap_later
-    LinkScrapingJob.perform_later(self)
+    Links::ScrapingJob.perform_later(self)
   end
 end

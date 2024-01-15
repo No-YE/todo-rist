@@ -1,3 +1,0 @@
-class LinkScrapingJob
-  def perform: (string) -> void
-end
