@@ -7,6 +7,9 @@ class Users::ReminderSetting < Users::ApplicationRecord
               class_name: 'Users::Schedule',
               mapping: [%w[schedule_days days], %w[schedule_time time]]
 
+  validates :criteria_days,
+            presence: true,
+            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :email, inclusion: { in: [true, false] }
   validates :user, presence: true
   validates :schedule_days, inclusion: { in: DateAndTime::Calculations::DAYS_INTO_WEEK.values }

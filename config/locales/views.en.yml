@@ -62,6 +62,7 @@ en:
         description: If you set a reminder, you can receive a notification of links with approaching due dates.
         days: Days
         time: Time
+        criteria_days: Criteria days
         email_notification: Email notification
       save: Save
 

@@ -364,6 +364,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_090137) do
 
   create_table "users_reminder_settings", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.integer "criteria_days", default: 0, null: false
     t.boolean "email", default: false, null: false
     t.integer "schedule_days", default: [], null: false, array: true
     t.time "schedule_time", null: false
