@@ -14,6 +14,7 @@
           null,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -187,6 +188,15 @@
           null,
           null,
           null,
+          null,
+          1,
+          16,
+          16,
+          16,
+          null,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -196,34 +206,25 @@
           null,
           1,
           1,
-          16,
-          16,
-          16,
+          9,
+          null,
+          9,
           null,
           0,
           null,
-          null,
-          null,
-          1,
-          0,
+          6,
           null,
           0,
           null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
+          3,
           null,
           null,
-          0,
-          0,
+          9,
+          9,
           0,
           null,
-          0,
-          0,
+          9,
+          9,
           null,
           null,
           null,
@@ -314,6 +315,8 @@
           null,
           null,
           1,
+          null,
+          1,
           3,
           null,
           null,
@@ -391,6 +394,20 @@
           null,
           1,
           6,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/notifications_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
           null,
           null
         ]
@@ -482,47 +499,6 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/controllers/users/notification_settings_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
       "/home/runner/work/todo-rist/todo-rist/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
@@ -583,6 +559,49 @@
           null
         ]
       },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/users/reminder_settings_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/home/runner/work/todo-rist/todo-rist/app/controllers/users/sessions_controller.rb": {
         "lines": [
           null,
@@ -619,7 +638,23 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/jobs/link_scraping_job.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/jobs/links/remind_job.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/jobs/links/scraping_job.rb": {
         "lines": [
           null,
           null,
@@ -719,6 +754,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           null,
@@ -800,12 +836,36 @@
           null,
           null,
           1,
-          38,
+          54,
           null,
           null,
           1,
-          3,
+          19,
           null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/links/remindable.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/models/notification.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -819,7 +879,7 @@
           null
         ]
       },
-      "/home/runner/work/todo-rist/todo-rist/app/models/users/notification_setting.rb": {
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/reminder_setting.rb": {
         "lines": [
           null,
           null,
@@ -831,20 +891,24 @@
           null,
           null,
           1,
+          null,
+          null,
           1,
           1,
+          1,
+          null,
           1,
           null,
           1,
           null,
           1,
           0,
+          null,
+          1,
           0,
           null,
-          null,
-          null,
-          null,
-          null,
+          0,
+          0,
           null,
           null
         ]
@@ -860,10 +924,72 @@
           0,
           0,
           null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/notifications/application_notification.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/runner/work/todo-rist/todo-rist/app/notifications/links/remind_notification.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1704983980
+    "timestamp": 1705331116
   }
 }
