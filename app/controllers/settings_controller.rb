@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
   def general; end
 
   def notification
-    @notification_setting =
-      current_user.notification_setting || current_user.build_notification_setting
+    @reminder_setting =
+      current_user.reminder_setting || current_user.build_reminder_setting
   end
 end

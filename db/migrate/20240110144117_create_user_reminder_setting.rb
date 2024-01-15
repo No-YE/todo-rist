@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateUserNotificationSetting < ActiveRecord::Migration[7.1]
+class CreateUserReminderSetting < ActiveRecord::Migration[7.1]
   def change
-    create_table :users_notification_settings do |t|
+    create_table :users_reminder_settings do |t|
       t.references :user, null: false, foreign_key: false, index: { unique: true }
       t.boolean :email, null: false, default: false
       t.integer :schedule_days, array: true, null: false, default: []

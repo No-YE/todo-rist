@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::NotificationSetting < Users::ApplicationRecord
+class Users::ReminderSetting < Users::ApplicationRecord
   belongs_to :user
 
   composed_of :schedule,

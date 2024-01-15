@@ -32,6 +32,6 @@ class Links::RemindNotification < ApplicationNotification
   end
 
   def email_notification?
-    recipient.notification_setting.email?
+    recipient.reminder_setting.email?
   end
 end

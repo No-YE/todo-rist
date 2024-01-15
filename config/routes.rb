@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :users do
-    resources :notification_settings, only: %i[create update]
+    resources :reminder_settings, only: %i[create update]
   end
 
   resources :links, only: %i[index show new create destroy] do

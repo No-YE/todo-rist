@@ -7,12 +7,12 @@
         <h2 class="text-base font-semibold leading-7 text-gray-900"><%= t '.reminder.title' %></h2>
         <p class="mt-1 text-sm leading-6 text-gray-500"><%= t '.reminder.description' %></p>
 
-        <%= form_with model: @notification_setting, class: 'md:col-span-2 mt-6 space-y-6 border-t border-gray-200 text-sm leading-6' do |f| %>
+        <%= form_with model: @reminder_setting, class: 'md:col-span-2 mt-6 space-y-6 border-t border-gray-200 text-sm leading-6' do |f| %>
           <div class="grid grid-cols-6 gap-x-6 gap-y-8 sm:max-w-xl">
             <div class="mt-4 col-span-full">
               <span class="text-sm leading-6 text-gray-900"><%= t '.reminder.days' %></span>
               <div class="flex flex-wrap gap-2 mt-2">
-                <%= f.collection_check_boxes :schedule_days, setting_days_options, :last, :first, { checked: @notification_setting.schedule.days } do |b| %>
+                <%= f.collection_check_boxes :schedule_days, setting_days_options, :last, :first, { checked: @reminder_setting.schedule.days } do |b| %>
                   <div class="w-14">
                     <%= b.check_box class: 'sr-only peer' %>
                     <%= b.label class: 'cursor-pointer focus:outline-none ring-1 ring-inset ring-gray-300 bg-white text-gray-900 hover:bg-gray-50 flex items-center justify-center rounded-md py-3 px-2 text-sm font-semibold uppercase sm:flex-1 peer-checked:bg-indigo-500 peer-checked:text-white peer-checked:hover:bg-indigo-500' %>
@@ -21,7 +21,7 @@
               </div>
             </div>
 
-            <div class="flex flex-col justify-center col-span-4 sm:col-span-2">
+            <div class="flex flex-col justify-center col-span-full">
               <%= f.label :schedule_time, t('.reminder.time') %>
               <%= f.time_field :schedule_time, class: 'mt-2 text-gray-900 rounded-md border-0 ring-1 ring-inset ring-gray-300' %>
             </div>

@@ -28,13 +28,13 @@ en:
       update:
         success: Profile has been updated.
         failure: Failed to update profile.
-    notification_settings:
+    reminder_settings:
       create:
-        success: Notification settings have been updated.
-        failure: Failed to update notification settings.
+        success: Reminder settings have been updated.
+        failure: Failed to update reminder settings.
       update:
-        success: Notification settings have been updated.
-        failure: Failed to update notification settings.
+        success: Reminder settings have been updated.
+        failure: Failed to update reminder settings.
 
   settings:
     sidebar:

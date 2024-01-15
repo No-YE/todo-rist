@@ -362,14 +362,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_090137) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, where: "(discarded_at IS NULL)"
   end
 
-  create_table "users_notification_settings", force: :cascade do |t|
+  create_table "users_reminder_settings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.boolean "email", default: false, null: false
     t.integer "schedule_days", default: [], null: false, array: true
     t.time "schedule_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_users_notification_settings_on_user_id", unique: true
+    t.index ["user_id"], name: "index_users_reminder_settings_on_user_id", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

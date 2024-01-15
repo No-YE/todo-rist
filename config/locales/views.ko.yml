@@ -28,13 +28,13 @@ ko:
       update:
         success: 프로필이 변경되었습니다.
         failure: 프로필을 변경하는데 실패했습니다.
-    notification_settings:
+    reminder_settings:
       create:
-        success: 알림 설정이 변경되었습니다.
-        failure: 알림 설정을 변경하는데 실패했습니다.
+        success: 리마인더 설정이 변경되었습니다.
+        failure: 리마인더 설정을 변경하는데 실패했습니다.
       update:
-        success: 알림 설정이 변경되었습니다.
-        failure: 알림 설정을 변경하는데 실패했습니다.
+        success: 리마인더 설정이 변경되었습니다.
+        failure: 리마인더 설정을 변경하는데 실패했습니다.
 
   settings:
     sidebar:
