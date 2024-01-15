@@ -4,7 +4,7 @@ class Links::RemindNotification < ApplicationNotification
   deliver_by :database, format: :to_database
   deliver_by :email, mailer: 'LinkMailer', method: 'remind', if: :email_notification?
 
-  param :links
+  param :links, :reminder_setting
 
   def title
     t('.title')
@@ -32,6 +32,6 @@ class Links::RemindNotification < ApplicationNotification
   end
 
   def email_notification?
-    recipient.reminder_setting.email?
+    params[:reminder_setting].email?
   end
 end

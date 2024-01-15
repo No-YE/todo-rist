@@ -12,18 +12,19 @@ class Users::ReminderSetting < Users::ApplicationRecord
             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :email, inclusion: { in: [true, false] }
   validates :user, presence: true
-  validates :schedule_days, inclusion: { in: DateAndTime::Calculations::DAYS_INTO_WEEK.values }
+  validates :schedule_days,
+            inclusion: { in: DateAndTime::Calculations::DAYS_INTO_WEEK.stringify_keys.keys }
   validates :schedule_time, presence: true
 
   before_validation -> { schedule_days.reject!(&:blank?) }
 
-  def self.create_default(user)
-    DateAndTime::Calculations::DAYS_INTO_WEEK.keys
-    create!(
-      user:,
-      email: true,
-      push: true,
-      push_time: Time.zone.parse('9:00'),
-    )
+  after_save_commit :schedule_job,
+                    if: -> { saved_change_to_schedule_days? || saved_change_to_schedule_time? }
+
+  def schedule_job
+    GoodJob::Job.where(id: next_remind_job_id).destroy_all
+
+    job = Links::RemindJob.set(wait_until: schedule.next_occurring).perform_later(self)
+    update_column :next_remind_job_id, job.job_id
   end
 end

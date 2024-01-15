@@ -9,8 +9,8 @@ ko:
         due_date: due date
       users/reminder_setting:
         email: 이메일 알림
-        schedule_days: 알림 요일
-        schedule_time: 알림 시간
+        schedule_days: 라마인드 요일
+        schedule_time: 리마인드 시간
 
   errors:
     messages:

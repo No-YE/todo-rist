@@ -5,6 +5,7 @@ class Link < ApplicationRecord
   include Links::Scraping
   include Links::Searchable
   include Links::Readable
+  include Links::Remindable
 
   belongs_to :user
 

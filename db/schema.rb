@@ -366,8 +366,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_090137) do
     t.bigint "user_id", null: false
     t.integer "criteria_days", default: 0, null: false
     t.boolean "email", default: false, null: false
-    t.integer "schedule_days", default: [], null: false, array: true
+    t.string "schedule_days", default: [], null: false, array: true
     t.time "schedule_time", null: false
+    t.string "next_remind_job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_users_reminder_settings_on_user_id", unique: true

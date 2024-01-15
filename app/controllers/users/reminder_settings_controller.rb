@@ -28,7 +28,9 @@ class Users::ReminderSettingsController < ApplicationController
   private
 
   def reminder_setting_params
-    params.require(:users_reminder_setting).permit(:email, :schedule_time, schedule_days: [])
+    params
+      .require(:users_reminder_setting)
+      .permit(:email, :criteria_days, :schedule_time, schedule_days: [])
   end
 
   def set_reminder_setting
