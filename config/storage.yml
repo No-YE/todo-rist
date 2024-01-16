@@ -8,11 +8,11 @@ local:
 
 cloudflare:
   service: S3
-  endpoint: <%= Rails.application.credentials.dig(:cloudflare, :endpoint) %>
-  access_key_id: <%= Rails.application.credentials.dig(:cloudflare, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:cloudflare, :secret_access_key) %>
-  region: auto
-  bucket: <%= Rails.application.credentials.dig(:cloudflare, :bucket) %>
+  endpoint: <%= Rails.application.credentials.dig(:cloudflare, :endpoint) || 'http://x' %>
+  access_key_id: <%= Rails.application.credentials.dig(:cloudflare, :access_key_id) || 'x' %>
+  secret_access_key: <%= Rails.application.credentials.dig(:cloudflare, :secret_access_key) || 'x' %>
+  region: <%= Rails.application.credentials.dig(:cloudflare, :region) || 'x' %>
+  bucket: <%= Rails.application.credentials.dig(:cloudflare, :bucket) || 'x' %>
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
