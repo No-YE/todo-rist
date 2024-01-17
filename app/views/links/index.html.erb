@@ -24,9 +24,9 @@
           <div class="flex flex-row items-center">
             <label class="ml-2 relative inline-flex items-center h-max cursor-pointer">
               <%= f.check_box :read_at_null, { class: "sr-only peer", data: { action: 'change->search#search' } }, 1, nil %>
-              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 dark:peer-focus:ring-indigo-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-500"></div>
+              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 dark:peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-500"></div>
             </label>
-            <%= f.label :read_at_null, t('.exclude_read'), class: 'w-max ml-1 text-xs sm:text-sm font-base text-gray-900 dark:text-gray-300' %>
+            <%= f.label :read_at_null, t('.exclude_read'), class: 'w-max ml-1 text-xs sm:text-sm font-base text-gray-900' %>
           </div>
         </div>
       <% end %>
