@@ -34,7 +34,37 @@
           </div>
         <% end %>
       </div>
-      <div class="flex">
+
+      <div class="relative flex sm:hidden" data-controller="dropdown">
+        <button type="button" class="-m-2.5 block p-2.5 text-gray-400 hover:text-gray-500" data-action="dropdown#toggle click@window->dropdown#hide">
+          <span class="sr-only">Open options</span>
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M3 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM8.5 10a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.5 8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
+          </svg>
+        </button>
+
+        <div class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+             data-dropdown-target="menu"
+             data-transition-enter-from="opacity-0 scale-95"
+             data-transition-enter-to="opacity-100 scale-100"
+             data-transition-leave-from="opacity-100 scale-100"
+             data-transition-leave-to="opacity-0 scale-95">
+
+          <% if link.user_id == current_user&.id %>
+            <% if link.read? %>
+              <%= link_to t('.unread'), unread_link_path(link), class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left', data: { turbo_method: :put } %>
+            <% else %>
+              <%= link_to t('.read'), read_link_path(link), class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left', data: { turbo_method: :put } %>
+            <% end %>
+            <%= link_to t('.edit'), edit_link_path(link), class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left' %>
+            <%= link_to t('.delete'), link_path(link), class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left', data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
+          <% else %>
+            <%= link_to t('.clone_to_my'), clone_link_path(link), class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left', data: { turbo_method: :post } %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="hidden sm:flex">
         <% if link.user_id == current_user&.id %>
           <% if link.read? %>
             <%= link_to t('.unread'), unread_link_path(link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :put } %>
