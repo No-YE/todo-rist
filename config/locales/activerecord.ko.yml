@@ -6,7 +6,7 @@ ko:
     attributes:
       link:
         url: url
-        due_date: due date
+        due_date: 마감일
       users/reminder_setting:
         email: 이메일 알림
         schedule_days: 라마인드 요일

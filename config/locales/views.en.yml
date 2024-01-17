@@ -77,6 +77,9 @@ en:
       farthest_due_date: Farthest due date
     new:
       title: New link
+    edit:
+      title: Edit link
+    form:
       save: Save
       cancel: Cancel
     links:
@@ -87,6 +90,7 @@ en:
       loading: Loading...
       read: Read
       unread: Unread
+      edit: Edit
       delete: Delete
       confirm_delete: Are you sure you want to delete?
       clone_to_my: Copy to my todo

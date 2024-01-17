@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :reminder_settings, only: %i[create update]
   end
 
-  resources :links, only: %i[index show new create destroy] do
+  resources :links, only: %i[index new create edit update destroy] do
     collection do
       get 'others' => 'links#others'
     end

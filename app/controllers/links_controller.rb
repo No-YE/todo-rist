@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   include Searchable
 
   before_action :authenticate_user!
-  before_action :set_link, only: %i[destroy read unread]
+  before_action :set_link, only: %i[edit update destroy read unread]
 
   MAX_ITEMS = 20
 
@@ -18,8 +18,6 @@ class LinksController < ApplicationController
       format.json { render json: @links }
     end
   end
-
-  def show; end
 
   def others
     links_with_distinct_url = Link.select('DISTINCT ON (url) *')
@@ -42,6 +40,16 @@ class LinksController < ApplicationController
       redirect_to links_path
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @link.update(update_link_params)
+      redirect_to links_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -73,6 +81,10 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url, :due_date)
+  end
+
+  def update_link_params
+    params.require(:link).permit(:due_date)
   end
 
   def set_link

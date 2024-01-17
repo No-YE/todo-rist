@@ -77,6 +77,9 @@ ko:
       farthest_due_date: 기한 먼 순
     new:
       title: 링크 추가
+    edit:
+      title: 링크 수정
+    form:
       save: 저장
       cancel: 취소
     links:
@@ -87,6 +90,7 @@ ko:
       loading: 로딩중...
       read: 읽음
       unread: 안 읽음
+      edit: 수정
       delete: 삭제
       confirm_delete: 정말 삭제하시겠습니까?
       clone_to_my: 내 투두에 복사
