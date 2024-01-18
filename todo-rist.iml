@@ -121,6 +121,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="meta-tags (v2.20.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="metainspector (v5.15.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.12.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 3.2.2) [gem]" level="application" />
@@ -259,6 +260,7 @@
         <option value="job" />
         <option value="mailbox" />
         <option value="mailer" />
+        <option value="meta_tags:install" />
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
@@ -344,6 +346,7 @@
         <option value="job" />
         <option value="mailbox" />
         <option value="mailer" />
+        <option value="meta_tags:install" />
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
