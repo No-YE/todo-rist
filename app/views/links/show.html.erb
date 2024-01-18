@@ -1,0 +1,43 @@
+<article class="-mt-0.5 sm:mt-6 flex w-full justify-center">
+  <div class="max-w-3xl">
+    <%= link_to @link.title, @link.url, target: '_blank', class: 'font-bold text-gray-900 hover:text-gray-700 text-4xl sm:text-5xl leading-normal sm:leading-normal' %>
+
+    <div class="flex flex-row mt-2 text-sm sm:text-base">
+      <span class="text-gray-500">
+        <%= relative_time(@link.created_at) %>
+      </span>
+      <div class="ml-3 border-l border-gray-200 pl-3">
+        <%= link_until_due_date(@link.due_date) %>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <% if @link.image_url.present? %>
+        <%= image_tag @link.image_url, class: 'rounded-2xl mb-6' %>
+      <% end %>
+
+      <p class="text-gray-500 text-sm sm:text-base">
+        <%= @link.summary %>
+      </p>
+
+      <div class="flex mt-8 text-sm">
+        <% if @link.user_id == current_user&.id %>
+          <% if @link.read? %>
+            <%= link_to t('.unread'), unread_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :put } %>
+          <% else %>
+            <%= link_to t('.read'), read_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :put } %>
+          <% end %>
+
+          <div class="ml-3 border-l border-gray-200 pl-3">
+            <%= link_to t('.edit'), edit_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500' %>
+          </div>
+          <div class="ml-3 border-l border-gray-200 pl-3">
+            <%= link_to t('.delete'), link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
+          </div>
+        <% else %>
+          <%= link_to t('.clone_to_my'), clone_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :post } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</article>

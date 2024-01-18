@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   include Searchable
 
   before_action :authenticate_user!
-  before_action :set_link, only: %i[edit update destroy read unread]
+  before_action :set_link, only: %i[show edit update destroy read unread]
 
   MAX_ITEMS = 20
 
@@ -28,6 +28,8 @@ class LinksController < ApplicationController
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
+
+  def show; end
 
   def new
     @link = current_user.links.build
