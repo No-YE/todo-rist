@@ -4,7 +4,7 @@
       <% if link.completed? %>
         <span class="w-full h-32">
           <% if link.image_url.present? %>
-            <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain' %>
+            <%= image_tag link.image_url, class: 'mx-auto w-full h-32 flex-shrink-0 rounded-md object-contain', alt: 'link image' %>
           <% end %>
         </span>
         <h3 class="mt-6 text-center text-base font-medium text-gray-900">
