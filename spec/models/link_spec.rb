@@ -12,6 +12,11 @@ RSpec.describe Link, type: :model do
     it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:url) }
     it { is_expected.to validate_uniqueness_of(:url).scoped_to(:user_id) }
+    it do
+      is_expected.to validate_comparison_of(:due_date)
+        .is_greater_than_or_equal_to(Time.current.to_date)
+        .allow_nil
+    end
   end
 
   describe 'associations' do

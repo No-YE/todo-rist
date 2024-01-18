@@ -68,9 +68,12 @@ RSpec.describe LinksController, type: :request do
     let(:link_params) { { link: { url: 'https://example.com/2', due_date: '2024-01-01' } } }
 
     before do
+      travel_to Time.new(2021, 1, 1)
       sign_in user
       post links_path, params: link_params
     end
+
+    after { travel_back }
 
     it 'creates a new link' do
       expect(Link.last.url).to eq('https://example.com/2')
