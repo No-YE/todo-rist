@@ -12,8 +12,8 @@
     </span>
 
     <div class="flex flex-row py-0.5 text-sm">
-      <%= link_to t('.edit'), edit_link_record_path(@link, record), class: 'text-indigo-600 hover:text-indigo-500 pl-3', data: { turbo_stream: true } %>
-      <%= link_to t('.delete'), link_record_path(@link, record), class: 'text-indigo-600 hover:text-indigo-500 ml-3 border-l border-gray-200 pl-3', data: { turbo_stream: true, turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
+      <%= link_to t('.edit'), edit_link_records_path(@link), class: 'text-indigo-600 hover:text-indigo-500 pl-3', data: { turbo_stream: true } %>
+      <%= link_to t('.delete'), link_records_path(@link), class: 'text-indigo-600 hover:text-indigo-500 ml-3 border-l border-gray-200 pl-3', data: { turbo_stream: true, turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
     </div>
   </div>
 

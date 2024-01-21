@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
 
     scope module: :links do
-      resources :records, only: %i[show create edit update destroy]
+      resource :records, only: %i[show create edit update destroy]
     end
   end
 

@@ -8,13 +8,13 @@ class Links::RecordsController < ApplicationController
   def show; end
 
   def create
-    record = @link.build_record(record_params)
+    @record = @link.build_record(record_params)
 
-    if record.save
+    if @record.save
       flash.now[:notice] = t('.success')
       render_record
     else
-      flash.now[:alert] = record.errors.full_messages.first || t('.failure')
+      flash.now[:alert] = @record.errors.full_messages.first || t('.failure')
       render partial: 'shared/flash'
     end
   end
@@ -48,7 +48,7 @@ class Links::RecordsController < ApplicationController
   end
 
   def set_record
-    @record = Links::Record.find_by!(id: params[:id], link_id: @link.id)
+    @record = @link.record || @link.build_record
   end
 
   def record_params

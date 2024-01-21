@@ -41,7 +41,9 @@
         <% end %>
       </div>
 
-      <%= render @link.record || @link.build_record %>
+      <% if @link.user_id == current_user&.id %>
+        <%= render @link.record || @link.build_record %>
+      <% end %>
     </div>
   </div>
 </article>

@@ -3,8 +3,8 @@
 class LinksController < ApplicationController
   include Searchable
 
-  before_action :authenticate_user!
-  before_action :set_link, only: %i[show edit update destroy read unread]
+  before_action :authenticate_user!, except: %i[show]
+  before_action :set_link, only: %i[edit update destroy read unread]
 
   MAX_ITEMS = 20
 
@@ -29,7 +29,9 @@ class LinksController < ApplicationController
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
   end
 
-  def show; end
+  def show
+    @link = Link.kept.find(params[:id])
+  end
 
   def new
     @link = current_user.links.build
