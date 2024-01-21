@@ -75,6 +75,13 @@ en:
       oldest: Oldest
       closest_due_date: Closest due date
       farthest_due_date: Farthest due date
+    show:
+      read: Read
+      unread: Unread
+      edit: Edit
+      delete: Delete
+      confirm_delete: Are you sure you want to delete?
+      clone_to_my: Copy to my todo
     new:
       title: New link
     edit:
@@ -97,6 +104,28 @@ en:
     clone:
       success: Copied to my todo.
       failure: Failed to copy to my todo.
+    records:
+      create:
+        success: Record has been created.
+        failure: Failed to create record.
+      update:
+        success: Record has been updated.
+        failure: Failed to update record.
+      destroy:
+        success: Record has been deleted.
+        failure: Failed to delete record.
+      form:
+        title: Record
+        save: Save
+        cancel: Cancel
+        write: Write
+        preview: Preview
+        placeholder: Write a record...
+      show:
+        title: Record
+        edit: Edit
+        delete: Delete
+        confirm_delete: Are you sure you want to delete?
 
   notifications:
     index:

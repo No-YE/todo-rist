@@ -12,6 +12,9 @@ application.register('dropdown', Dropdown)
 import Notification from 'stimulus-notification'
 application.register('flash', Notification)
 
+import { Tabs } from 'tailwindcss-stimulus-components'
+application.register('tabs', Tabs)
+
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)

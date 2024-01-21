@@ -8,6 +8,7 @@ class Link < ApplicationRecord
   include Links::Remindable
 
   belongs_to :user
+  has_one :record, dependent: :destroy, class_name: 'Links::Record'
 
   validates :url, presence: true, uniqueness: { scope: :user_id }
   validates :user_id, presence: true
@@ -18,7 +19,11 @@ class Link < ApplicationRecord
   after_update_commit do
     broadcast_replace_to 'links', locals: { link: self, current_user: user }
   end
-  after_discard -> { broadcast_remove_to 'links' }
+  after_discard do
+    broadcast_remove_to 'links'
+    record&.discard
+  end
+  after_undiscard -> { record&.undiscard }
 
   def clone(user_id)
     dup.tap do |link|

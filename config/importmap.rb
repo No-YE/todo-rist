@@ -11,3 +11,5 @@ pin 'stimulus-dropdown', to: 'https://ga.jspm.io/npm:stimulus-dropdown@2.1.0/dis
 pin 'hotkeys-js', to: 'https://ga.jspm.io/npm:hotkeys-js@3.13.3/dist/hotkeys.esm.js'
 pin 'stimulus-use', to: 'https://ga.jspm.io/npm:stimulus-use@0.51.3/dist/index.js'
 pin 'stimulus-notification', to: 'https://ga.jspm.io/npm:stimulus-notification@2.2.0/dist/stimulus-notification.mjs'
+pin 'tailwindcss-stimulus-components', to: 'https://ga.jspm.io/npm:tailwindcss-stimulus-components@4.0.4/dist/tailwindcss-stimulus-components.module.js'
+pin 'marked', to: 'https://ga.jspm.io/npm:marked@11.1.1/lib/marked.esm.js'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_12_090137) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_18_143446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -133,6 +133,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_090137) do
     t.datetime "read_at", precision: nil
     t.index ["discarded_at"], name: "index_links_on_discarded_at"
     t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "links_records", force: :cascade do |t|
+    t.bigint "link_id", null: false
+    t.text "content", null: false
+    t.datetime "discarded_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_links_records_on_discarded_at"
+    t.index ["link_id"], name: "index_links_records_on_link_id", unique: true
   end
 
   create_table "motor_alert_locks", force: :cascade do |t|

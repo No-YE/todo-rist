@@ -6,14 +6,16 @@
       <span class="text-gray-500">
         <%= relative_time(@link.created_at) %>
       </span>
-      <div class="ml-3 border-l border-gray-200 pl-3">
-        <%= link_until_due_date(@link.due_date) %>
-      </div>
+      <% if @link.due_date.present? %>
+        <div class="ml-3 border-l border-gray-200 pl-3">
+          <%= link_until_due_date(@link.due_date) %>
+        </div>
+      <% end %>
     </div>
 
     <div class="mt-12">
       <% if @link.image_url.present? %>
-        <%= image_tag @link.image_url, class: 'rounded-2xl mb-6' %>
+        <%= image_tag @link.image_url, class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
       <% end %>
 
       <p class="text-gray-500 text-sm sm:text-base">
@@ -38,6 +40,8 @@
           <%= link_to t('.clone_to_my'), clone_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :post } %>
         <% end %>
       </div>
+
+      <%= render @link.record || @link.build_record %>
     </div>
   </div>
 </article>

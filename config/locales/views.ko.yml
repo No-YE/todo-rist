@@ -75,6 +75,13 @@ ko:
       oldest: 오래된 순
       closest_due_date: 기한 가까운 순
       farthest_due_date: 기한 먼 순
+    show:
+      read: 읽음
+      unread: 안 읽음
+      edit: 수정
+      delete: 삭제
+      confirm_delete: 정말 삭제하시겠습니까?
+      clone_to_my: 내 투두에 복사
     new:
       title: 링크 추가
     edit:
@@ -97,6 +104,28 @@ ko:
     clone:
       success: 내 투두에 복사되었습니다.
       failure: 내 투두에 복사하는데 실패했습니다.
+    records:
+      create:
+        success: 기록이 저장되었습니다.
+        failure: 기록을 저장하는데 실패했습니다.
+      update:
+        success: 기록이 저장되었습니다.
+        failure: 기록을 저장하는데 실패했습니다.
+      destroy:
+        success: 기록이 삭제되었습니다.
+        failure: 기록을 삭제하는데 실패했습니다.
+      form:
+        title: 기록
+        save: 저장
+        cancel: 취소
+        write: 기록하기
+        preview: 미리보기
+        placeholder: 기록을 입력하세요.
+      show:
+        title: 기록
+        edit: 수정
+        delete: 삭제
+        confirm_delete: 정말 삭제하시겠습니까?
 
   notifications:
     index:

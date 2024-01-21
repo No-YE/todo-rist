@@ -1,0 +1,22 @@
+<%# locals: (record:) %>
+
+<div class="border-t border-gray-900/10 mt-12 pt-12 flex justify-between">
+  <h1 class="text-base sm:text-lg font-medium"><%= t '.title' %></h1>
+
+</div>
+
+<div class="mt-3 ring-1 ring-inset ring-gray-300 rounded-md space" data-controller="markdown-preview">
+  <div class="flex flex-row justify-between p-3 bg-gray-100 ring-1 ring-inset ring-gray-300 rounded-t-md">
+    <span class="text-gray-500 text-sm">
+      <%= relative_time(@link.created_at) %>
+    </span>
+
+    <div class="flex flex-row py-0.5 text-sm">
+      <%= link_to t('.edit'), edit_link_record_path(@link, record), class: 'text-indigo-600 hover:text-indigo-500 pl-3', data: { turbo_stream: true } %>
+      <%= link_to t('.delete'), link_record_path(@link, record), class: 'text-indigo-600 hover:text-indigo-500 ml-3 border-l border-gray-200 pl-3', data: { turbo_stream: true, turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
+    </div>
+  </div>
+
+  <%= hidden_field :record, :content, value: record.content, data: { markdown_preview_target: 'input' } %>
+  <div class="prose max-w-full w-full p-4" data-markdown-preview-target="output"></div>
+</div>
