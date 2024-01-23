@@ -81,7 +81,7 @@ RSpec.describe LinksController, type: :request do
     end
 
     it 'redirects to links_path' do
-      expect(response).to redirect_to(links_path)
+      expect(response).to redirect_to(link_path(Link.last))
     end
 
     context 'when link is invalid' do

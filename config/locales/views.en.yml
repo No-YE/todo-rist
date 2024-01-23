@@ -84,8 +84,14 @@ en:
       clone_to_my: Copy to my todo
     new:
       title: New link
+    create:
+      success: Link has been created.
+      failure: Failed to create link.
     edit:
       title: Edit link
+    update:
+      success: Link has been updated.
+      failure: Failed to update link.
     form:
       save: Save
       cancel: Cancel

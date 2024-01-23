@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :links, only: %i[index show new create edit update destroy] do
     collection do
       get 'others' => 'links#others'
+      get 'tags' => 'links#tags'
     end
     member do
       put 'read' => 'links#read'

@@ -13,7 +13,9 @@
       <% end %>
     </div>
 
-    <div class="mt-12">
+    <%= render 'tags' %>
+
+    <div class="mt-6 sm:mt-12">
       <% if @link.image_url.present? %>
         <%= image_tag @link.image_url, class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
       <% end %>

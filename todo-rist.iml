@@ -39,6 +39,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="acts-as-taggable-on (v10.0.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.5, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ar_lazy_preload (v1.1.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, rbenv: 3.2.2) [gem]" level="application" />
@@ -443,6 +444,30 @@
               <RakeTaskImpl description="" fullCommand="active_storage:update" id="update" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="acts_as_taggable_on">
+            <subtasks>
+              <RakeTaskImpl id="sharded_db">
+                <subtasks>
+                  <RakeTaskImpl description="Install initializer setting custom base class" fullCommand="acts_as_taggable_on:sharded_db:install_initializer" id="install_initializer" />
+                </subtasks>
+              </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="acts_as_taggable_on_engine">
+            <subtasks>
+              <RakeTaskImpl id="install">
+                <subtasks>
+                  <RakeTaskImpl description="Copy migrations from acts_as_taggable_on_engine to application" fullCommand="acts_as_taggable_on_engine:install:migrations" id="migrations" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl id="tag_names">
+                <subtasks>
+                  <RakeTaskImpl description="Forcing collate of tag names to utf8_bin" fullCommand="acts_as_taggable_on_engine:tag_names:collate_bin" id="collate_bin" />
+                  <RakeTaskImpl description="Forcing collate of tag names to utf8_general_ci" fullCommand="acts_as_taggable_on_engine:tag_names:collate_ci" id="collate_ci" />
+                </subtasks>
+              </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="app">
             <subtasks>
               <RakeTaskImpl description="Apply the template supplied by LOCATION=(/path/to/template) or URL" fullCommand="app:template" id="template" />
@@ -731,6 +756,8 @@
               <RakeTaskImpl description="Check project structure for Zeitwerk compatibility" fullCommand="zeitwerk:check" id="check" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl description="" fullCommand="config" id="config" />
+          <RakeTaskImpl description="" fullCommand="config/initializers" id="config/initializers" />
           <RakeTaskImpl description="" fullCommand="default" id="default" />
           <RakeTaskImpl description="" fullCommand="environment" id="environment" />
           <RakeTaskImpl id="railties">

@@ -1,5 +1,7 @@
 <%# locals: (link:, title:) %>
 
+<link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
+
 <div class="flex justify-center w-full">
   <%= form_for link, html: { class: 'w-full max-w-3xl' } do |f| %>
     <div class="space-y-12">
@@ -28,6 +30,17 @@
               <% if @link.errors.full_messages_for(:due_date).present? %>
                 <p class="mt-2 text-sm text-red-600"><%= @link.errors.full_messages_for(:due_date).first %></p>
               <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4 link-form">
+            <%= f.label :tag_list %>
+            <div class="mt-2">
+              <%= f.select :tag_list,
+                           link.tag_list,
+                           { multiple: true },
+                           class: 'hidden',
+                           data: { controller: 'slim', slim_search_url_value: '/links/tags.json' } %>
             </div>
           </div>
         </div>

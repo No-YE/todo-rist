@@ -84,8 +84,14 @@ ko:
       clone_to_my: 내 투두에 복사
     new:
       title: 링크 추가
+    create:
+      success: 링크가 추가되었습니다.
+      failure: 링크를 추가하는데 실패했습니다.
     edit:
       title: 링크 수정
+    update:
+      success: 링크가 수정되었습니다.
+      failure: 링크를 수정하는데 실패했습니다.
     form:
       save: 저장
       cancel: 취소

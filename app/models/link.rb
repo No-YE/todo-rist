@@ -16,6 +16,8 @@ class Link < ApplicationRecord
             comparison: { greater_than_or_equal_to: -> { Time.current.to_date }, allow_nil: true },
             if: :due_date_changed?
 
+  acts_as_taggable_on :tags
+
   after_update_commit do
     broadcast_replace_to 'links', locals: { link: self, current_user: user }
   end
@@ -24,6 +26,8 @@ class Link < ApplicationRecord
     record&.discard
   end
   after_undiscard -> { record&.undiscard }
+
+  scope :tags_with, ->(tag) { kept.tag_counts_on(:tags).where('tags.name ILIKE ?', "%#{tag}%") }
 
   def clone(user_id)
     dup.tap do |link|

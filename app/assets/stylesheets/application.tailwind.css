@@ -44,3 +44,13 @@
 .page.active {
   @apply relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-medium text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
+
+/* for slim select */
+.ss-main {
+  @apply p-1.5;
+}
+
+* {
+  --ss-primary-color: #4f46e5; /* indigo-600 */
+  --ss-spacing-s: 6px;
+}

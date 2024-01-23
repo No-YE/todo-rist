@@ -41,8 +41,10 @@ class LinksController < ApplicationController
     @link = current_user.links.build(link_params)
 
     if @link.save
-      redirect_to links_path
+      flash[:notice] = t('.success')
+      redirect_to link_path(@link)
     else
+      flash.now[:alert] = @link.errors.full_messages.first || t('.failure')
       render :new, status: :unprocessable_entity
     end
   end
@@ -51,8 +53,10 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(update_link_params)
-      redirect_to links_path
+      flash[:notice] = t('.success')
+      redirect_to link_path(@link)
     else
+      flash.now[:alert] = @link.errors.full_messages.first || t('.failure')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -81,14 +85,28 @@ class LinksController < ApplicationController
     render partial: 'shared/flash'
   end
 
+  def tags
+    @tags = Link.tags_with(params[:q])
+                .order(taggings_count: :desc)
+                .limit(10)
+                .pluck(:name)
+    @tags.unshift(params[:q]) if @tags.exclude?(params[:q])
+
+    respond_to do |format|
+      format.json do
+        render json: @tags.map { |tag| { value: tag, text: tag } }
+      end
+    end
+  end
+
   private
 
   def link_params
-    params.require(:link).permit(:url, :due_date)
+    params.require(:link).permit(:url, :due_date, tag_list: [])
   end
 
   def update_link_params
-    params.require(:link).permit(:due_date)
+    params.require(:link).permit(:due_date, tag_list: [])
   end
 
   def set_link

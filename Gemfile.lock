@@ -81,6 +81,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    acts-as-taggable-on (10.0.0)
+      activerecord (>= 6.1, < 7.2)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     ar_lazy_preload (1.1.2)
@@ -543,6 +545,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
+  acts-as-taggable-on
   aws-sdk-s3
   bootsnap
   capybara
