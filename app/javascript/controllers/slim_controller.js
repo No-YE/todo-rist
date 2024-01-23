@@ -9,7 +9,6 @@ export default class extends Controller {
       select: this.element,
       events: {
         search: async (search, currentData) => {
-          console.log('searching for', search)
           const response = await fetch(this.searchUrlValue + '?q=' + search)
           const data = await response.json()
 
