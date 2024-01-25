@@ -24,7 +24,12 @@ class Users::ReminderSetting < Users::ApplicationRecord
   def schedule_job
     GoodJob::Job.where(id: next_remind_job_id).destroy_all
 
-    job = Links::RemindJob.set(wait_until: schedule.next_occurring).perform_later(self)
-    update_column :next_remind_job_id, job.job_id
+    next_occurring = schedule.next_occurring
+    if next_occurring.present?
+      job = Links::RemindJob.set(wait_until: next_occurring).perform_later(self)
+      update_column :next_remind_job_id, job.job_id
+    else
+      update_column :next_remind_job_id, nil
+    end
   end
 end
