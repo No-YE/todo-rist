@@ -20,10 +20,11 @@ class Link < ApplicationRecord
 
   after_update_commit do
     broadcast_replace_to 'links', locals: { link: self, current_user: user }
+    broadcast_update_to self, locals: { link: self, current_user: user }, partial: 'links/show'
   end
   after_discard do
     broadcast_remove_to 'links'
-    record&.discard
+    record.discard if record&.persisted?
   end
   after_undiscard -> { record&.undiscard }
 

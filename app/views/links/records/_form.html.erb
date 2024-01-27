@@ -1,11 +1,11 @@
-<%# locals: (record:) %>
+<%# locals: (record:, link:) %>
 
 <div class="border-t border-gray-900/10 mt-12 pt-12">
   <h1 class="text-base sm:text-lg font-medium"><%= t '.title' %></h1>
 </div>
 
 <%= form_with model: record,
-              url: link_records_path(@link),
+              url: link_records_path(link),
               class: 'mt-4 space-y-6',
               data: {
                 controller: 'tabs',
@@ -45,7 +45,7 @@
   </div>
 
   <div class="flex justify-end gap-x-6 items-center">
-    <%= link_to t('.cancel'), link_records_path(@link), class: 'text-sm font-semibold leading-6 text-gray-900', data: { turbo_stream: true } %>
+    <%= link_to t('.cancel'), link_records_path(link), class: 'text-sm font-semibold leading-6 text-gray-900', data: { turbo_stream: true } %>
     <%= f.submit t('.save'), class: 'cursor-pointer inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
   </div>
 <% end %>

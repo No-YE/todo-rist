@@ -1,9 +1,9 @@
-<%# locals: (record:) %>
+<%# locals: (link:, record:) %>
 
-<%= turbo_frame_tag @link, 'record' do %>
+<%= turbo_frame_tag link, 'record' do %>
   <% if record.persisted? %>
-    <%= render 'links/records/show', record: %>
+    <%= render 'links/records/show', record:, link: %>
   <% else %>
-    <%= render 'links/records/form', record: %>
+    <%= render 'links/records/form', record:, link: %>
   <% end %>
 <% end %>
