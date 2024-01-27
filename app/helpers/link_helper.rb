@@ -46,4 +46,8 @@ module LinkHelper
 
     [@q.sorts.first.name, @q.sorts.first.dir].join(' ')
   end
+
+  def link_image(url)
+    url.presence || asset_path('default_background.png')
+  end
 end
