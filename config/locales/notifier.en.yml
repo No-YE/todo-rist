@@ -1,0 +1,7 @@
+en:
+  notifiers:
+    links:
+      remind_notifier:
+        notification:
+          title: You have links that are about to expire.
+          description: "%{count} links are about to expire. Read them before they expire."

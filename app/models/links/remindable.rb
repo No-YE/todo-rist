@@ -4,7 +4,12 @@ module Links::Remindable
   extend ActiveSupport::Concern
 
   included do
-    scope :remind_target,
-          ->(criteria_days) { where(due_date: ..criteria_days.days.from_now.to_date) }
+    scope :remind_target, ->(criteria_days) do
+      unread.where(due_date: ..criteria_days.days.from_now.to_date).order(due_date: :asc)
+    end
+  end
+
+  def to_remind_info
+    Links::RemindInfo.new(id:, title:, due_date:, url:, created_at:)
   end
 end

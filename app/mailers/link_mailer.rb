@@ -4,8 +4,9 @@ class LinkMailer < ApplicationMailer
   helper :link
 
   def remind
+    @notification = params[:notification]
     @recipient = params[:recipient]
-    @links = params[:links]
+    @remind_infos = params[:remind_infos]
     mail(subject: @notification.title)
   end
 end

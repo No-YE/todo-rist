@@ -3,6 +3,11 @@
 module Links::Readable
   extend ActiveSupport::Concern
 
+  included do
+    scope :read, -> { where.not(read_at: nil) }
+    scope :unread, -> { where(read_at: nil) }
+  end
+
   def read!
     update!(read_at: Time.current)
   end

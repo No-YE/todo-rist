@@ -1,6 +1,0 @@
-ko:
-  notifications:
-    links:
-      remind_notification:
-        title: 마감기한이 얼마 남지 않은 링크가 있어요.
-        description: "%{count}개 링크의 마감기한이 얼마 남지 않았습니다. 마감기한이 지나기 전에 읽어보세요."

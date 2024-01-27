@@ -30,3 +30,6 @@ Style/TrailingCommaInArguments:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Style/Lambda:
+  Enabled: false

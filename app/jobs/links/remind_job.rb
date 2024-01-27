@@ -9,8 +9,10 @@ class Links::RemindJob < ApplicationJob
   )
 
   def perform(reminder_setting)
-    links = Link.remind_target(reminder_setting.criteria_days)
-    Links::RemindNotification.with(links:, reminder_setting:).deliver(reminder_setting.user)
+    remind_infos = Link.remind_target(reminder_setting.criteria_days).map(&:to_remind_info)
+    Links::RemindNotifier
+      .with(remind_infos:, email_notification: reminder_setting.email?)
+      .deliver(reminder_setting.user)
 
     reminder_setting.schedule_job
   end

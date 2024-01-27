@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = current_user.notifications.order(id: :desc).map(&:to_notification)
-    current_user.notifications.unread.mark_as_read!
+    @notifications = current_user.notifications.order(id: :desc).includes(:event)
+    current_user.notifications.unread.mark_as_read
   end
 end

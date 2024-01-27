@@ -3,7 +3,7 @@
     <%= remind_notification.title %>
   </h1>
   <ul class="text-sm mt-2">
-    <% remind_notification.links.each do |link| %>
+    <% remind_notification.remind_infos.each do |link| %>
       <li class="leading-6">
         <%= link_to link.title, link.url, class: 'text-indigo-600 hover:text-indigo-500' %>
         <span>
@@ -14,7 +14,7 @@
   </ul>
   <div class="mt-2">
     <p class="text-sm text-gray-500">
-      <%= relative_time(remind_notification.record.created_at) %>
+      <%= relative_time(remind_notification.created_at) %>
     </p>
   </div>
 </li>
