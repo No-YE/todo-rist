@@ -74,4 +74,36 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#as_json' do
+    let(:user) { create(:user) }
+
+    it 'returns the correct attributes' do
+      expect(user.as_json).to eq(
+        'id' => user.id,
+        'name' => user.name,
+        'email' => user.email,
+        'image' => user.image,
+        'provider' => user.provider,
+        'uid' => user.uid,
+        'locale' => user.locale,
+        'created_at' => user.created_at.iso8601(3),
+        'updated_at' => user.updated_at.iso8601(3),
+      )
+    end
+  end
+
+  describe '#attach_avatar_from' do
+    let_it_be(:user) { create(:user) }
+    let(:url) { 'https://meme.eq8.eu/noidea.jpg' }
+
+    it 'attaches the avatar' do
+      expect { user.attach_avatar_from(url) }.to change { user.avatar.attached? }.to(true)
+    end
+
+    it 'attaches the correct image' do
+      expect { user.attach_avatar_from(url) }
+        .to change { user.avatar.filename.to_s }.to('noidea.jpg')
+    end
+  end
 end

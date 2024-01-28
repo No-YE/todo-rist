@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def as_json(options = {})
-    super(options.merge(except: %i[password password_confirmation]))
+    super(options.merge(except: %i[admin password password_confirmation discarded_at]))
   end
 
   private
