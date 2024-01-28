@@ -9,10 +9,6 @@ module Links::Remindable
     end
   end
 
-  def must_read?
-    unread? && due_date.present?
-  end
-
   def to_remind_info
     Links::RemindInfo.new(id:, title:, due_date:, url:, created_at:)
   end

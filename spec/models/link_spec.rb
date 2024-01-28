@@ -115,4 +115,35 @@ RSpec.describe Link, type: :model do
       expect { link.unread! }.to change { link.read_at }.to(nil)
     end
   end
+
+  describe '#must_read?' do
+    subject { link.must_read? }
+
+    context 'when the link is read' do
+      before do
+        link.read!
+      end
+
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when the link is unread and has a due_date' do
+      let_it_be(:link) { create(:link, due_date: Time.current) }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
+  describe '#to_remind_info' do
+    subject { link.to_remind_info }
+
+    it { is_expected.to be_a(Links::RemindInfo) }
+  end
+
+  describe '#scrap_now' do
+    it 'calls the Links::ScrapingJob' do
+      expect_any_instance_of(Links::ScrapingJob).to receive(:perform_now)
+      link.scrap_now
+    end
+  end
 end

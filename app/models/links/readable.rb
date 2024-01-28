@@ -23,4 +23,8 @@ module Links::Readable
   def unread?
     !read?
   end
+
+  def must_read?
+    unread? && due_date.present?
+  end
 end
