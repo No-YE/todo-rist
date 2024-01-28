@@ -12,12 +12,8 @@
       <% end %>
 
       <%= link_to root_path, class: 'flex flex-column items-center p-1.5 -m-1.5' do %>
-        <span class="w-8 h-8">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
-        </span>
-        <span class="font-semibold text-2xl hidden md:flex ml-2">
-          TodoRist
-        </span>
+        <%= image_tag 'logo_lg.svg', class: 'hidden sm:inline-block' %>
+        <%= image_tag 'logo_sm.svg', class: 'inline-block sm:hidden' %>
       <% end %>
     </div>
 
