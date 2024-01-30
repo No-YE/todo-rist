@@ -10,7 +10,7 @@ class Users::ReminderSetting < Users::ApplicationRecord
   validates :criteria_days,
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :email, inclusion: { in: [true, false] }
+  validates :email, presence: true, inclusion: { in: [true, false] }
   validates :user, presence: true
   validates :schedule_days,
             inclusion: { in: DateAndTime::Calculations::DAYS_INTO_WEEK.stringify_keys.keys }
