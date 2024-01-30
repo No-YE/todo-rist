@@ -14,3 +14,4 @@ pin 'stimulus-notification', to: 'https://ga.jspm.io/npm:stimulus-notification@2
 pin 'tailwindcss-stimulus-components', to: 'https://ga.jspm.io/npm:tailwindcss-stimulus-components@4.0.4/dist/tailwindcss-stimulus-components.module.js'
 pin 'marked', to: 'https://ga.jspm.io/npm:marked@11.1.1/lib/marked.esm.js'
 pin 'slim-select', to: 'https://ga.jspm.io/npm:slim-select@2.8.1/dist/slimselect.js'
+pin '@github/relative-time-element', to: 'https://ga.jspm.io/npm:@github/relative-time-element@4.3.1/dist/index.js'

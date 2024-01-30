@@ -32,3 +32,6 @@ en:
     some_ago: "%{value} ago"
     some_left: "%{value} left"
     overdue: Overdue
+
+  relative_time:
+    prefix: on

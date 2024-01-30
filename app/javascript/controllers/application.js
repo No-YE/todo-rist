@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import '@github/relative-time-element'
 
 const application = Application.start()
 
