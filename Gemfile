@@ -116,6 +116,8 @@ group :test do
   gem 'shoulda-matchers', '~> 6.0'
   gem 'test-prof', '~> 1.0'
 
+  gem 'rspec-parameterized', '>= 1.0.0'
+
   gem 'simplecov', require: false
   gem 'simplecov-small-badge', require: false
 end

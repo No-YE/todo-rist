@@ -5,7 +5,7 @@ class Users::ReminderSetting < Users::ApplicationRecord
 
   composed_of :schedule,
               class_name: 'Users::Schedule',
-              mapping: [%w[schedule_days days], %w[schedule_time time]]
+              mapping: { schedule_days: :days, schedule_time: :time }
 
   validates :criteria_days,
             presence: true,
