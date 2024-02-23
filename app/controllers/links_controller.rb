@@ -15,6 +15,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('links', partial: 'links') }
       format.json { render json: @links }
     end
   end
