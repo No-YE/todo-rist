@@ -42,11 +42,21 @@ class LinksController < ApplicationController
     @link = current_user.links.build(link_params)
 
     if @link.save
-      flash[:notice] = t('.success')
-      redirect_to link_path(@link)
+      respond_to do |format|
+        format.json { render json: @link }
+        format.any do
+          flash[:notice] = t('.success')
+          redirect_to link_path(@link)
+        end
+      end
     else
-      flash.now[:alert] = @link.errors.full_messages.first || t('.failure')
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.json { render json: @link.errors.full_messages, status: :unprocessable_entity }
+        format.any do
+          flash.now[:alert] = @link.errors.full_messages.first || t('.failure')
+          render :new, status: :unprocessable_entity
+        end
+      end
     end
   end
 

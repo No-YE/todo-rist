@@ -8,9 +8,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
 
-      redirect_to direct_close_path and return if omniauth_params[:chrome_extension] == 'true'
-
-      sign_in_and_redirect @user, event: :authentication
+      if omniauth_params[:chrome_extension] == 'true'
+        sign_in @user
+        redirect_to direct_close_path and return if omniauth_params[:chrome_extension] == 'true'
+      else
+        sign_in_and_redirect @user, event: :authentication
+      end
     else
       session['devise.google_data'] = request.env['omniauth.auth'].except('extra')
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
