@@ -19,8 +19,8 @@
 
     <% if user_signed_in? %>
       <div class="hidden sm:flex sm:gap-x-12 sm:items-center">
-        <%= link_to t('layout.header.my_rist'), links_path, class: "text-sm font-semibold leading-6 #{current_page?(controller: '/links', action: 'index') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}" %>
-        <%= link_to t('layout.header.others_rist'), others_links_path, class: "text-sm font-semibold leading-6 #{current_page?(controller: '/links', action: 'others') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}" %>
+        <%= link_to t('.my_rist'), links_path, class: "text-sm font-semibold leading-6 #{current_page?(controller: '/links', action: 'index') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}" %>
+        <%= link_to t('.others_rist'), others_links_path, class: "text-sm font-semibold leading-6 #{current_page?(controller: '/links', action: 'others') ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}" %>
       </div>
     <% end %>
 
@@ -32,8 +32,7 @@
 
   <div class="hidden sm:hidden flow-root px-2" data-collapse-target="collapse">
     <div class="divide-y divide-gray-500/10 mb-2 -mt-4">
-      <%= link_to t('layout.header.my_rist'), links_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50 #{current_page?(controller: '/links', action: 'index') ? 'bg-gray-100' : 'bg-white'}" %>
-      <%= link_to t('layout.header.others_rist'), others_links_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50 #{current_page?(controller: '/links', action: 'others') ? 'bg-gray-100' : 'bg-white'}" %>
-    </div>
+      <%= link_to t('.my_rist'), links_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50 #{current_page?(controller: '/links', action: 'index') ? 'bg-gray-100' : 'bg-white'}" %>
+      <%= link_to t('.others_rist'), others_links_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50 #{current_page?(controller: '/links', action: 'others') ? 'bg-gray-100' : 'bg-white'}" %> </div>
   </div>
 </nav>

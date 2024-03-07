@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root 'root#index'
   get 'direct_close' => 'root#direct_close', as: :direct_close
+  get 'tos' => 'root#tos', as: :tos
+  get 'privacy_policy' => 'root#privacy_policy', as: :privacy_policy
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 

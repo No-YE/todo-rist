@@ -10,4 +10,12 @@ class RootController < ApplicationController
   def direct_close
     render layout: false
   end
+
+  def tos
+    redirect_to Settings.tos.url, allow_other_host: true
+  end
+
+  def privacy_policy
+    redirect_to Settings.privacy_policy.url, allow_other_host: true
+  end
 end

@@ -18,16 +18,16 @@
            data-transition-enter-to="opacity-100 scale-100"
            data-transition-leave-from="opacity-100 scale-100"
            data-transition-leave-to="opacity-0 scale-95">
-        <%= link_to t('layout.header.setting'), general_settings_path, class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left' %>
-        <%= button_to t('layout.header.sign_out'),
+        <%= link_to t('.setting'), general_settings_path, class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left' %>
+        <%= button_to t('.sign_out'),
                       destroy_user_session_path,
                       method: :delete,
                       class: 'block px-4 py-2 text-sm text-gray-700 w-full text-left',
-                      data: { turbo: false, action: 'dropdown#toggle', confirm: t('layout.header.confirm_sign_out') } %>
+                      data: { turbo: false, action: 'dropdown#toggle', confirm: t('.confirm_sign_out') } %>
       </div>
     </div>
   <% else %>
-    <%= button_to t('layout.header.sign_in'),
+    <%= button_to t('.sign_in'),
                   user_google_oauth2_omniauth_authorize_path,
                   method: :post,
                   class: 'text-base font-medium leading-6 text-gray-900',

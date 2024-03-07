@@ -1,14 +1,18 @@
 ko:
-  layout:
+  layouts:
     header:
+      withdrawal: 탈퇴
+      my_rist: 내 리스트
+      others_rist: 다른 사람들의 리스트
+    avatar:
       sign_in: 로그인
       sign_out: 로그아웃
       confirm_sign_out: 로그아웃 하시겠습니까?
-      withdrawal: 탈퇴
       confirm_withdrawal: 정말 탈퇴하시겠습니까?
-      my_rist: 내 리스트
-      others_rist: 다른 사람들의 리스트
       setting: 설정
+    footer:
+      tos: 이용약관
+      privacy: 개인정보 처리방침
   root:
     index:
       title_html: Summary first,<br>Read later
