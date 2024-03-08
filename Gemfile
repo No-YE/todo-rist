@@ -70,8 +70,6 @@ gem 'metainspector'
 
 gem 'rails-i18n'
 
-gem 'rbs_rails', require: false
-
 gem 'ransack'
 
 gem 'rack-cors'

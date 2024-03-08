@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    abbrev (0.1.2)
     actioncable (7.1.3.2)
       actionpack (= 7.1.3.2)
       activesupport (= 7.1.3.2)
@@ -413,11 +412,6 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
-    rbs (3.4.0)
-      abbrev
-    rbs_rails (0.12.0)
-      parser
-      rbs (>= 1)
     rdoc (6.6.2)
       psych (>= 4.0.0)
     redis (5.0.8)
@@ -601,7 +595,6 @@ DEPENDENCIES
   rails (~> 7.1.2)
   rails-i18n
   ransack
-  rbs_rails
   redis (>= 4.0.1)
   rspec-parameterized (>= 1.0.0)
   rspec-rails (~> 6.1.0)

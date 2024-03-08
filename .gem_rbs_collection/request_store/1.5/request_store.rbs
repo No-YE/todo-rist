@@ -1,6 +1,0 @@
-module RequestStore
-  def self.store: () -> Hash[untyped, untyped]
-  def self.[]: (untyped) -> untyped
-  def self.[]=: (untyped) -> void
-  def self.fetch: (untyped) { () -> void } -> untyped
-end
