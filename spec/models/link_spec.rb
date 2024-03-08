@@ -100,8 +100,7 @@ RSpec.describe Link, type: :model do
   end
 
   describe '#read!' do
-    before { travel_to Time.current }
-    after { travel_back }
+    before { freeze_time }
 
     it 'sets the read_at to the current time' do
       expect { link.read! }.to change { link.read_at }.from(nil).to(Time.current)

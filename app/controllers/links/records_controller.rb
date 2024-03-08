@@ -7,6 +7,8 @@ class Links::RecordsController < ApplicationController
 
   def show; end
 
+  def edit; end
+
   def create
     @record = @link.build_record(record_params)
 
@@ -18,8 +20,6 @@ class Links::RecordsController < ApplicationController
       render partial: 'shared/flash'
     end
   end
-
-  def edit; end
 
   def update
     if @record.update(record_params)

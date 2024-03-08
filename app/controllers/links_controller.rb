@@ -38,6 +38,8 @@ class LinksController < ApplicationController
     @link = current_user.links.build
   end
 
+  def edit; end
+
   def create
     @link = current_user.links.build(link_params)
 
@@ -59,8 +61,6 @@ class LinksController < ApplicationController
       end
     end
   end
-
-  def edit; end
 
   def update
     if @link.update(update_link_params)

@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Premailer::Rails.config.merge!(rule_set_exceptions: false)
+Premailer::Rails.config[:rule_set_exceptions] = false

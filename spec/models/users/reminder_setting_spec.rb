@@ -74,7 +74,6 @@ RSpec.describe Users::ReminderSetting, type: :model do
 
     context 'when schedule_days is present' do
       before { travel_to Time.zone.parse('2023-01-01 9:00') }
-      after { travel_back }
 
       where(:schedule_days, :schedule_time, :next_occurring) do
         [

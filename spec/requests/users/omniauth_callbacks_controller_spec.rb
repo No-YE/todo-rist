@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Users::OmniauthCallbacksController, type: :request do
+RSpec.describe Users::OmniauthCallbacksController do
   describe 'GET /index' do
     let(:omniauth_params) do
       {

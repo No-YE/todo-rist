@@ -11,16 +11,16 @@ class Users::ReminderSetting < Users::ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :email, presence: true, inclusion: { in: [true, false] }
-  validates :user, presence: true
   validates :schedule_days,
             inclusion: { in: DateAndTime::Calculations::DAYS_INTO_WEEK.stringify_keys.keys }
   validates :schedule_time, presence: true
 
-  before_validation -> { schedule_days.reject!(&:blank?) }
+  before_validation -> { schedule_days.compact_blank! }
 
   after_save_commit :schedule_job,
                     if: -> { saved_change_to_schedule_days? || saved_change_to_schedule_time? }
 
+  # rubocop:disable Rails/SkipsModelValidations
   def schedule_job
     GoodJob::Job.where(id: next_remind_job_id).destroy_all
 
@@ -32,4 +32,5 @@ class Users::ReminderSetting < Users::ApplicationRecord
       update_column :next_remind_job_id, nil
     end
   end
+  # rubocop:enable Rails/SkipsModelValidations
 end

@@ -10,8 +10,9 @@ class Link < ApplicationRecord
   belongs_to :user
   has_one :record, dependent: :destroy, class_name: 'Links::Record'
 
+  # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :url, presence: true, uniqueness: { scope: :user_id }
-  validates :user_id, presence: true
+  # rubocop:enable Rails/UniqueValidationWithoutIndex
   validates :due_date,
             comparison: { greater_than_or_equal_to: -> { Time.current.to_date }, allow_nil: true },
             if: :due_date_changed?
