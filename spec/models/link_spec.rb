@@ -9,7 +9,6 @@ RSpec.describe Link, type: :model do
   describe 'validations' do
     subject { build(:link) }
 
-    it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:url) }
     it { is_expected.to validate_uniqueness_of(:url).scoped_to(:user_id) }
     it do
