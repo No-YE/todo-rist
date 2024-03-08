@@ -5,7 +5,7 @@
   <ul class="mt-3 divide-y divide-gray-100">
     <% @remind_infos.each do |link| %>
       <li class="px-3 py-4">
-        <%= link_to link.url do %>
+        <%= link_to link_url(link.id) do %>
           <div class="flex items-center">
             <div class="flex flex-col gap-y-1.5">
               <p class="text-base font-medium text-gray-900">
