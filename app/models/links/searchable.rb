@@ -11,5 +11,9 @@ module Links::Searchable
     def ransortable_attributes(_auth_object = nil)
       %w[id due_date]
     end
+
+    def ransackable_associations(_auth_object = nil)
+      %w[tags]
+    end
   end
 end

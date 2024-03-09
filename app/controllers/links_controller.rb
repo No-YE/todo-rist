@@ -28,6 +28,11 @@ class LinksController < ApplicationController
     @q = Link.from(links_with_distinct_url, :links).ransack(search_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('links', partial: 'links') }
+    end
   end
 
   def show

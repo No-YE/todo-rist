@@ -3,31 +3,40 @@
 <div class="w-full">
   <div class="flex flex-col w-full">
     <div class="flex justify-between items-normal">
-      <%= search_form_for @q, class: 'flex flex-col sm:items-center sm:flex-row', data: { controller: 'search', turbo_frame: 'links', turbo_action: 'advance' } do |f| %>
-        <div class="relative w-48 md:w-60 lg:w-72">
-          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <svg class="h-4 sm:h-5 w-4 sm:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-            </svg>
+      <%= search_form_for @q, class: 'flex flex-col', data: { controller: 'search', turbo_frame: 'links', turbo_action: 'advance' } do |f| %>
+        <div class="flex flex-col sm:flex-row sm:items-center">
+          <div class="relative w-48 md:w-60 lg:w-72">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <svg class="h-4 sm:h-5 w-4 sm:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <%= f.search_field :title_cont, class: 'block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-xs sm:text-sm sm:leading-6', placeholder: 'Search', data: { action: 'input->search#search' } %>
           </div>
 
-          <%= f.search_field :title_cont, class: 'block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-xs sm:text-sm sm:leading-6', placeholder: 'Search', data: { action: 'input->search#search' } %>
+          <div class="flex items-center mt-2 sm:mt-0 ml-0 sm:ml-3">
+            <%= f.select :s,
+                         options_for_select(link_sort_text_and_values, link_current_sort_value),
+                         {},
+                         class: 'w-28 sm:w-32 border-0 justify-between inline-flex justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs sm:text-sm font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50',
+                         data: { action: 'change->search#search' } %>
+
+            <div class="flex flex-row items-center">
+              <label class="ml-2 relative inline-flex items-center h-max cursor-pointer">
+                <%= f.check_box :read_at_null, { class: "sr-only peer", data: { action: 'change->search#search' } }, 1, nil %>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 dark:peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-500"></div>
+              </label>
+              <%= f.label :read_at_null, t('.exclude_read'), class: 'w-max ml-1 text-xs sm:text-sm font-base text-gray-900' %>
+            </div>
+          </div>
         </div>
 
-        <div class="flex items-center mt-2 sm:mt-0 ml-0 sm:ml-3">
-          <%= f.select :s,
-                       options_for_select(link_sort_text_and_values, link_current_sort_value),
-                       {},
-                       class: 'w-28 sm:w-32 border-0 justify-between inline-flex justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs sm:text-sm font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50',
-                       data: { action: 'change->search#search' } %>
-
-          <div class="flex flex-row items-center">
-            <label class="ml-2 relative inline-flex items-center h-max cursor-pointer">
-              <%= f.check_box :read_at_null, { class: "sr-only peer", data: { action: 'change->search#search' } }, 1, nil %>
-              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 dark:peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-500"></div>
-            </label>
-            <%= f.label :read_at_null, t('.exclude_read'), class: 'w-max ml-1 text-xs sm:text-sm font-base text-gray-900' %>
-          </div>
+        <div class="mt-2 w-48 md:w-60 lg:w-72">
+          <%= f.select :tags_name_in,
+                       params[:q][:tags_name_in].to_a.compact_blank,
+                       { multiple: true },
+                       class: 'hidden',
+                       data: { controller: 'slim', slim_placeholder_value: 'Search tags', slim_search_url_value: '/links/tags.json', action: 'change->search#search' } %>
         </div>
       <% end %>
 
