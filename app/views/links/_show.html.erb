@@ -12,7 +12,11 @@
     <% end %>
   </div>
 
-  <%= render 'links/tags', link: %>
+  <% if link.tags.present? %>
+    <div class="mt-2 sm:mt-4">
+      <%= render 'links/tags', link: %>
+    </div>
+  <% end %>
 
   <div class="mt-6 sm:mt-12">
     <% if link.image_url.present? %>

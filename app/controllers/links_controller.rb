@@ -9,9 +9,9 @@ class LinksController < ApplicationController
   MAX_ITEMS = 20
 
   def index
-    @q = current_user.links.kept.ransack(search_params)
+    @q = current_user.links.kept.includes(:tags).ransack(search_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @pagy, @links = pagy(@q.result, items: MAX_ITEMS)
+    @pagy, @links = pagy(@q.result(distinct: true), items: MAX_ITEMS)
 
     respond_to do |format|
       format.html
