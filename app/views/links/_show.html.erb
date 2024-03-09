@@ -16,10 +16,10 @@
 
   <div class="mt-6 sm:mt-12">
     <% if link.image_url.present? %>
-      <%= image_tag link.image_url, class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
+      <%= image_tag link.image_url, style: "view-transition-name: #{dom_id(link, :image)}", class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
     <% end %>
 
-    <p class="text-gray-500 text-sm sm:text-base">
+    <p class="text-gray-500 text-sm sm:text-base" style="view-transition-name: <%= dom_id(link, :summary) %>">
       <%= link.summary %>
     </p>
 

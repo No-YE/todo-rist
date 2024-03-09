@@ -15,6 +15,12 @@
     <%= display_meta_tags site: 'todorist' %>
 
     <%= favicon_link_tag asset_path('logo_sm.svg') %>
+
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve  %>
+    <%= content_for :head %>
+
+    <meta name="turbo-cache-control" content="no-cache">
+    <meta name="view-transition" content="same-origin">
   </head>
 
   <body>

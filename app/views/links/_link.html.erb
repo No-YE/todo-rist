@@ -4,7 +4,7 @@
       <% if link.completed? %>
         <div class="w-full h-32 bg-white/30 bg-center" style="background-image: url('<%= link_image(link.image_url) %>');">
           <div class="w-full h-full backdrop-blur-md flex justify-center items-center">
-            <%= image_tag link_image(link.image_url), class: 'relative mx-auto max-w-full max-h-full flex-shrink-0 rounded-md object-contain', alt: 'link image' %>
+            <%= image_tag link_image(link.image_url), style: "view-transition-name: #{dom_id(link, :image)}", class: 'relative mx-auto max-w-full max-h-full flex-shrink-0 rounded-md object-contain', alt: 'link image' %>
             <object>
               <%= link_to link.url, class: 'absolute bottom-2 right-2 bg-gray-600 hover:bg-gray-700 text-white rounded-full p-2', form: { target: '_blank' } do %>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -18,7 +18,7 @@
         <h3 class="mt-6 text-center text-base font-medium text-gray-900">
           <%= link.title %>
         </h3>
-        <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
+        <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis" style="view-transition-name: <%= dom_id(link, :summary) %>">
           <%= link.summary %>
         </p>
       <% else %>
