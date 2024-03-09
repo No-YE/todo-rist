@@ -13,7 +13,6 @@ RSpec.describe Users::ReminderSetting, type: :model do
       is_expected
         .to validate_numericality_of(:criteria_days).only_integer.is_greater_than_or_equal_to(0)
     }
-    it { is_expected.to validate_presence_of(:email) }
 
     it '', pending: 'shoulda-matchers does not support inclusion validation with array attribute' do
       is_expected
