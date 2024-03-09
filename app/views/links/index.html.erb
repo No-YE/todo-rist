@@ -33,7 +33,7 @@
 
         <div class="mt-2 w-48 md:w-60 lg:w-72">
           <%= f.select :tags_name_in,
-                       params[:q][:tags_name_in].to_a.compact_blank,
+                       params.dig(:q, :tags_name_in).to_a.compact_blank,
                        { multiple: true },
                        class: 'hidden',
                        data: { controller: 'slim', slim_placeholder_value: 'Search tags', slim_search_url_value: '/links/tags.json', action: 'change->search#search' } %>
