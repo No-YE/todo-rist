@@ -495,6 +495,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.16.1)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.16.1)
+    sentry-ruby (5.16.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda-matchers (6.0.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -603,6 +608,8 @@ DEPENDENCIES
   rubocop-rails
   ruby-openai
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   shoulda-matchers (~> 6.0)
   simplecov
   simplecov-small-badge
