@@ -31,5 +31,7 @@ module TodoRist
 
     config.i18n.default_locale = :ko
     config.i18n.fallbacks = %w[ko en]
+
+    config.action_dispatch.cookies_same_site_protection = :none
   end
 end
