@@ -34,13 +34,13 @@ RSpec.describe Link, type: :model do
     describe 'after_update_commit' do
       describe '#broadcast_replace_to' do
         it 'broadcasts to ActionCable' do
-          expect { link.update!(title: 'New') }.to have_broadcasted_to('links').at_least(:once)
+          expect { link.update!(title: 'New') }.to have_broadcasted_to(link.to_gid_param).at_least(:once)
         end
       end
 
       describe '#broadcast_remove_to' do
         it 'broadcasts to ActionCable' do
-          expect { link.discard! }.to have_broadcasted_to('links').at_least(:once)
+          expect { link.discard! }.to have_broadcasted_to(link.to_gid_param).at_least(:once)
         end
       end
     end
