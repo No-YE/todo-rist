@@ -5,6 +5,10 @@ export default class extends Controller {
   static values = { searchUrl: String, placeholder: String }
 
   connect() {
+    this.#initializeSlimSelect()
+  }
+
+  #initializeSlimSelect() {
     this.select = new SlimSelect({
       select: this.element,
       settings: {
@@ -19,6 +23,8 @@ export default class extends Controller {
         },
       },
     })
+
+    document.getElementsByClassName('ss-content')[0].setAttribute('data-turbo-permanent', '')
 
     this.element.classList.remove('hidden')
   }

@@ -19,16 +19,15 @@ class Link < ApplicationRecord
 
   acts_as_taggable_on :tags
 
+  after_create_commit { broadcast_refresh_to [user, 'links'] }
   after_update_commit do
     I18n.with_locale(user.locale) do
-      broadcast_replace_to 'links', locals: { link: self, current_user: user }
-      broadcast_update_to self, locals: { link: self, current_user: user }, partial: 'links/show'
+      broadcast_replace_to [user, 'links'], locals: { link: self, current_user: user }
     end
+    broadcast_refresh
   end
   after_discard do
-    I18n.with_locale(user&.locale) do
-      broadcast_remove_to 'links'
-    end
+    broadcast_remove_to [user, 'links']
     record.discard if record&.persisted?
   end
   after_undiscard -> { record&.undiscard }
