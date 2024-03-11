@@ -114,7 +114,7 @@ Rails.application.configure do
       resource '*',
                headers: :any,
                methods: :any,
-               credentials: false
+               credentials: true
     end
   end
 end
