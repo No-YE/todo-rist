@@ -117,4 +117,6 @@ Rails.application.configure do
                credentials: true
     end
   end
+
+  config.action_dispatch.cookies_same_site_protection = :none # for Chrome extension
 end
