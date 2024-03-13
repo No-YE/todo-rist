@@ -8,6 +8,7 @@ class User < ApplicationRecord
          omniauth_providers: %w[google_oauth2]
 
   has_one :reminder_setting, dependent: :destroy, class_name: 'Users::ReminderSetting'
+  has_one :summary_setting, dependent: :destroy, class_name: 'Users::SummarySetting'
   has_many :links, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy, class_name: 'Noticed::Notification'
 

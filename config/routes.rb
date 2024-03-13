@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
   namespace :users do
     resources :reminder_settings, only: %i[create update]
+    resources :summary_settings, only: %i[create update]
   end
 
   resources :links, only: %i[index show new create edit update destroy] do
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
   resources :settings, only: %i[] do
     collection do
       get 'general' => 'settings#general'
+      get 'summary' => 'settings#summary'
       get 'notification' => 'settings#notification'
     end
   end

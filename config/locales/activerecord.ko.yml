@@ -3,6 +3,7 @@ ko:
     models:
       link: 링크
       users/reminder_setting: 리마인더 설정
+      users/summary_setting: 요약 설정
     attributes:
       link:
         url: url
@@ -11,6 +12,10 @@ ko:
         email: 이메일 알림
         schedule_days: 라마인드 요일
         schedule_time: 리마인드 시간
+      users/summary_setting:
+        default_due_days: 기본 마감일
+        ai_summarizing_enabled: AI 요약 사용 여부
+        ai_tagging_enabled: AI 태깅 사용 여부
 
   errors:
     messages:

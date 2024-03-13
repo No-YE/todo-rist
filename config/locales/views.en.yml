@@ -32,6 +32,13 @@ en:
       update:
         success: Profile has been updated.
         failure: Failed to update profile.
+    summary_settings:
+      create:
+        success: Summary settings have been updated.
+        failure: Failed to update summary settings.
+      update:
+        success: Summary settings have been updated.
+        failure: Failed to update summary settings.
     reminder_settings:
       create:
         success: Reminder settings have been updated.
@@ -43,6 +50,7 @@ en:
   settings:
     sidebar:
       general: General
+      summary: Summary
       notification: Notification
     general:
       profile:
@@ -59,6 +67,17 @@ en:
         detail_description_html: All information will be deleted and cannot be recovered.<br>Are you sure you want to delete your account?
         delete: Delete
         cancel: Cancel
+      save: Save
+    summary:
+      due_date:
+        title: Due date
+        description: You can set a due date for the link.
+        default_due_date: Default due date
+      ai:
+        title: AI feature (Coming soon)
+        description: You can use the AI feature when creating a summary.
+        ai_summarizing_enabled: Use AI summarizing
+        ai_tagging_enabled: Use AI tagging
       save: Save
     notification:
       reminder:

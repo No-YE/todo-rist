@@ -5,8 +5,11 @@ class SettingsController < ApplicationController
 
   def general; end
 
+  def summary
+    @summary_setting = current_user.summary_setting || current_user.build_summary_setting
+  end
+
   def notification
-    @reminder_setting =
-      current_user.reminder_setting || current_user.build_reminder_setting
+    @reminder_setting = current_user.reminder_setting || current_user.build_reminder_setting
   end
 end

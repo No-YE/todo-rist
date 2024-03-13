@@ -1,0 +1,56 @@
+<div class="w-full lg:flex lg:gap-x-16 lg:px-8 lg:mt-4">
+  <%= render 'sidebar' %>
+
+  <div class="px-4 py-16 py-20 lg:py-0 sm:px-6 lg:flex-auto lg:px-0">
+    <div class="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
+      <div>
+        <h2 class="text-base font-semibold leading-7 text-gray-900"><%= t '.due_date.title' %></h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500"><%= t '.due_date.description' %></p>
+
+        <%= form_with model: @summary_setting, class: 'md:col-span-2 mt-6 space-y-6 border-t border-gray-200 text-sm leading-6' do |f| %>
+          <div class="grid grid-cols-6 gap-x-6 gap-y-8 sm:max-w-xl">
+            <div class="col-span-full">
+              <%= f.label :name, t('.due_date.default_due_date', class: 'block text-sm font-medium leading-6 text-gray-900') %>
+              <div class="mt-2">
+                <%= f.number_field :default_due_days, class: 'block w-full rounded-md border-0 bg-white/5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex">
+            <%= f.submit t('.save'), class: 'rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer' %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="">
+        <h2 class="text-base font-semibold leading-7 text-gray-900"><%= t '.ai.title' %></h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500"><%= t '.ai.description' %></p>
+
+        <%= form_with model: @summary_setting, class: 'md:col-span-2 mt-6 space-y-6 border-t border-gray-200 text-sm leading-6' do |f| %>
+          <div class="grid grid-cols-6 gap-x-6 gap-y-8 sm:max-w-xl">
+            <div class="col-span-full flex items-center">
+              <label class="relative inline-flex items-center h-max cursor-not-allowed">
+                <%= f.check_box :ai_summarizing_enabled, class: 'sr-only peer', disabled: true %>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-500"></div>
+              </label>
+              <%= f.label :ai_summarizing_enabled, t('.ai.ai_summarizing_enabled'), class: 'w-max ml-2 text-sm font-base text-gray-500' %>
+            </div>
+
+            <div class="col-span-full flex items-center">
+              <label class="relative inline-flex items-center h-max cursor-not-allowed">
+                <%= f.check_box :ai_tagging_enabled, class: 'sr-only peer', disabled: true %>
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-indigo-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-500"></div>
+              </label>
+              <%= f.label :ai_tagging_enabled, t('.ai.ai_tagging_enabled'), class: 'w-max ml-2 text-sm font-base text-gray-500' %>
+            </div>
+          </div>
+
+          <div class="mt-10 flex">
+            <%= f.submit t('.save'), class: 'rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-not-allowed', disabled: true %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

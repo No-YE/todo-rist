@@ -32,6 +32,13 @@ ko:
       update:
         success: 프로필이 변경되었습니다.
         failure: 프로필을 변경하는데 실패했습니다.
+    summary_settings:
+      create:
+        success: 요약 설정이 변경되었습니다.
+        failure: 요약 설정을 변경하는데 실패했습니다.
+      update:
+        success: 요약 설정이 변경되었습니다.
+        failure: 요약 설정을 변경하는데 실패했습니다.
     reminder_settings:
       create:
         success: 리마인더 설정이 변경되었습니다.
@@ -43,6 +50,7 @@ ko:
   settings:
     sidebar:
       general: 일반 설정
+      summary: 요약 설정
       notification: 알림 설정
     general:
       profile:
@@ -59,6 +67,17 @@ ko:
         detail_description_html: 계정을 삭제하면 모든 정보가 삭제되며 복구할 수 없습니다.<br>계정을 삭제하시겠습니까?
         delete: 삭제
         cancel: 취소
+      save: 저장
+    summary:
+      due_date:
+        title: 마감 기한
+        description: 링크에 마감 기한을 설정할 수 있습니다.
+        default_due_date: 기본 마감 기한
+      ai:
+        title: AI 기능 (출시 예정)
+        description: 요약을 생성할 때 AI 기능을 사용할 수 있습니다.
+        ai_summarizing_enabled: AI 요약 사용 여부
+        ai_tagging_enabled: AI 태깅 사용 여부
       save: 저장
     notification:
       reminder:
