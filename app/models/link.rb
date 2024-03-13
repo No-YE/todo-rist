@@ -17,6 +17,8 @@ class Link < ApplicationRecord
             comparison: { greater_than_or_equal_to: -> { Time.current.to_date }, allow_nil: true },
             if: :due_date_changed?
 
+  before_validation :set_default_due_date, if: -> { due_date.blank? }, on: :create
+
   acts_as_taggable_on :tags
 
   after_create_commit { broadcast_refresh_to [user, 'links'] }
@@ -40,5 +42,11 @@ class Link < ApplicationRecord
       link.due_date = nil
       link.created_at = nil
     end
+  end
+
+  private
+
+  def set_default_due_date
+    self.due_date = user.summary_setting&.default_due_days&.days&.from_now&.to_date
   end
 end

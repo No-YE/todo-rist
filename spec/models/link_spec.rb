@@ -23,6 +23,17 @@ RSpec.describe Link, type: :model do
   end
 
   describe 'callbacks' do
+    describe 'before_validation' do
+      describe '#set_default_due_date' do
+        subject { build(:link, due_date: nil, user:) }
+        let_it_be(:users_summary_setting) { create(:users_summary_setting, default_due_days: 3, user:) }
+
+        it 'sets the due_date to the user summary_setting default_due_days from now' do
+          expect { subject.valid?(:create) }.to change { subject.due_date }.from(nil).to(3.days.from_now.to_date)
+        end
+      end
+    end
+
     describe 'after_create_commit' do
       describe '#scrap_later' do
         it 'enqueues a job' do
