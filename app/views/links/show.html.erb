@@ -23,11 +23,13 @@
 
     <div class="mt-6 sm:mt-12">
       <% if @link.image_url.present? %>
-        <%= image_tag @link.image_url, style: "view-transition-name: #{dom_id(@link, :image)}", class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
+        <%= link_to @link.url do %>
+          <%= image_tag @link.image_url, style: "view-transition-name: #{dom_id(@link, :image)}", class: 'rounded-2xl mb-6 w-full h-64 object-contain' %>
+        <% end %>
       <% end %>
 
       <p class="text-gray-500 text-sm sm:text-base">
-        <%= @link.summary %>
+        <%= link_to @link.summary, @link.url %>
       </p>
 
       <div class="flex mt-8 text-sm">
