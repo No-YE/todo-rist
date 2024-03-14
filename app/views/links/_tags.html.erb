@@ -1,11 +1,5 @@
 <%# locals: (link:) %>
 
 <ul class="flex flex-row gap-x-1.5 sm:gap-x-2.5">
-  <% link.tags.each do |tag| %>
-    <li>
-      <%= link_to tag.name,
-                  links_path(q: { tags_name_in: [tag.name] }),
-                  class: 'inline-flex items-center gap-x-0.5 rounded-md bg-indigo-50 px-2 py-1 text-xs sm:text-sm font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10' %>
-    </li>
-  <% end %>
+  <%= render partial: 'tag', collection: link.tags %>
 </ul>
