@@ -47,6 +47,6 @@ class Link < ApplicationRecord
   private
 
   def set_default_due_date
-    self.due_date = user.summary_setting&.default_due_days&.days&.from_now&.to_date
+    self.due_date = user&.summary_setting&.default_due_days&.days&.from_now&.to_date
   end
 end
