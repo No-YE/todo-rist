@@ -43,6 +43,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -201,11 +202,11 @@
           null,
           0,
           null,
-          0,
+          6,
           null,
-          0,
+          2,
           null,
-          9,
+          1,
           null,
           null,
           9,
@@ -484,7 +485,10 @@
           1,
           null,
           1,
+          0,
           null,
+          null,
+          1,
           1,
           null,
           null
@@ -742,6 +746,49 @@
           null
         ]
       },
+      "/home/runner/work/todo-rist/todo-rist/app/controllers/users/summary_settings_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/runner/work/todo-rist/todo-rist/app/jobs/application_job.rb": {
         "lines": [
           null,
@@ -835,8 +882,10 @@
           1,
           null,
           1,
-          18,
+          19,
           null,
+          null,
+          27,
           null,
           1,
           null,
@@ -861,6 +910,12 @@
           8,
           8,
           null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          8,
           null,
           null
         ]
@@ -1164,6 +1219,17 @@
           null
         ]
       },
+      "/home/runner/work/todo-rist/todo-rist/app/models/users/summary_setting.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
       "/home/runner/work/todo-rist/todo-rist/app/notifiers/application_notifier.rb": {
         "lines": [
           null,
@@ -1206,6 +1272,6 @@
         ]
       }
     },
-    "timestamp": 1710336896
+    "timestamp": 1710418909
   }
 }
