@@ -21,6 +21,13 @@
         <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
           <%= link.summary %>
         </p>
+      <% elsif link.failed? %>
+        <div class="animate-pulse bg-slate-200 mx-auto w-64 h-32 flex-shrink-0 rounded-md"></div>
+        <h3 class="mt-6 text-center text-sm font-medium text-gray-900">
+          <%= t('.failed') %>
+        </h3>
+        <p class="text-left text-sm text-gray-500 max-md:line-clamp-5 text-ellipsis">
+        </p>
       <% else %>
         <div class="animate-pulse bg-slate-200 mx-auto w-64 h-32 flex-shrink-0 rounded-md"></div>
         <h3 class="mt-6 text-center text-sm font-medium text-gray-900">

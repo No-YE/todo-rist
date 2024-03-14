@@ -124,6 +124,7 @@ ko:
       new_link: 링크 추가
     link:
       loading: 로딩중...
+      failed: 요약에 실패했습니다.
       read: 읽음
       unread: 안 읽음
       edit: 수정

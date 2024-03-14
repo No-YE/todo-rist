@@ -124,6 +124,7 @@ en:
       new_link: New link
     link:
       loading: Loading...
+      failed: Failed to load.
       read: Read
       unread: Unread
       edit: Edit
