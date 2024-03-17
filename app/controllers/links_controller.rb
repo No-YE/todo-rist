@@ -45,15 +45,17 @@ class LinksController < ApplicationController
     if @link.save
       respond_to do |format|
         format.json { render json: @link }
-        format.any do
+        format.html do
           flash[:notice] = t('.success')
           redirect_to link_path(@link)
         end
       end
     else
+      logger.error @link.errors
+
       respond_to do |format|
         format.json { render json: @link.errors.full_messages, status: :unprocessable_entity }
-        format.any do
+        format.html do
           flash.now[:alert] = @link.errors.full_messages.first || t('.failure')
           render :new, status: :unprocessable_entity
         end
@@ -96,10 +98,7 @@ class LinksController < ApplicationController
   end
 
   def tags
-    @tags = Link.tags_with(params[:q])
-                .order(taggings_count: :desc)
-                .limit(10)
-                .pluck(:name)
+    @tags = Links::Tag.with_user(current_user).by_name(params[:q]).limit(10).pluck(:name)
     @tags.unshift(params[:q]) if @tags.exclude?(params[:q])
 
     respond_to do |format|
@@ -112,11 +111,11 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :due_date, tag_list: [])
+    params.require(:link).permit(:url, :due_date, tag_names: [])
   end
 
   def update_link_params
-    params.require(:link).permit(:due_date, tag_list: [])
+    params.require(:link).permit(:due_date, tag_names: [])
   end
 
   def set_link

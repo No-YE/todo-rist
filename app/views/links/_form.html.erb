@@ -32,10 +32,10 @@
           </div>
 
           <div class="sm:col-span-4 link-form">
-            <%= f.label :tag_list %>
+            <%= f.label :tag_names %>
             <div class="mt-2">
-              <%= f.select :tag_list,
-                           link.tag_list,
+              <%= f.select :tag_names,
+                           link.tag_names,
                            { multiple: true },
                            class: 'hidden',
                            data: { controller: 'slim', slim_search_url_value: '/links/tags.json' } %>

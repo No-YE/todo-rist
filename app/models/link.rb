@@ -2,6 +2,7 @@
 
 class Link < ApplicationRecord
   include Discard::Model
+  include Taggable
   include Links::Scraping
   include Links::Searchable
   include Links::Readable
@@ -9,6 +10,8 @@ class Link < ApplicationRecord
 
   belongs_to :user
   has_one :record, dependent: :destroy, class_name: 'Links::Record'
+  has_many :taggings, as: :taggable, dependent: :destroy
+  has_many :tags, through: :taggings, class_name: 'Links::Tag'
 
   # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :url, presence: true, uniqueness: { scope: :user_id }
@@ -19,7 +22,7 @@ class Link < ApplicationRecord
 
   before_validation :set_default_due_date, if: -> { due_date.blank? }, on: :create
 
-  acts_as_taggable_on :tags
+  accepts_nested_attributes_for :tags, allow_destroy: true, reject_if: :all_blank
 
   after_create_commit { broadcast_refresh_to [user, 'links'] }
   after_update_commit do
@@ -33,8 +36,6 @@ class Link < ApplicationRecord
     record.discard if record&.persisted?
   end
   after_undiscard -> { record&.undiscard }
-
-  scope :tags_with, ->(tag) { kept.tag_counts_on(:tags).where('tags.name ILIKE ?', "%#{tag}%") }
 
   def clone(user_id)
     dup.tap do |link|
