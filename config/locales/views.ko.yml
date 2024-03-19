@@ -52,6 +52,7 @@ ko:
       general: 일반 설정
       summary: 요약 설정
       notification: 알림 설정
+      tag: 태그 설정
     general:
       profile:
         title: 프로필
@@ -88,6 +89,15 @@ ko:
         criteria_days: 기준일
         email_notification: 이메일 알림
       save: 저장
+    tag:
+      tag:
+        title: 태그
+        description: 링크에 붙일 태그를 관리할 수 있습니다.
+        add_tag: 태그 추가
+        name: 이름
+        used_count: 사용 횟수
+        edit: 수정
+        delete: 삭제
 
   links:
     index:

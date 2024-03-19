@@ -52,6 +52,7 @@ en:
       general: General
       summary: Summary
       notification: Notification
+      tag: Tag
     general:
       profile:
         title: Profile
@@ -88,6 +89,15 @@ en:
         criteria_days: Criteria days
         email_notification: Email notification
       save: Save
+    tag:
+      tag:
+        title: Tag
+        description: You can manage tags to attach to the link.
+        add_tag: Add tag
+        name: Name
+        used_count: Used count
+        edit: Edit
+        delete: Delete
 
   links:
     index:

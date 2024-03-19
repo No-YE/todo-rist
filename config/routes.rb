@@ -50,6 +50,7 @@ Rails.application.routes.draw do
       get 'general' => 'settings#general'
       get 'summary' => 'settings#summary'
       get 'notification' => 'settings#notification'
+      get 'tag' => 'settings#tag'
     end
   end
 

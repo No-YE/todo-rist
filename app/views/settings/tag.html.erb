@@ -1,0 +1,53 @@
+<div class="w-full lg:flex lg:gap-x-16 lg:px-8 lg:mt-4">
+  <%= render 'sidebar' %>
+
+  <div class="px-4 py-16 py-20 lg:py-0 sm:px-6 lg:flex-auto lg:px-0">
+    <div class="mx-auto max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
+      <div class="w-full">
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h2 class="text-base font-semibold leading-7 text-gray-900"><%= t '.tag.title' %></h2>
+            <p class="mt-1 text-sm leading-6 text-gray-500"><%= t '.tag.description' %></p>
+          </div>
+
+          <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <%= t('.tag.add_tag') %>
+            </button>
+          </div>
+        </div>
+
+        <table class="min-w-full divide-y divide-gray-300 mt-8">
+          <thead>
+            <tr>
+              <th scope="col" class="w-3/6 sm:w-3/5 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500"><%= t('.tag.name') %></th>
+              <th scope="col" class="py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500"><%= t('.tag.used_count') %></th>
+              <th scope="col" class="py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500"><%= t('.tag.edit') %></th>
+              <th scope="col" class="py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500"><%= t('.tag.delete') %></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <% @tags.each do |tag| %>
+              <tr>
+                <td class="whitespace-nowrap py-4">
+                  <%= link_to tag.name,
+                              links_path(q: { tags_name_in: [tag.name] }),
+                              class: 'inline-flex items-center gap-x-0.5 rounded-md bg-indigo-50 px-2 py-1 text-xs sm:text-sm font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10' %>
+                </td>
+                <td class="whitespace-nowrap py-4 text-right text-sm font-base">
+                  <%= tag.taggings_count %>
+                </td>
+                <td class="whitespace-nowrap py-4 text-right text-sm font-medium">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900"><%= t('.tag.edit') %></a>
+                </td>
+                <td class="whitespace-nowrap py-4 text-right text-sm font-medium">
+                  <a href="#" class="text-red-600 hover:text-red-700"><%= t('.tag.delete') %></a>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,4 +12,8 @@ class SettingsController < ApplicationController
   def notification
     @reminder_setting = current_user.reminder_setting || current_user.build_reminder_setting
   end
+
+  def tag
+    @tags = Links::Tag.with_user(current_user).order(id: :desc)
+  end
 end
