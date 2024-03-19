@@ -40,7 +40,9 @@
 
     <div class="w-full px-6 sm:px-8 py-3">
       <% if link.user_id == current_user&.id %>
-        <%= render 'links/tags', link: %>
+        <ul class="flex flex-row gap-x-1.5 sm:gap-x-2.5">
+          <%= render partial: 'links/tag', collection: link.tags %>
+        </ul>
       <% end %>
     </div>
 
