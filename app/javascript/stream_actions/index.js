@@ -1,1 +1,1 @@
-import './show_remote_modal'
+import 'stream_actions/show_remote_modal'
