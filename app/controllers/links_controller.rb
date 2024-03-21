@@ -22,6 +22,7 @@ class LinksController < ApplicationController
   def others
     links_with_distinct_url = Link.select('DISTINCT ON (url) *')
                                   .kept
+                                  .completed
                                   .where.not(user_id: current_user.id)
 
     @q = Link.from(links_with_distinct_url, :links).ransack(search_params)
