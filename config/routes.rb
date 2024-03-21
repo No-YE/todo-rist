@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resources :summary_settings, only: %i[create update]
   end
 
+  namespace :links do
+    resources :tags, only: %i[index new create show edit update destroy]
+  end
   resources :links, only: %i[index show new create edit update destroy] do
     collection do
       get 'others' => 'links#others'
@@ -42,9 +45,6 @@ Rails.application.routes.draw do
     scope module: :links do
       resource :records, only: %i[show create edit update destroy]
     end
-  end
-  namespace :links do
-    resources :tags, only: %i[index new create show edit update destroy]
   end
 
   resources :settings, only: %i[] do
