@@ -54,3 +54,8 @@
   --ss-primary-color: #4f46e5; /* indigo-600 */
   --ss-spacing-s: 6px;
 }
+
+/* for dialog */
+dialog::backdrop {
+  @apply bg-black bg-opacity-25;
+}

@@ -4,20 +4,17 @@ export default class extends Controller {
   static targets = ['dialog']
 
   connect() {
-    this.dialogTarget.addEventListener('click', (event) => {
-      if (event.target === this.dialogTarget) {
-        this.close()
+    this.element.dataset.action = 'modal#show';
+  }
+
+  show(event) {
+    const dialog = document.getElementById(event.params.dialog)
+    dialog.showModal()
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) {
+        dialog.close()
       }
     })
-  }
-
-  open() {
-    this.dialogTarget.showModal()
-    document.body.classList.add('overflow-hidden')
-  }
-
-  close() {
-    this.dialogTarget.close()
-    document.body.classList.remove('overflow-hidden')
   }
 }

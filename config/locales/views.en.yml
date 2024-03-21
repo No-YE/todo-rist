@@ -94,10 +94,12 @@ en:
         title: Tag
         description: You can manage tags to attach to the link.
         add_tag: Add tag
-        name: Name
+        name: Tag Name
         used_count: Used count
         edit: Edit
         delete: Delete
+      save: Save
+      confirm_delete: Are you sure you want to delete?
 
   links:
     index:
@@ -166,6 +168,17 @@ en:
         edit: Edit
         delete: Delete
         confirm_delete: Are you sure you want to delete?
+    tags:
+      new:
+        add: Add tag
+        name: Tag Name
+        save: Save
+      create:
+        success: Tag has been created.
+        failure: Failed to create tag.
+      destroy:
+        success: Tag has been deleted.
+        failure: Failed to delete tag.
 
   notifications:
     index:

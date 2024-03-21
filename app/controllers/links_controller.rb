@@ -97,17 +97,6 @@ class LinksController < ApplicationController
     render partial: 'shared/flash'
   end
 
-  def tags
-    @tags = Links::Tag.with_user(current_user).by_name(params[:q]).limit(10).pluck(:name)
-    @tags.unshift(params[:q]) if @tags.exclude?(params[:q])
-
-    respond_to do |format|
-      format.json do
-        render json: @tags.map { |tag| { value: tag, text: tag } }
-      end
-    end
-  end
-
   private
 
   def link_params

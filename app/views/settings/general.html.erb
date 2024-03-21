@@ -53,17 +53,17 @@
         <% end %>
       </div>
 
-      <div data-controller="modal">
+      <div>
         <h2 class="text-base font-semibold leading-7 text-gray-900"><%= t '.delete_account.title' %></h2>
         <p class="mt-1 text-sm leading-6 text-gray-500"><%= t '.delete_account.description' %></p>
 
         <div class="flex items-start md:col-span-2 border-t border-gray-200 mt-6">
           <%= button_tag t('.delete_account.delete'),
                          class: 'rounded-md bg-red-500 mt-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-400 cursor-pointer',
-                         data: { action: 'click->modal#open' }%>
+                         data: { controller: 'modal', modal_dialog_param: 'delete_confirm_modal', action: 'click->modal#open' }%>
         </div>
 
-        <dialog data-modal-target="dialog" class="rounded-lg">
+        <dialog id="delete_confirm_modal" class="rounded-lg">
           <div class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:w-full sm:max-w-lg sm:p-6">
             <div class="sm:flex sm:items-start">
               <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -83,9 +83,11 @@
                             user_registration_path,
                             method: :delete,
                             class: 'inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto' %>
-              <%= button_tag t('.delete_account.cancel'),
-                             class: 'mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto',
-                             data: { action: 'click->modal#close' } %>
+              <form method="dialog">
+                <button type="submit" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                  <%= t '.delete_account.cancel' %>
+                </button>
+              </form>
             </div>
           </div>
         </dialog>

@@ -15,5 +15,6 @@ class SettingsController < ApplicationController
 
   def tag
     @tags = Links::Tag.with_user(current_user).order(id: :desc)
+    @tag = Links::Tag.new
   end
 end

@@ -11,9 +11,11 @@
           </div>
 
           <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              <%= t('.tag.add_tag') %>
-            </button>
+            <%= link_to t('.tag.add_tag'),
+                        new_links_tag_path,
+                        class: 'block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                        data: { turbo_stream: true, turbo_frame: :remote_modal } %>
+
           </div>
         </div>
 
@@ -41,7 +43,10 @@
                   <a href="#" class="text-indigo-600 hover:text-indigo-900"><%= t('.tag.edit') %></a>
                 </td>
                 <td class="whitespace-nowrap py-4 text-right text-sm font-medium">
-                  <a href="#" class="text-red-600 hover:text-red-700"><%= t('.tag.delete') %></a>
+                  <%= link_to t('.tag.delete'),
+                              links_tag_path(tag),
+                              class: 'text-red-600 hover:text-red-700',
+                              data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
                 </td>
               </tr>
             <% end %>
