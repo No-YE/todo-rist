@@ -170,12 +170,18 @@ en:
         confirm_delete: Are you sure you want to delete?
     tags:
       new:
-        add: Add tag
+        title: Add tag
+      edit:
+        title: Edit tag
+      form:
         name: Tag Name
         save: Save
       create:
         success: Tag has been created.
         failure: Failed to create tag.
+      update:
+        success: Tag has been updated.
+        failure: Failed to update tag.
       destroy:
         success: Tag has been deleted.
         failure: Failed to delete tag.

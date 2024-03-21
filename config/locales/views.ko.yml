@@ -170,12 +170,18 @@ ko:
         confirm_delete: 정말 삭제하시겠습니까?
     tags:
       new:
-        add: 태그 추가
+        title: 태그 추가
+      edit:
+        title: 태그 수정
+      form:
         name: 태그 이름
         save: 저장
       create:
         success: 태그가 추가되었습니다.
         failure: 태그를 추가하는데 실패했습니다.
+      update:
+        success: 태그가 수정되었습니다.
+        failure: 태그를 수정하는데 실패했습니다.
       destroy:
         success: 태그가 삭제되었습니다.
         failure: 태그를 삭제하는데 실패했습니다.

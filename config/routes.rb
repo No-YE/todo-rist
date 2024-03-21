@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :links do
-    resources :tags, only: %i[index new create show destroy]
+    resources :tags, only: %i[index new create show edit update destroy]
   end
 
   resources :settings, only: %i[] do
