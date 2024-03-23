@@ -6,4 +6,5 @@ class Links::CrawlResult
 
   attribute :title, :string
   attribute :image_url, :string
+  attribute :outline, :string
 end

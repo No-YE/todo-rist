@@ -75,10 +75,10 @@ en:
         description: You can set a due date for the link.
         default_due_date: Default due date
       ai:
-        title: AI feature (Coming soon)
+        title: AI feature
         description: You can use the AI feature when creating a summary.
         ai_summarizing_enabled: Use AI summarizing
-        ai_tagging_enabled: Use AI tagging
+        ai_tagging_enabled: Use AI tagging (Coming soon)
       save: Save
     notification:
       reminder:

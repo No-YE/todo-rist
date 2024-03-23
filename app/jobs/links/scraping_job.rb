@@ -17,11 +17,13 @@ class Links::ScrapingJob < ApplicationJob
   def perform(link)
     link.scraping!
 
-    summarizing = Thread.new { link.generate_summary }
-    crawling = Thread.new { link.crawl }
-
-    summary = summarizing.value
-    crawl_result = crawling.value
+    summary_setting = Users::SummarySetting.find_by!(user_id: link.user_id)
+    crawl_result = link.crawl
+    summary = if summary_setting.ai_summarizing_enabled?
+                link.summarize_by_ai
+              else
+                crawl_result.outline
+              end
 
     link.update!(
       summary:,

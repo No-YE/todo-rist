@@ -75,10 +75,10 @@ ko:
         description: 링크에 마감 기한을 설정할 수 있습니다.
         default_due_date: 기본 마감 기한
       ai:
-        title: AI 기능 (출시 예정)
+        title: AI 기능
         description: 요약을 생성할 때 AI 기능을 사용할 수 있습니다.
         ai_summarizing_enabled: AI 요약 사용 여부
-        ai_tagging_enabled: AI 태깅 사용 여부
+        ai_tagging_enabled: AI 태깅 사용 여부 (출시 예정)
       save: 저장
     notification:
       reminder:

@@ -11,7 +11,7 @@ module Links::Scraping
     after_create_commit :scrap_later, if: :initial?
   end
 
-  def generate_summary
+  def summarize_by_ai
     response = OpenAI.client.chat(
       parameters: {
         model: OPEN_AI_MODEL,
@@ -51,7 +51,9 @@ module Links::Scraping
 
   def crawl
     page = MetaInspector.new(url)
-    Links::CrawlResult.new(title: page.best_title, image_url: page.images.best)
+    doc = Nokogiri::HTML(page.to_s)
+    outline = doc.search('//p[string-length() > 100]').first(5).map(&:text).join(' ')
+    Links::CrawlResult.new(title: page.best_title, image_url: page.images.best, outline:)
   end
 
   def scrap_now
