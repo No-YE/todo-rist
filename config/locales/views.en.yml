@@ -110,7 +110,7 @@ en:
       oldest: Oldest
       closest_due_date: Closest due date
       farthest_due_date: Farthest due date
-    show:
+    menu:
       read: Read
       unread: Unread
       edit: Edit

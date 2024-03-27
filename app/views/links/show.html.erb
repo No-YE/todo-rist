@@ -34,24 +34,7 @@
         <%= link_to @link.summary, @link.url %>
       </p>
 
-      <div class="flex mt-8 text-sm">
-        <% if @link.user_id == current_user&.id %>
-          <% if @link.read? %>
-            <%= link_to t('.unread'), unread_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :put } %>
-          <% else %>
-            <%= link_to t('.read'), read_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :put } %>
-          <% end %>
-
-          <div class="ml-3 border-l border-gray-200 pl-3">
-            <%= link_to t('.edit'), edit_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500' %>
-          </div>
-          <div class="ml-3 border-l border-gray-200 pl-3">
-            <%= link_to t('.delete'), link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
-          </div>
-        <% else %>
-          <%= link_to t('.clone_to_my'), clone_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :post } %>
-        <% end %>
-      </div>
+      <%= render 'menu', link: @link %>
 
       <% if @link.user_id == current_user&.id %>
         <%= render @link.record || @link.build_record, link: @link %>

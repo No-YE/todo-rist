@@ -110,7 +110,7 @@ ko:
       oldest: 오래된 순
       closest_due_date: 기한 가까운 순
       farthest_due_date: 기한 먼 순
-    show:
+    menu:
       read: 읽음
       unread: 안 읽음
       edit: 수정

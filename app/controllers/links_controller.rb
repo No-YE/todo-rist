@@ -80,10 +80,20 @@ class LinksController < ApplicationController
 
   def read
     @link.read!
+    render turbo_stream: turbo_stream.replace(
+      [@link, 'menu'],
+      partial: 'links/menu',
+      locals: { link: @link },
+    )
   end
 
   def unread
     @link.unread!
+    render turbo_stream: turbo_stream.replace(
+      [@link, 'menu'],
+      partial: 'links/menu',
+      locals: { link: @link },
+    )
   end
 
   def clone
