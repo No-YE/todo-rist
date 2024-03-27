@@ -37,7 +37,7 @@
       <%= render 'menu', link: @link %>
 
       <% if @link.user_id == current_user&.id %>
-        <%= render @link.record || @link.build_record, link: @link %>
+        <%= render @link.record %>
       <% end %>
     </div>
   </div>

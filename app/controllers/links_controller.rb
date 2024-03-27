@@ -32,6 +32,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.kept.find(params[:id])
+    @link.build_record if @link.record.blank?
   end
 
   def new
