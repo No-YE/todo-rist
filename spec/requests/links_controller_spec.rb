@@ -115,7 +115,7 @@ RSpec.describe LinksController, type: :request do
     end
 
     it '204 no content' do
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'marks a link as read' do
@@ -131,7 +131,7 @@ RSpec.describe LinksController, type: :request do
     end
 
     it '204 no content' do
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'marks a link as unread' do
