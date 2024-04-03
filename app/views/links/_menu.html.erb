@@ -9,7 +9,7 @@
     <% end %>
 
     <div class="ml-3 border-l border-gray-200 pl-3">
-      <%= link_to t('.edit'), edit_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500' %>
+      <%= link_to t('.edit'), edit_link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_frame: '_top' } %>
     </div>
     <div class="ml-3 border-l border-gray-200 pl-3">
       <%= link_to t('.delete'), link_path(@link), class: 'text-indigo-600 hover:text-indigo-500', data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') } %>
