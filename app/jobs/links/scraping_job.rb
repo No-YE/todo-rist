@@ -25,11 +25,18 @@ class Links::ScrapingJob < ApplicationJob
                 crawl_result.outline
               end
 
-    link.update!(
+    link.assign_attributes(
       summary:,
       title: crawl_result.title,
       image_url: crawl_result.image_url,
       scraping_state: :completed,
     )
+
+    if summary_setting.ai_tagging_enabled? && link.tag_names.empty?
+      target_tags = Links::Tag.with_user_id(link.user_id).pluck(:name)
+      link.tag_names = link.tag_by_open_ai(target_tags)
+    end
+
+    link.save!
   end
 end

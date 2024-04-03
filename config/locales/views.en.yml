@@ -78,7 +78,7 @@ en:
         title: AI feature
         description: You can use the AI feature when creating a summary.
         ai_summarizing_enabled: Use AI summarizing
-        ai_tagging_enabled: Use AI tagging (Coming soon)
+        ai_tagging_enabled: Use AI tagging
       save: Save
     notification:
       reminder:
