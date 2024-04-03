@@ -20,7 +20,7 @@ class Links::ScrapingJob < ApplicationJob
     summary_setting = Users::SummarySetting.find_by!(user_id: link.user_id)
     crawl_result = link.crawl
     summary = if summary_setting.ai_summarizing_enabled?
-                link.summarize_by_ai
+                link.summarize_by_open_ai
               else
                 crawl_result.outline
               end

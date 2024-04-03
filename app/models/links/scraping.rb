@@ -11,40 +11,60 @@ module Links::Scraping
     after_create_commit :scrap_later, if: :initial?
   end
 
-  def summarize_by_ai
+  def summarize_by_open_ai
     response = OpenAI.client.chat(
       parameters: {
         model: OPEN_AI_MODEL,
         messages: [
           {
+            role: 'system',
+            content: <<~PROMPT,
+              다음 사항에 유의해서 사용자가 입력한 링크의 내용을 요약해 줘.
+              - 반드시 다섯 문장에서 일곱 문장 사이로 만들어줘.
+              - 반드시 한글로 요약해줘.
+              - 완전한 문장으로 작성해야 해.
+              - 기술적인 내용만 구체적으로 요약해야 해.
+            PROMPT
+          },
+          {
             role: 'user',
-            content: summary_prompt,
+            content: url,
           },
         ],
-        functions: [
+        tools: [
           {
-            name: 'get_summary',
-            description: 'Get 5 lines of summarizing the given link',
-            parameters: {
-              type: :object,
-              properties: {
-                korean_summary: {
-                  type: :string,
-                  description: 'Korean summary of the given link',
+            type: 'function',
+            function: {
+              name: 'get_summary',
+              description: 'Get summarizing the given link',
+              parameters: {
+                type: 'object',
+                properties: {
+                  korean_summary: {
+                    type: 'string',
+                    description: 'Korean summary of the given link',
+                  },
                 },
+                required: %w[korean_summary],
               },
-              required: %w[korean_summary],
             },
           },
         ],
+        tool_choice: {
+          type: 'function',
+          function: {
+            name: 'get_summary',
+          },
+        },
       },
     )
 
-    response['choices'].each do |choice|
-      function_call = choice.dig('message', 'function_call')
+    tool_calls = response.dig('choices', 0, 'message', 'tool_calls')
+    tool_calls.each do |tool_call|
+      function = tool_call['function']
 
-      if function_call['name'] == 'get_summary'
-        return get_summary(**JSON.parse(function_call['arguments'], symbolize_names: true))
+      if function['name'] == 'get_summary'
+        return get_summary(**JSON.parse(function['arguments'], symbolize_names: true))
       end
     end
   end
@@ -61,15 +81,6 @@ module Links::Scraping
   end
 
   private
-
-  def summary_prompt
-    <<~PROMPT
-      #{url}
-      - 위 링크의 내용을 4~5줄의 완성된 문장으로 요약해 줘.
-      - 오직 기술적인 내용만 구체적으로 요약해야 해.
-      - 한글로 요약해줘.
-    PROMPT
-  end
 
   def get_summary(korean_summary:)
     korean_summary
