@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
   before_validation :downcase_email
+  after_create_commit :notify_to_discord
 
   after_discard -> { links.discard_all }
 
@@ -47,5 +48,18 @@ class User < ApplicationRecord
 
   def downcase_email
     self.email = email.downcase if email.present?
+  end
+
+  def notify_to_discord
+    text = <<~TEXT
+      새로운 사용자가 생성되었습니다.
+      name: #{name}, email: #{email}
+      [link](#{Settings.host}/admin/data/users/#{id})
+    TEXT
+
+    Discordrb.charles_test_bot.send_message(
+      Rails.application.credentials.dig(:discord, :charles_test, :channel_id),
+      text,
+    )
   end
 end
