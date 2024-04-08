@@ -20,7 +20,10 @@
       <%= form_with model: tag, class: 'space-y-4', data: { turbo_frame: '_top' } do |f| %>
         <div>
           <%= f.label :name, t('.name'), class: 'block mb-2 text-sm font-medium text-gray-900' %>
-          <%= f.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset #{tag.errors.full_messages_for(:name).present? ? 'ring-red-600' : 'ring-gray-300'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:bg-gray-200", required: true %>
+          <%= f.text_field :name,
+                           class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset #{tag.errors.full_messages_for(:name).present? ? 'ring-red-600' : 'ring-gray-300'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:bg-gray-200",
+                           required: true,
+                           autofocus: true %>
           <% if tag.errors.full_messages_for(:name).present? %>
             <p class="mt-2 text-sm text-red-600"><%= tag.errors.full_messages_for(:name).first %></p>
           <% end %>
