@@ -27,6 +27,7 @@
     <orderEntry type="jdk" jdkName="rbenv: 3.2.2" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.1.3.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actioncable-enhanced-postgresql-adapter (v1.0.1, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.1.3.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.1.3.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.1.3.2, rbenv: 3.2.2) [gem]" level="application" />
