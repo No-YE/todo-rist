@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
   before_validation :downcase_email
-  after_create_commit :notify_to_discord
+  after_create_commit :notify_to_discord, if: -> { Rails.env.production? }
 
   after_discard -> { links.discard_all }
 
