@@ -3,8 +3,13 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
+  MAX_ITEMS = 20
+
   def index
-    @notifications = current_user.notifications.order(id: :desc).includes(:event)
-    current_user.notifications.unread.mark_as_read
+    @pagy, @notifications = pagy(
+      current_user.notifications.order(id: :desc).includes(:event),
+      items: MAX_ITEMS,
+    )
+    @notifications.unread.mark_as_read
   end
 end
